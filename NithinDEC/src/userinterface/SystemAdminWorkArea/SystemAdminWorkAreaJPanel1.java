@@ -21,14 +21,14 @@ import javax.swing.tree.DefaultTreeModel;
  *
  * @author MyPC1
  */
-public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
+public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
 
     /**
      * Creates new form SystemAdminWorkAreaJPanel
      */
     JPanel userProcessContainer;
     EcoSystem ecosystem;
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem) {
+    public SystemAdminWorkAreaJPanel1(JPanel userProcessContainer,EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
