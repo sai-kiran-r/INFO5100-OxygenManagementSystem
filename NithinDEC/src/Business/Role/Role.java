@@ -4,6 +4,7 @@
  */
 package Business.Role;
 
+import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 
 import Business.Organization;
@@ -21,6 +22,7 @@ public abstract class Role {
         Customer("Customer"),
         DeliveryMan("Delivery"),
         SysAdmin("Sysadmin");
+        
         
         private String value;
         private RoleType(String value){
