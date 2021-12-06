@@ -347,6 +347,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageHospitalEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageHospitalEmployeeActionPerformed
         // TODO add your handling code here:
+        ManageHospitalEmployee hospitalEmpObj = new ManageHospitalEmployee(userProcessContainer,
+                                                ecosystem);
+        userProcessContainer.add("HospitalEmployeeDashboard", hospitalEmpObj);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageHospitalEmployeeActionPerformed
 
     private void btnManageSalesManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageSalesManagerActionPerformed
