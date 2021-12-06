@@ -19,6 +19,7 @@ import Business.NGO.NGOEmployee;
 import Business.Role.NGOEmployeeRole;
 import Business.Order.Order;
 import Business.Order.OrderDirectory;
+import Business.PharmaOrg.PharmaOrgDirectory;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Role.AdminRole;
@@ -27,9 +28,17 @@ import Business.Role.DeliverManRole;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Business.Role.NGOAdminRole;
-
+import Business.AviationOrg.AviationOrgDirectory;
 import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
+import Business.PharmaOrg.PharmaOrg;
+import Business.AviationOrg.AviationOrg;
+import Business.DefenseOrg.DefenseOrg;
+import Business.DefenseOrg.DefenseOrgDirectory;
+import Business.ScubaOrg.ScubaOrg;
+import Business.ScubaOrg.ScubaOrgDirectory;
+import Business.WaterDepartment.WaterTreatmentOrg;
+import Business.WaterDepartment.WaterTreatmentOrgDirectory;
 import java.util.ArrayList;
 
 /**
@@ -46,6 +55,11 @@ public class EcoSystem extends Organization{
     private NGODirectory ngoDirectory;
     private SalesDirectory salesDirectory;
     private HospitalDirectory hospitalDirectory;
+    private PharmaOrgDirectory pharmaDirectory;
+    private AviationOrgDirectory aviationDirectory;
+    private DefenseOrgDirectory defenseDirectory;
+    private ScubaOrgDirectory scubaOrgDirectory;
+    private WaterTreatmentOrgDirectory waterTreatmentOrgDirectory; 
 
     public EcoSystem(RestaurantDirectory restaurantDirectory, 
                     CustomerDirectory customerDirectory, 
@@ -60,7 +74,10 @@ public class EcoSystem extends Organization{
             CustomerDirectory customerDirectory, 
             DeliveryManDirectory deliveryManDirectory, 
             OrderDirectory orderDirectory, NGODirectory ngoDirectory,
-            SalesDirectory salesDirectory, HospitalDirectory hospitalDirectory) {
+            SalesDirectory salesDirectory, HospitalDirectory hospitalDirectory,
+            PharmaOrgDirectory pharmaDirectory, AviationOrgDirectory aviationDirectory,
+            DefenseOrgDirectory defenseDirectory, ScubaOrgDirectory scubaOrgDirectory,
+            WaterTreatmentOrgDirectory waterTreatmentOrgDirectory) {
         System.out.println("Inside public constructuer");
         this.restaurantDirectory = restaurantDirectory;
         this.customerDirectory = customerDirectory;
@@ -69,6 +86,11 @@ public class EcoSystem extends Organization{
         this.ngoDirectory = ngoDirectory;
         this.salesDirectory = salesDirectory;
         this.hospitalDirectory = hospitalDirectory;
+        this.pharmaDirectory = pharmaDirectory;
+        this.aviationDirectory = aviationDirectory;
+        this.defenseDirectory = defenseDirectory;
+        this.scubaOrgDirectory = scubaOrgDirectory;
+        this.waterTreatmentOrgDirectory = waterTreatmentOrgDirectory;
     }
     
     public EcoSystem(){
@@ -80,6 +102,11 @@ public class EcoSystem extends Organization{
         this.ngoDirectory = new NGODirectory();
         this.salesDirectory = new SalesDirectory();
         this.hospitalDirectory = new HospitalDirectory();
+        this.pharmaDirectory = new PharmaOrgDirectory();
+        this.aviationDirectory = new AviationOrgDirectory();
+        this.defenseDirectory = new DefenseOrgDirectory();
+        this.scubaOrgDirectory = new ScubaOrgDirectory();
+        this.waterTreatmentOrgDirectory = new WaterTreatmentOrgDirectory();
        // networkList=new ArrayList<Network>();
     }
     
@@ -131,6 +158,46 @@ public class EcoSystem extends Organization{
     
     public void setRestaurantDirectory(ArrayList<Restaurant> rsList){
         restaurantDirectory.setRestaurantDirectory(rsList);
+    }
+    
+    public PharmaOrgDirectory getPharmaDirectory(){
+        return pharmaDirectory;
+    }
+    
+    public void setPharmaOrgDirectory(ArrayList<PharmaOrg> pharmaOrgList){
+        this.pharmaDirectory = new PharmaOrgDirectory(pharmaOrgList);
+    }
+
+    public WaterTreatmentOrgDirectory getWaterTreatementirectory(){
+        return this.waterTreatmentOrgDirectory;
+    }
+    
+    public void setWaterTreatementOrgDirectory(ArrayList<WaterTreatmentOrg> plantOrgList){
+        this.waterTreatmentOrgDirectory = new WaterTreatmentOrgDirectory(plantOrgList);
+    }
+    
+    public ScubaOrgDirectory getScubaOrgDirectory(){
+        return this.scubaOrgDirectory;
+    }
+    
+    public void setScubaOrgDirectory(ArrayList<ScubaOrg> scubaOrgList){
+        this.scubaOrgDirectory = new ScubaOrgDirectory(scubaOrgList);
+    }
+    
+    public DefenseOrgDirectory getDefenseDirectory(){
+        return this.defenseDirectory;
+    }
+    
+    public void setDefenseOrgDirectory(ArrayList<DefenseOrg> defenseOrgList){
+        this.defenseDirectory = new DefenseOrgDirectory(defenseOrgList);
+    }
+    
+    public AviationOrgDirectory getAviationDirectory(){
+        return aviationDirectory;
+    }
+    
+    public void setAviationOrgDirectory(ArrayList<AviationOrg> aviationOrgList){
+        this.aviationDirectory = new AviationOrgDirectory(aviationOrgList);
     }
     
     public NGODirectory getNGODirectory(){
