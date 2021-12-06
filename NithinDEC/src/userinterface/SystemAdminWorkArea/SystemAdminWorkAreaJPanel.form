@@ -72,25 +72,22 @@
                               <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="btnManageNetwork" max="32767" attributes="0"/>
-                                          <Component id="btnManageNetwork1" pref="225" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="btnManageNetwork" min="-2" pref="225" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="btnManageEnterprise" max="32767" attributes="0"/>
-                                          <Component id="btnManageAdmin" max="32767" attributes="0"/>
+                                          <Component id="btnManageOxygenPlants" max="32767" attributes="0"/>
+                                          <Component id="btnManageDeliveryMan" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="btnManageNetwork3" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="btnManageNetwork6" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="btnManageNetwork7" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="btnManageNetwork5" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="btnManageNetwork8" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="btnManageNetwork9" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="btnManageNetwork4" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="btnManageNetwork2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btnManageHospitalEmployee" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btnManageNGOAdmin" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btnManageNGOEmployee" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="btnManageSalesExecutive" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="btnManageBusinessAdmin" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="btnManageBusinessEmployee" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="btnManageSalesManager" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="btnManageHospitalAdmin" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -99,7 +96,7 @@
                               <Component id="btnNewUser" min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="388" max="32767" attributes="0"/>
+                      <EmptySpace pref="392" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -115,31 +112,28 @@
                       <Component id="btnNewUser" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnManageAdmin" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnManageDeliveryMan" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnManageNetwork" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnManageEnterprise" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnManageNetwork1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="btnManageOxygenPlants" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnManageNetwork2" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="btnManageHospitalAdmin" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnManageNetwork3" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="btnManageHospitalEmployee" min="-2" pref="29" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="btnManageNetwork4" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="btnManageSalesManager" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnManageNetwork5" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="btnManageSalesExecutive" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnManageNetwork6" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="btnManageNGOAdmin" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnManageNetwork7" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="btnManageNGOEmployee" min="-2" pref="29" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnManageNetwork8" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="btnManageBusinessAdmin" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnManageNetwork9" min="-2" pref="29" max="-2" attributes="0"/>
-                      <EmptySpace pref="63" max="32767" attributes="0"/>
+                      <Component id="btnManageBusinessEmployee" min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace pref="83" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -166,7 +160,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageNetworkActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageEnterprise">
+            <Component class="javax.swing.JButton" name="btnManageOxygenPlants">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/resources/icons8_restaurant_20px.png"/>
@@ -174,10 +168,10 @@
                 <Property name="text" type="java.lang.String" value="Manage Restaurants"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageEnterpriseActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageOxygenPlantsActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageAdmin">
+            <Component class="javax.swing.JButton" name="btnManageDeliveryMan">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/resources/Delivery.png"/>
@@ -185,7 +179,7 @@
                 <Property name="text" type="java.lang.String" value="Manage Deliveryman"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageAdminActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageDeliveryManActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnNewUser">
@@ -199,18 +193,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewUserActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageNetwork1">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/resources/Customerstwo.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Manage Operations Admin"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageNetwork1ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnManageNetwork2">
+            <Component class="javax.swing.JButton" name="btnManageHospitalAdmin">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/resources/Hospital.png"/>
@@ -218,21 +201,21 @@
                 <Property name="text" type="java.lang.String" value="Manage Hospital Admin"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageNetwork2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageHospitalAdminActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageNetwork3">
+            <Component class="javax.swing.JButton" name="btnManageHospitalEmployee">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/resources/Hospital2.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Manage Hospital Operations"/>
+                <Property name="text" type="java.lang.String" value="Manage Hospital Employee"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageNetwork3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageHospitalEmployeeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageNetwork4">
+            <Component class="javax.swing.JButton" name="btnManageSalesManager">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/resources/ManagerSalesTwo.png"/>
@@ -240,10 +223,10 @@
                 <Property name="text" type="java.lang.String" value="Manage Sales Manager"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageNetwork4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageSalesManagerActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageNetwork5">
+            <Component class="javax.swing.JButton" name="btnManageSalesExecutive">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/resources/ManagerSales.png"/>
@@ -251,10 +234,10 @@
                 <Property name="text" type="java.lang.String" value="Manage Sales Executive"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageNetwork5ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageSalesExecutiveActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageNetwork6">
+            <Component class="javax.swing.JButton" name="btnManageNGOAdmin">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/resources/NGOONE.png"/>
@@ -262,21 +245,21 @@
                 <Property name="text" type="java.lang.String" value="Manage NGO Administrator"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageNetwork6ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageNGOAdminActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageNetwork7">
+            <Component class="javax.swing.JButton" name="btnManageNGOEmployee">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/resources/NGOONE.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Manage NGO Admin Assistant"/>
+                <Property name="text" type="java.lang.String" value="Manage NGO Employee"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageNetwork7ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageNGOEmployeeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageNetwork8">
+            <Component class="javax.swing.JButton" name="btnManageBusinessAdmin">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/resources/BusinessTwo.png"/>
@@ -284,10 +267,10 @@
                 <Property name="text" type="java.lang.String" value="Manage Bussiness Admin"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageNetwork8ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageBusinessAdminActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageNetwork9">
+            <Component class="javax.swing.JButton" name="btnManageBusinessEmployee">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/resources/BusinessTwo.png"/>
@@ -295,7 +278,7 @@
                 <Property name="text" type="java.lang.String" value="Manage Bussiness Assitant"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageNetwork9ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageBusinessEmployeeActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

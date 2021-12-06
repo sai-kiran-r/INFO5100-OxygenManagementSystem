@@ -70,5 +70,7 @@ public class HospitalDirectory {
         hospitalDirectory.add(rs);
     }
     
-    
+    public void deleteHospitalAdmin(){
+        
+    }
 }

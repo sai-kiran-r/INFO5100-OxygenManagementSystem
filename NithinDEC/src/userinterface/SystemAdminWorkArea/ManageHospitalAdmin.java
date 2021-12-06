@@ -7,6 +7,8 @@ package userinterface.SystemAdminWorkArea;
 
 import Business.Customer.Customer;
 import Business.EcoSystem;
+import Business.Hospital.Hospital;
+import Business.Hospital.HospitalAdmin;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.ArrayList;
@@ -70,13 +72,13 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
 
         tblCustomerDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "UserName", "Password", "Address", "PhoneNumber"
+                "Name", "UserName", "Password", "Address", "PhoneNumber", "Hospital"
             }
         ));
         jScrollPane1.setViewportView(tblCustomerDetails);
@@ -238,29 +240,29 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        Customer selectedCustomer = (Customer)model.getValueAt(selectedRowIndex, 0);
+        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
         String name = txtName.getText();
         String userName = txtUsername.getText();
         String password = txtpassword.getText();
 
         
-        ArrayList<Customer> restos = system.getCustomerDirectory().returnCustomerDetails();
-        for(Customer r: restos)
+        ArrayList<Hospital> restos = system.getHospitalDirectory().returnAllHospitals();
+        for(Hospital r: restos)
         {
-            if(r.getName().equals(selectedCustomer.getName()))
+            if(r.getHospitalAdmin().getName().equals(selectedCustomer.getName()))
             {
-                r.setName(name);
-                r.returnUserAccount().setUsername(userName);
-                r.returnUserAccount().setPassword(password);
-                r.setUserName(userName);
-                r.setUserPassword(password);
+                r.getHospitalAdmin().setName(name);
+                r.getHospitalAdmin().returnUserAccount().setUsername(userName);
+                r.getHospitalAdmin().returnUserAccount().setPassword(password);
+                r.getHospitalAdmin().setUserName(userName);
+                r.getHospitalAdmin().setUserPassword(password);
                 r.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                 r.setAddress(txtAddress.getText());
                 break;
             }
             
         }
-        this.system.getCustomerDirectory().setCustomerDetails(restos);
+        this.system.setHospitalDirectory(restos);
         JOptionPane.showMessageDialog(this, "Updated Successfully");
         
         txtName.setText("");txtUsername.setText("");txtpassword.setText("");
@@ -276,7 +278,7 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        Customer selectedCustomer = (Customer)model.getValueAt(selectedRowIndex, 0);
+        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
         txtName.setText("");
         txtName.setText(selectedCustomer.getName());
         txtUsername.setText("");
@@ -297,7 +299,7 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        Customer selectedCustomer = (Customer)model.getValueAt(selectedRowIndex, 0);
+        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
         // First delete the customer from employee
         this.system.getEmployeeDirectory().deleteEmployee(selectedCustomer.getName());
         // And thne delete the userAccount
@@ -306,7 +308,14 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
                         get(selectedRowIndex).returnUserAccount()
         );
         // finally delete the user from customer directory
-        this.system.getCustomerDirectory().deleteCustomer(selectedCustomer);
+        ArrayList<Hospital> hosList = this.system.getHospitalDirectory().returnAllHospitals();
+        for(Hospital cust : hosList){
+            if(selectedCustomer.getName().equals(cust.getHospitalAdmin().getName())){
+                cust.setHospitalAdmin(null);
+            }
+            
+        }
+        this.system.setHospitalDirectory(hosList);
         
         JOptionPane.showMessageDialog(this, "Deleted the entry Successfully");
         for(Customer ck : this.system.getCustomerDirectory().returnCustomerDetails()){
@@ -341,14 +350,15 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
         model.setRowCount(0);
 
-        for(Customer cust : this.system.getCustomerDirectory().returnCustomerDetails()){
-            System.out.println(cust);
-            Object[] row = new Object[5];
-            row[0] = cust;
-            row[1] = cust.getUserName();
-            row[2] = cust.getUserPassword();
-            row[3] = cust.getAddress();
-            row[4] = cust.getPhoneNumber();
+        for(Hospital cust : this.system.getHospitalDirectory().returnAllHospitals()){
+            System.out.println(cust.getHospitalAdmin());
+            Object[] row = new Object[6];
+            row[0] = cust.getHospitalAdmin();
+            row[1] = cust.getHospitalAdmin().getUserName();
+            row[2] = cust.getHospitalAdmin().getUserPassword();
+            row[3] = cust.getHospitalAdmin().getAddress();
+            row[4] = cust.getHospitalAdmin().getPhoneNumber();
+            row[5] = cust.getHospitalName();
             model.addRow(row);
         }
     }
