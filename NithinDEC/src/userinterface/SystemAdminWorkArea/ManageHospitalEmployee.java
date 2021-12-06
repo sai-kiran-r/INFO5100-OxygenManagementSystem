@@ -8,7 +8,7 @@ package userinterface.SystemAdminWorkArea;
 import Business.Customer.Customer;
 import Business.EcoSystem;
 import Business.Hospital.Hospital;
-import Business.Hospital.HospitalAdmin;
+import Business.Hospital.HospitalEmployee;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Nithin Bharadwaj
  */
-public class ManageHospitalAdmin extends javax.swing.JPanel {
+public class ManageHospitalEmployee extends javax.swing.JPanel {
 
     /**
      * Creates new form UpdateCustomerDetails
@@ -28,7 +28,7 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
     JPanel userProcessContainer;
     EcoSystem system;
     
-    public ManageHospitalAdmin(JPanel userProcessContainer, EcoSystem system) {
+    public ManageHospitalEmployee(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
         this.system = system;
         this.userProcessContainer = userProcessContainer;
@@ -68,7 +68,7 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
 
         lbTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitle.setText("Manage Hopspital Admin Details");
+        lbTitle.setText("Manage Hopspital Employee Details");
 
         tblCustomerDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -139,7 +139,7 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
                                 .addGap(45, 45, 45)
                                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(72, 72, 72)
-                                .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbTitle))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(103, 103, 103)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -240,7 +240,7 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
+        HospitalEmployee selectedCustomer = (HospitalEmployee)model.getValueAt(selectedRowIndex, 0);
         String name = txtName.getText();
         String userName = txtUsername.getText();
         String password = txtpassword.getText();
@@ -249,13 +249,13 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
         ArrayList<Hospital> restos = system.getHospitalDirectory().returnAllHospitals();
         for(Hospital r: restos)
         {
-            if(r.getHospitalAdmin().getName().equals(selectedCustomer.getName()))
+            if(r.getHospitalEmployee().getName().equals(selectedCustomer.getName()))
             {
-                r.getHospitalAdmin().setName(name);
-                r.getHospitalAdmin().returnUserAccount().setUsername(userName);
-                r.getHospitalAdmin().returnUserAccount().setPassword(password);
-                r.getHospitalAdmin().setUserName(userName);
-                r.getHospitalAdmin().setUserPassword(password);
+                r.getHospitalEmployee().setName(name);
+                r.getHospitalEmployee().returnUserAccount().setUsername(userName);
+                r.getHospitalEmployee().returnUserAccount().setPassword(password);
+                r.getHospitalEmployee().setUserName(userName);
+                r.getHospitalEmployee().setUserPassword(password);
                 r.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                 r.setAddress(txtAddress.getText());
                 break;
@@ -278,7 +278,7 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
+        HospitalEmployee selectedCustomer = (HospitalEmployee)model.getValueAt(selectedRowIndex, 0);
         txtName.setText("");
         txtName.setText(selectedCustomer.getName());
         txtUsername.setText("");
@@ -299,7 +299,7 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
+        HospitalEmployee selectedCustomer = (HospitalEmployee)model.getValueAt(selectedRowIndex, 0);
         // First delete the customer from employee
         this.system.getEmployeeDirectory().deleteEmployee(selectedCustomer.getName());
         // And thne delete the userAccount
@@ -310,13 +310,14 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
         // finally delete the user from customer directory
         ArrayList<Hospital> hosList = this.system.getHospitalDirectory().returnAllHospitals();
         for(Hospital cust : hosList){
-            if(selectedCustomer.getName().equals(cust.getHospitalAdmin().getName())){
-                cust.setHospitalAdmin(null);
+            if(selectedCustomer.getName().equals(cust.getHospitalEmployee().getName())){
+                cust.setHospitalEmployee(null);
             }
             
         }
         this.system.setHospitalDirectory(hosList);
         
+        JOptionPane.showMessageDialog(this, "Deleted the entry Successfully");
         this.populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -345,20 +346,17 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
         System.out.println("Inside method to populate Customer table");
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
         model.setRowCount(0);
-        try{
-            for(Hospital cust : this.system.getHospitalDirectory().returnAllHospitals()){
-            System.out.println(cust.getHospitalAdmin());
+
+        for(Hospital cust : this.system.getHospitalDirectory().returnAllHospitals()){
+            System.out.println(cust.getHospitalEmployee());
             Object[] row = new Object[6];
-            row[0] = cust.getHospitalAdmin();
-            row[1] = cust.getHospitalAdmin().getUserName();
-            row[2] = cust.getHospitalAdmin().getUserPassword();
-            row[3] = cust.getHospitalAdmin().getAddress();
-            row[4] = cust.getHospitalAdmin().getPhoneNumber();
+            row[0] = cust.getHospitalEmployee();
+            row[1] = cust.getHospitalEmployee().getUserName();
+            row[2] = cust.getHospitalEmployee().getUserPassword();
+            row[3] = cust.getHospitalEmployee().getAddress();
+            row[4] = cust.getHospitalEmployee().getPhoneNumber();
             row[5] = cust.getHospitalName();
             model.addRow(row);
-            }
-        }catch(NullPointerException e){
-            System.out.println("Null pointer exception occured as there is no hospital Admin data");
         }
     }
 

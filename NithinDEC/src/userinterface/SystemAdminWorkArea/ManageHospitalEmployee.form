@@ -29,7 +29,7 @@
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Component id="btnBack" min="-2" pref="58" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                              <Component id="lbTitle" min="-2" pref="420" max="-2" attributes="0"/>
+                              <Component id="lbTitle" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
@@ -136,7 +136,7 @@
           <Font name="Tahoma" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Manage Hopspital Admin Details"/>
+        <Property name="text" type="java.lang.String" value="Manage Hopspital Employee Details"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

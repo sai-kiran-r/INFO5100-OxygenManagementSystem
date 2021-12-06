@@ -97,18 +97,17 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         lblSelectedNode = new javax.swing.JLabel();
         btnManageNetwork = new javax.swing.JButton();
-        btnManageEnterprise = new javax.swing.JButton();
-        btnManageAdmin = new javax.swing.JButton();
+        btnManageOxygenPlants = new javax.swing.JButton();
+        btnManageDeliveryMan = new javax.swing.JButton();
         btnNewUser = new javax.swing.JButton();
-        btnManageNetwork1 = new javax.swing.JButton();
-        btnManageNetwork2 = new javax.swing.JButton();
-        btnManageNetwork3 = new javax.swing.JButton();
-        btnManageNetwork4 = new javax.swing.JButton();
-        btnManageNetwork5 = new javax.swing.JButton();
-        btnManageNetwork6 = new javax.swing.JButton();
-        btnManageNetwork7 = new javax.swing.JButton();
-        btnManageNetwork8 = new javax.swing.JButton();
-        btnManageNetwork9 = new javax.swing.JButton();
+        btnManageHospitalAdmin = new javax.swing.JButton();
+        btnManageHospitalEmployee = new javax.swing.JButton();
+        btnManageSalesManager = new javax.swing.JButton();
+        btnManageSalesExecutive = new javax.swing.JButton();
+        btnManageNGOAdmin = new javax.swing.JButton();
+        btnManageNGOEmployee = new javax.swing.JButton();
+        btnManageBusinessAdmin = new javax.swing.JButton();
+        btnManageBusinessEmployee = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -139,19 +138,19 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnManageEnterprise.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_restaurant_20px.png"))); // NOI18N
-        btnManageEnterprise.setText("Manage Restaurants");
-        btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
+        btnManageOxygenPlants.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_restaurant_20px.png"))); // NOI18N
+        btnManageOxygenPlants.setText("Manage Restaurants");
+        btnManageOxygenPlants.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageEnterpriseActionPerformed(evt);
+                btnManageOxygenPlantsActionPerformed(evt);
             }
         });
 
-        btnManageAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Delivery.png"))); // NOI18N
-        btnManageAdmin.setText("Manage Deliveryman");
-        btnManageAdmin.addActionListener(new java.awt.event.ActionListener() {
+        btnManageDeliveryMan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Delivery.png"))); // NOI18N
+        btnManageDeliveryMan.setText("Manage Deliveryman");
+        btnManageDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageAdminActionPerformed(evt);
+                btnManageDeliveryManActionPerformed(evt);
             }
         });
 
@@ -163,75 +162,67 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnManageNetwork1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Customerstwo.png"))); // NOI18N
-        btnManageNetwork1.setText("Manage Operations Admin");
-        btnManageNetwork1.addActionListener(new java.awt.event.ActionListener() {
+        btnManageHospitalAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Hospital.png"))); // NOI18N
+        btnManageHospitalAdmin.setText("Manage Hospital Admin");
+        btnManageHospitalAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageNetwork1ActionPerformed(evt);
+                btnManageHospitalAdminActionPerformed(evt);
             }
         });
 
-        btnManageNetwork2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Hospital.png"))); // NOI18N
-        btnManageNetwork2.setText("Manage Hospital Admin");
-        btnManageNetwork2.addActionListener(new java.awt.event.ActionListener() {
+        btnManageHospitalEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Hospital2.png"))); // NOI18N
+        btnManageHospitalEmployee.setText("Manage Hospital Employee");
+        btnManageHospitalEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageNetwork2ActionPerformed(evt);
+                btnManageHospitalEmployeeActionPerformed(evt);
             }
         });
 
-        btnManageNetwork3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Hospital2.png"))); // NOI18N
-        btnManageNetwork3.setText("Manage Hospital Operations");
-        btnManageNetwork3.addActionListener(new java.awt.event.ActionListener() {
+        btnManageSalesManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ManagerSalesTwo.png"))); // NOI18N
+        btnManageSalesManager.setText("Manage Sales Manager");
+        btnManageSalesManager.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageNetwork3ActionPerformed(evt);
+                btnManageSalesManagerActionPerformed(evt);
             }
         });
 
-        btnManageNetwork4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ManagerSalesTwo.png"))); // NOI18N
-        btnManageNetwork4.setText("Manage Sales Manager");
-        btnManageNetwork4.addActionListener(new java.awt.event.ActionListener() {
+        btnManageSalesExecutive.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ManagerSales.png"))); // NOI18N
+        btnManageSalesExecutive.setText("Manage Sales Executive");
+        btnManageSalesExecutive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageNetwork4ActionPerformed(evt);
+                btnManageSalesExecutiveActionPerformed(evt);
             }
         });
 
-        btnManageNetwork5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ManagerSales.png"))); // NOI18N
-        btnManageNetwork5.setText("Manage Sales Executive");
-        btnManageNetwork5.addActionListener(new java.awt.event.ActionListener() {
+        btnManageNGOAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/NGOONE.png"))); // NOI18N
+        btnManageNGOAdmin.setText("Manage NGO Administrator");
+        btnManageNGOAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageNetwork5ActionPerformed(evt);
+                btnManageNGOAdminActionPerformed(evt);
             }
         });
 
-        btnManageNetwork6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/NGOONE.png"))); // NOI18N
-        btnManageNetwork6.setText("Manage NGO Administrator");
-        btnManageNetwork6.addActionListener(new java.awt.event.ActionListener() {
+        btnManageNGOEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/NGOONE.png"))); // NOI18N
+        btnManageNGOEmployee.setText("Manage NGO Employee");
+        btnManageNGOEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageNetwork6ActionPerformed(evt);
+                btnManageNGOEmployeeActionPerformed(evt);
             }
         });
 
-        btnManageNetwork7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/NGOONE.png"))); // NOI18N
-        btnManageNetwork7.setText("Manage NGO Admin Assistant");
-        btnManageNetwork7.addActionListener(new java.awt.event.ActionListener() {
+        btnManageBusinessAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/BusinessTwo.png"))); // NOI18N
+        btnManageBusinessAdmin.setText("Manage Bussiness Admin");
+        btnManageBusinessAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageNetwork7ActionPerformed(evt);
+                btnManageBusinessAdminActionPerformed(evt);
             }
         });
 
-        btnManageNetwork8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/BusinessTwo.png"))); // NOI18N
-        btnManageNetwork8.setText("Manage Bussiness Admin");
-        btnManageNetwork8.addActionListener(new java.awt.event.ActionListener() {
+        btnManageBusinessEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/BusinessTwo.png"))); // NOI18N
+        btnManageBusinessEmployee.setText("Manage Bussiness Assitant");
+        btnManageBusinessEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageNetwork8ActionPerformed(evt);
-            }
-        });
-
-        btnManageNetwork9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/BusinessTwo.png"))); // NOI18N
-        btnManageNetwork9.setText("Manage Bussiness Assitant");
-        btnManageNetwork9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageNetwork9ActionPerformed(evt);
+                btnManageBusinessEmployeeActionPerformed(evt);
             }
         });
 
@@ -250,26 +241,24 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(91, 91, 91)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnManageNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnManageNetwork1, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE))
+                                .addComponent(btnManageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(94, 94, 94)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnManageEnterprise, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnManageAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(btnManageOxygenPlants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnManageDeliveryMan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btnManageNetwork3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnManageNetwork6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnManageNetwork7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnManageNetwork5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnManageNetwork8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnManageNetwork9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnManageNetwork4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnManageNetwork2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(btnManageHospitalEmployee, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnManageNGOAdmin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnManageNGOEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnManageSalesExecutive, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnManageBusinessAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnManageBusinessEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnManageSalesManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnManageHospitalAdmin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(241, 241, 241)
                         .addComponent(btnNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(388, Short.MAX_VALUE))
+                .addContainerGap(392, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,29 +271,27 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnNewUser)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnManageAdmin, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnManageDeliveryMan, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnManageNetwork))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnManageEnterprise)
-                    .addComponent(btnManageNetwork1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnManageOxygenPlants)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageNetwork2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnManageHospitalAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageNetwork3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnManageHospitalEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
-                .addComponent(btnManageNetwork4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnManageSalesManager, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnManageNetwork5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnManageSalesExecutive, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnManageNetwork6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnManageNGOAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageNetwork7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnManageNGOEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageNetwork8, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnManageBusinessAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageNetwork9, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addComponent(btnManageBusinessEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         jSplitPane.setRightComponent(jPanel2);
@@ -322,23 +309,23 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnManageNetworkActionPerformed
 
-    private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
+    private void btnManageOxygenPlantsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageOxygenPlantsActionPerformed
         ManageRestaurantDetails restaurantDetailsObj = new ManageRestaurantDetails(
                                     userProcessContainer, ecosystem);
         
         userProcessContainer.add("RestaurantDashboard", restaurantDetailsObj);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnManageEnterpriseActionPerformed
+    }//GEN-LAST:event_btnManageOxygenPlantsActionPerformed
 
-    private void btnManageAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAdminActionPerformed
+    private void btnManageDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDeliveryManActionPerformed
        ManageDeliveryUsers deliveryUsersObj = new ManageDeliveryUsers(
                                     userProcessContainer, ecosystem);
         
         userProcessContainer.add("DeliveryUserDashboard", deliveryUsersObj);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnManageAdminActionPerformed
+    }//GEN-LAST:event_btnManageDeliveryManActionPerformed
 
     private void btnNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewUserActionPerformed
         // TODO add your handling code here:
@@ -349,63 +336,61 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnNewUserActionPerformed
 
-    private void btnManageNetwork1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetwork1ActionPerformed
+    private void btnManageHospitalAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageHospitalAdminActionPerformed
         // TODO add your handling code here:
-        
-//        ManageDeliveryUsers deliveryUsersObj = new ManageDeliveryUsers(
-//                                    userProcessContainer, ecosystem);
-//        
-//        userProcessContainer.add("DeliveryUserDashboard", deliveryUsersObj);
-//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnManageNetwork1ActionPerformed
+        ManageHospitalAdmin hospitalAdminObj = new ManageHospitalAdmin(userProcessContainer,
+                                                ecosystem);
+        userProcessContainer.add("HospitalAdminDashboard", hospitalAdminObj);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageHospitalAdminActionPerformed
 
-    private void btnManageNetwork2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetwork2ActionPerformed
+    private void btnManageHospitalEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageHospitalEmployeeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnManageNetwork2ActionPerformed
+        ManageHospitalEmployee hospitalEmpObj = new ManageHospitalEmployee(userProcessContainer,
+                                                ecosystem);
+        userProcessContainer.add("HospitalEmployeeDashboard", hospitalEmpObj);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageHospitalEmployeeActionPerformed
 
-    private void btnManageNetwork3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetwork3ActionPerformed
+    private void btnManageSalesManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageSalesManagerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnManageNetwork3ActionPerformed
+    }//GEN-LAST:event_btnManageSalesManagerActionPerformed
 
-    private void btnManageNetwork4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetwork4ActionPerformed
+    private void btnManageSalesExecutiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageSalesExecutiveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnManageNetwork4ActionPerformed
+    }//GEN-LAST:event_btnManageSalesExecutiveActionPerformed
 
-    private void btnManageNetwork5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetwork5ActionPerformed
+    private void btnManageNGOEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNGOEmployeeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnManageNetwork5ActionPerformed
+    }//GEN-LAST:event_btnManageNGOEmployeeActionPerformed
 
-    private void btnManageNetwork7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetwork7ActionPerformed
+    private void btnManageBusinessAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageBusinessAdminActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnManageNetwork7ActionPerformed
+    }//GEN-LAST:event_btnManageBusinessAdminActionPerformed
 
-    private void btnManageNetwork8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetwork8ActionPerformed
+    private void btnManageBusinessEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageBusinessEmployeeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnManageNetwork8ActionPerformed
+    }//GEN-LAST:event_btnManageBusinessEmployeeActionPerformed
 
-    private void btnManageNetwork9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetwork9ActionPerformed
+    private void btnManageNGOAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNGOAdminActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnManageNetwork9ActionPerformed
-
-    private void btnManageNetwork6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetwork6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnManageNetwork6ActionPerformed
+    }//GEN-LAST:event_btnManageNGOAdminActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnManageAdmin;
-    private javax.swing.JButton btnManageEnterprise;
+    private javax.swing.JButton btnManageBusinessAdmin;
+    private javax.swing.JButton btnManageBusinessEmployee;
+    private javax.swing.JButton btnManageDeliveryMan;
+    private javax.swing.JButton btnManageHospitalAdmin;
+    private javax.swing.JButton btnManageHospitalEmployee;
+    private javax.swing.JButton btnManageNGOAdmin;
+    private javax.swing.JButton btnManageNGOEmployee;
     private javax.swing.JButton btnManageNetwork;
-    private javax.swing.JButton btnManageNetwork1;
-    private javax.swing.JButton btnManageNetwork2;
-    private javax.swing.JButton btnManageNetwork3;
-    private javax.swing.JButton btnManageNetwork4;
-    private javax.swing.JButton btnManageNetwork5;
-    private javax.swing.JButton btnManageNetwork6;
-    private javax.swing.JButton btnManageNetwork7;
-    private javax.swing.JButton btnManageNetwork8;
-    private javax.swing.JButton btnManageNetwork9;
+    private javax.swing.JButton btnManageOxygenPlants;
+    private javax.swing.JButton btnManageSalesExecutive;
+    private javax.swing.JButton btnManageSalesManager;
     private javax.swing.JButton btnNewUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
