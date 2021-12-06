@@ -8,18 +8,18 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 
 import Business.UserAccount.UserAccount;
-import userinterface.CompanySales.SalesManagerWorkAreaJPanel;
+import userinterface.PharmaBusiness.PharmaManagerWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
  *
  * @author Nithin Bharadwaj
  */
-public class SalesManager extends Role{
+public class PharmaManagerRole extends Role{
 
   
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-        return new SalesManagerWorkAreaJPanel(userProcessContainer, account, system);
+        return new PharmaManagerWorkAreaJPanel(userProcessContainer, account, system);
     }
     
 }

@@ -8,18 +8,18 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 
 import Business.UserAccount.UserAccount;
-import userinterface.HospitalArea.HospitalAdminWorkAreaJPanel;
+import userinterface.NGO.NGOAdminWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
  *
  * @author Nithin Bharadwaj
  */
-public class HospitalAdmin extends Role{
+public class NGOAdminRole extends Role{
 
   
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-        return new HospitalAdminWorkAreaJPanel(userProcessContainer, account, system);
+        return new NGOAdminWorkAreaJPanel(userProcessContainer, account, system);
     }
     
 }
