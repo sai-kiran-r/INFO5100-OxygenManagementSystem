@@ -124,7 +124,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane.setLeftComponent(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel2.setBackground(new java.awt.Color(246, 252, 255));
 
         jLabel1.setText("Selected Node:");
 
@@ -258,7 +258,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(241, 241, 241)
                         .addComponent(btnNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(392, Short.MAX_VALUE))
+                .addContainerGap(396, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,19 +279,19 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnManageHospitalAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageHospitalEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageSalesManager, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageSalesExecutive, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageNGOAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageNGOEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageBusinessAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnManageBusinessEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         jSplitPane.setRightComponent(jPanel2);
@@ -356,26 +356,60 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageSalesManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageSalesManagerActionPerformed
         // TODO add your handling code here:
+        ManageSalesManager salesManagerObj = new ManageSalesManager(userProcessContainer,
+                                             ecosystem);
+        userProcessContainer.add("SalesManagerDashboard", salesManagerObj);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageSalesManagerActionPerformed
 
     private void btnManageSalesExecutiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageSalesExecutiveActionPerformed
         // TODO add your handling code here:
+        ManageSalesExecutiveDetails salesExecutiveObj = new ManageSalesExecutiveDetails(userProcessContainer,
+                                             ecosystem);
+        userProcessContainer.add("SalesExecutiveDashboard", salesExecutiveObj);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);       
+        
     }//GEN-LAST:event_btnManageSalesExecutiveActionPerformed
 
     private void btnManageNGOEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNGOEmployeeActionPerformed
         // TODO add your handling code here:
+        
+        ManageNgoEmployee ngoEmployeeObj = new ManageNgoEmployee(userProcessContainer,
+                                             ecosystem);
+        userProcessContainer.add("NgoEmployeeDashboard", ngoEmployeeObj);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageNGOEmployeeActionPerformed
 
     private void btnManageBusinessAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageBusinessAdminActionPerformed
         // TODO add your handling code here:
+        
+        ManageBussinessAdmin bussinessAdminObj = new ManageBussinessAdmin(userProcessContainer,
+                                             ecosystem);
+        userProcessContainer.add("BusinessAdminDashboard", bussinessAdminObj);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageBusinessAdminActionPerformed
 
     private void btnManageBusinessEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageBusinessEmployeeActionPerformed
         // TODO add your handling code here:
+        
+        ManageBusinessAssistant bussinessEmployeeObj = new ManageBusinessAssistant(userProcessContainer,
+                                             ecosystem);
+        userProcessContainer.add("BusinessAdminDashboard", bussinessEmployeeObj);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageBusinessEmployeeActionPerformed
 
     private void btnManageNGOAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNGOAdminActionPerformed
         // TODO add your handling code here:
+        ManageNgoAdmin ngoAdminObj = new ManageNgoAdmin(userProcessContainer,
+                                             ecosystem);
+        userProcessContainer.add("NgoAdminDashboard", ngoAdminObj);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageNGOAdminActionPerformed
 
 

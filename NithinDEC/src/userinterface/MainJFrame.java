@@ -69,7 +69,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(246, 252, 255));
 
         loginJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_login_30px.png"))); // NOI18N
         loginJButton.setText("Login");

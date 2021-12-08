@@ -8,7 +8,7 @@ package userinterface.SystemAdminWorkArea;
 import Business.Customer.Customer;
 import Business.EcoSystem;
 import Business.Hospital.Hospital;
-import Business.Hospital.HospitalAdmin;
+import Business.Hospital.HospitalEmployee;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Nithin Bharadwaj
  */
-public class ManageHospitalAdmin extends javax.swing.JPanel {
+public class ManageSalesExecutiveDetails extends javax.swing.JPanel {
 
     /**
      * Creates new form UpdateCustomerDetails
@@ -28,7 +28,7 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
     JPanel userProcessContainer;
     EcoSystem system;
     
-    public ManageHospitalAdmin(JPanel userProcessContainer, EcoSystem system) {
+    public ManageSalesExecutiveDetails(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
         this.system = system;
         this.userProcessContainer = userProcessContainer;
@@ -63,15 +63,12 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
         lbPassword2 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
         txtPhoneNumber = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(246, 252, 255));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitle.setText("Manage Hopspital Admin Details");
-        add(lbTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 36, 420, -1));
+        lbTitle.setText("Manage Sales Executive Details");
 
         tblCustomerDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -86,15 +83,12 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblCustomerDetails);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 123, 586, 96));
-
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
             }
         });
-        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 231, 96, -1));
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -102,14 +96,12 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 263, 96, -1));
 
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
             }
         });
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 298, 159, -1));
 
         btnSubmit.setText("Update");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -117,17 +109,12 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
                 btnSubmitActionPerformed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 456, -1, -1));
 
         lbPassword.setText("Password :");
-        add(lbPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 341, -1, -1));
 
         lbName.setText("Name :");
-        add(lbName, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 268, -1, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 263, 159, -1));
 
         lbUsername.setText("Username :");
-        add(lbUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 303, -1, -1));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/back.png"))); // NOI18N
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -135,20 +122,96 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 36, 58, 54));
-        add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 336, 159, -1));
 
         lbPassword1.setText("Address :");
-        add(lbPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 379, -1, -1));
 
         lbPassword2.setText("Phone Number :");
-        add(lbPassword2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 423, -1, -1));
-        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 374, 159, -1));
-        add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 418, 159, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HospitalImage.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, 240, 230));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(72, 72, 72)
+                                .addComponent(lbTitle))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(250, 250, 250)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(lbUsername)
+                                                .addComponent(lbName))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(lbPassword2)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(lbPassword)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(lbPassword1)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(66, 66, 66)
+                                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(313, 313, 313)
+                        .addComponent(btnSubmit)))
+                .addContainerGap(126, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbTitle)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnView)
+                .addGap(3, 3, 3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbName)
+                    .addComponent(btnDelete))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbUsername))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbPassword))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbPassword1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbPassword2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSubmit)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
@@ -177,7 +240,7 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
+        HospitalEmployee selectedCustomer = (HospitalEmployee)model.getValueAt(selectedRowIndex, 0);
         String name = txtName.getText();
         String userName = txtUsername.getText();
         String password = txtpassword.getText();
@@ -186,13 +249,13 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
         ArrayList<Hospital> restos = system.getHospitalDirectory().returnAllHospitals();
         for(Hospital r: restos)
         {
-            if(r.getHospitalAdmin().getName().equals(selectedCustomer.getName()))
+            if(r.getHospitalEmployee().getName().equals(selectedCustomer.getName()))
             {
-                r.getHospitalAdmin().setName(name);
-                r.getHospitalAdmin().returnUserAccount().setUsername(userName);
-                r.getHospitalAdmin().returnUserAccount().setPassword(password);
-                r.getHospitalAdmin().setUserName(userName);
-                r.getHospitalAdmin().setUserPassword(password);
+                r.getHospitalEmployee().setName(name);
+                r.getHospitalEmployee().returnUserAccount().setUsername(userName);
+                r.getHospitalEmployee().returnUserAccount().setPassword(password);
+                r.getHospitalEmployee().setUserName(userName);
+                r.getHospitalEmployee().setUserPassword(password);
                 r.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                 r.setAddress(txtAddress.getText());
                 break;
@@ -215,7 +278,7 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
+        HospitalEmployee selectedCustomer = (HospitalEmployee)model.getValueAt(selectedRowIndex, 0);
         txtName.setText("");
         txtName.setText(selectedCustomer.getName());
         txtUsername.setText("");
@@ -236,7 +299,7 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
+        HospitalEmployee selectedCustomer = (HospitalEmployee)model.getValueAt(selectedRowIndex, 0);
         // First delete the customer from employee
         this.system.getEmployeeDirectory().deleteEmployee(selectedCustomer.getName());
         // And thne delete the userAccount
@@ -247,13 +310,14 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
         // finally delete the user from customer directory
         ArrayList<Hospital> hosList = this.system.getHospitalDirectory().returnAllHospitals();
         for(Hospital cust : hosList){
-            if(selectedCustomer.getName().equals(cust.getHospitalAdmin().getName())){
-                cust.setHospitalAdmin(null);
+            if(selectedCustomer.getName().equals(cust.getHospitalEmployee().getName())){
+                cust.setHospitalEmployee(null);
             }
             
         }
         this.system.setHospitalDirectory(hosList);
         
+        JOptionPane.showMessageDialog(this, "Deleted the entry Successfully");
         this.populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -263,7 +327,6 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnView;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbPassword;
@@ -283,20 +346,17 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
         System.out.println("Inside method to populate Customer table");
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
         model.setRowCount(0);
-        try{
-            for(Hospital cust : this.system.getHospitalDirectory().returnAllHospitals()){
-            System.out.println(cust.getHospitalAdmin());
+
+        for(Hospital cust : this.system.getHospitalDirectory().returnAllHospitals()){
+            System.out.println(cust.getHospitalEmployee());
             Object[] row = new Object[6];
-            row[0] = cust.getHospitalAdmin();
-            row[1] = cust.getHospitalAdmin().getUserName();
-            row[2] = cust.getHospitalAdmin().getUserPassword();
-            row[3] = cust.getHospitalAdmin().getAddress();
-            row[4] = cust.getHospitalAdmin().getPhoneNumber();
+            row[0] = cust.getHospitalEmployee();
+            row[1] = cust.getHospitalEmployee().getUserName();
+            row[2] = cust.getHospitalEmployee().getUserPassword();
+            row[3] = cust.getHospitalEmployee().getAddress();
+            row[4] = cust.getHospitalEmployee().getPhoneNumber();
             row[5] = cust.getHospitalName();
             model.addRow(row);
-            }
-        }catch(NullPointerException e){
-            System.out.println("Null pointer exception occured as there is no hospital Admin data");
         }
     }
 
