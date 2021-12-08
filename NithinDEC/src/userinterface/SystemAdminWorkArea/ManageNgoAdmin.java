@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Nithin Bharadwaj
  */
-public class ManageHospitalAdmin extends javax.swing.JPanel {
+public class ManageNgoAdmin extends javax.swing.JPanel {
 
     /**
      * Creates new form UpdateCustomerDetails
@@ -28,7 +28,7 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
     JPanel userProcessContainer;
     EcoSystem system;
     
-    public ManageHospitalAdmin(JPanel userProcessContainer, EcoSystem system) {
+    public ManageNgoAdmin(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
         this.system = system;
         this.userProcessContainer = userProcessContainer;
@@ -70,8 +70,8 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
 
         lbTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitle.setText("Manage Hopspital Admin Details");
-        add(lbTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 36, 420, -1));
+        lbTitle.setText("Manage NGO Admin Details");
+        add(lbTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 36, 420, -1));
 
         tblCustomerDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -86,7 +86,7 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblCustomerDetails);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 123, 586, 96));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 118, 586, 96));
 
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +94,7 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
                 btnViewActionPerformed(evt);
             }
         });
-        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 231, 96, -1));
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 232, 96, -1));
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -102,14 +102,14 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 263, 96, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 264, 96, -1));
 
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
             }
         });
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 298, 159, -1));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 264, 159, -1));
 
         btnSubmit.setText("Update");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -117,17 +117,17 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
                 btnSubmitActionPerformed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 456, -1, -1));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 422, -1, -1));
 
         lbPassword.setText("Password :");
-        add(lbPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 341, -1, -1));
+        add(lbPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 307, -1, -1));
 
         lbName.setText("Name :");
-        add(lbName, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 268, -1, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 263, 159, -1));
+        add(lbName, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 237, -1, -1));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 232, 159, -1));
 
         lbUsername.setText("Username :");
-        add(lbUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 303, -1, -1));
+        add(lbUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 269, -1, -1));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/back.png"))); // NOI18N
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -136,19 +136,19 @@ public class ManageHospitalAdmin extends javax.swing.JPanel {
             }
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 36, 58, 54));
-        add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 336, 159, -1));
+        add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 302, 159, -1));
 
         lbPassword1.setText("Address :");
-        add(lbPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 379, -1, -1));
+        add(lbPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 345, -1, -1));
 
         lbPassword2.setText("Phone Number :");
-        add(lbPassword2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 423, -1, -1));
-        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 374, 159, -1));
-        add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 418, 159, -1));
+        add(lbPassword2, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 389, -1, -1));
+        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 340, 159, -1));
+        add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 384, 159, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HospitalImage.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/slogan-for-ngo.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, 240, 230));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 640));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed

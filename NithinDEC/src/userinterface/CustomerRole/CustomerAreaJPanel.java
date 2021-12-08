@@ -119,29 +119,35 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         workRequestJTable = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         txtComment = new javax.swing.JTextField();
+        enterpriseLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(247, 247, 247));
+        setBackground(new java.awt.Color(246, 252, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnSubmitReview.setText("Submit Comments");
+        btnSubmitReview.setText("Add Comment");
         btnSubmitReview.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitReviewActionPerformed(evt);
             }
         });
+        add(btnSubmitReview, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, -1, -1));
 
-        refreshTestJButton.setText("Refresh Order History");
+        refreshTestJButton.setText("Refresh ");
         refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshTestJButtonActionPerformed(evt);
             }
         });
+        add(refreshTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Welcome ");
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 27, 99, 30));
 
         valueLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         valueLabel.setText("<value>");
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 29, 158, 26));
 
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -151,27 +157,34 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "Item Name", "Price"
+                "Oxygen Model", "Price"
             }
         ));
         jScrollPane2.setViewportView(tblMenu);
 
-        jLabel1.setText("Select Restaurant : ");
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 400, 96));
 
-        comboRestaurant.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel1.setText("Select Pack: ");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        comboRestaurant.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pack 4", "Pack 6", "Item 24", "Item 48" }));
         comboRestaurant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboRestaurantActionPerformed(evt);
             }
         });
+        add(comboRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 100, -1));
 
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("Quantity");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, -1, -1));
 
         txtQuantity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtQuantityActionPerformed(evt);
             }
         });
+        add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 129, -1));
 
         btnPlaceOrder.setText("Place Order");
         btnPlaceOrder.addActionListener(new java.awt.event.ActionListener() {
@@ -179,6 +192,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 btnPlaceOrderActionPerformed(evt);
             }
         });
+        add(btnPlaceOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 105, -1));
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -188,7 +202,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "ItemName", "Price", "Restaurant", "Message", "Receiver", "Status", "Quantity"
+                "Order ID", "ItemName", "Price", "---***", "Message", "Receiver", "Status", "Quantity"
             }
         ) {
             Class[] types = new Class [] {
@@ -208,89 +222,19 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(workRequestJTable);
 
-        jLabel3.setText("Add Comments To Order : ");
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 859, 91));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/pk.jpg"))); // NOI18N
+        jLabel3.setText("Add Comments To Order: ");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 570, -1, -1));
+        add(txtComment, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 175, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(50, 50, 50)
-                            .addComponent(jLabel2)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnPlaceOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(17, 17, 17)
-                                .addComponent(comboRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 859, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(btnSubmitReview))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(refreshTestJButton)
-                            .addComponent(txtComment, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(comboRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPlaceOrder)))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtComment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSubmitReview)
-                    .addComponent(refreshTestJButton))
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
+        enterpriseLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel1.setText("View Your Orders Below:- ");
+        add(enterpriseLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 254, 30));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/orders.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 70, 460, 320));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitReviewActionPerformed
@@ -365,6 +309,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSubmitReview;
     private javax.swing.JComboBox comboRestaurant;
     private javax.swing.JLabel enterpriseLabel;
+    private javax.swing.JLabel enterpriseLabel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

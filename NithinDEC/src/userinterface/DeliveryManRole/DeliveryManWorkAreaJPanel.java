@@ -80,7 +80,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         lbUserName = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(246, 252, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -119,13 +119,13 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 375, 96));
 
-        assignJButton.setText("Assign to me");
+        assignJButton.setText("Accept");
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 230, 100, -1));
 
         processJButton.setText("Process");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +133,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 100, -1));
 
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +141,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Welcome : ");
@@ -151,6 +151,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         lbUserName.setText("<value>");
         add(lbUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 120, -1));
 
+        jLabel2.setBackground(new java.awt.Color(246, 252, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/preview.jpg"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 460, 520));
     }// </editor-fold>//GEN-END:initComponents
