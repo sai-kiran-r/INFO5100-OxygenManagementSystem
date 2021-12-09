@@ -41,8 +41,8 @@ public class HospitalOperationsAdminWorkAreaJPanel extends javax.swing.JPanel {
     
     public void populateTable(){
         System.out.println("Inside method to populate orders table");
-        DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
-        model.setRowCount(0);
+        
+        
         
         for(Order o : this.system.getOrderDirectory().getOrderDirectory()){
             System.out.println(this.userAccount.getUsername());
@@ -58,7 +58,7 @@ public class HospitalOperationsAdminWorkAreaJPanel extends javax.swing.JPanel {
                 row[2] = o.getReceiver().getUsername();
                 row[3] = o.getOrderStatus();
                 row[4] = o.getMessage();
-                model.addRow(row);
+                
             }
         }
     }
@@ -88,6 +88,7 @@ public class HospitalOperationsAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtComment = new javax.swing.JTextField();
         btnSubmitReview = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(246, 252, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -165,7 +166,7 @@ public class HospitalOperationsAdminWorkAreaJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "ItemName", "Price", "---***", "Message", "Receiver", "Status", "Quantity"
+                "Order ID", "ItemName", "Price", "Manufacturer", "Message", "Receiver", "Status", "Quantity"
             }
         ) {
             Class[] types = new Class [] {
@@ -188,7 +189,7 @@ public class HospitalOperationsAdminWorkAreaJPanel extends javax.swing.JPanel {
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 859, 91));
 
         jLabel3.setText("Add Comments To Order: ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 570, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, -1, -1));
         add(txtComment, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 175, -1));
 
         btnSubmitReview.setText("Add Comment");
@@ -198,16 +199,19 @@ public class HospitalOperationsAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnSubmitReview, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, -1, -1));
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HSLarge.jpg"))); // NOI18N
+        jLabel4.setOpaque(true);
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, -1, 1340, 780));
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboRestaurantActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_comboRestaurantActionPerformed
 
     private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
 
-     
     }//GEN-LAST:event_refreshTestJButtonActionPerformed
 
     private void txtQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantityActionPerformed
@@ -216,13 +220,10 @@ public class HospitalOperationsAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         // TODO add your handling code here:
-        
-        
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
     private void btnSubmitReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitReviewActionPerformed
 
-        
     }//GEN-LAST:event_btnSubmitReviewActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -234,6 +235,7 @@ public class HospitalOperationsAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton refreshTestJButton;
