@@ -2,10 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.DefenseBusiness;
+package userinterface.AviationBusiness;
 
-import userinterface.CompanySales.*;
-import userinterface.AviationBusiness.*;
 import userinterface.HospitalArea.*;
 import userinterface.DeliveryManRole.*;
 import Business.EcoSystem;
@@ -22,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author raunak
  */
-public class DefenseOrgManagerWorkAreaJPanel extends javax.swing.JPanel {
+public class AviationManagerWorkAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private EcoSystem system;
@@ -32,7 +30,7 @@ public class DefenseOrgManagerWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LabAssistantWorkAreaJPanel
      */
-    public DefenseOrgManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+    public AviationManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
