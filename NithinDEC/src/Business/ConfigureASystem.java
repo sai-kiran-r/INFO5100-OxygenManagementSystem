@@ -198,13 +198,14 @@ public class ConfigureASystem {
         Restaurant restaurantData = new Restaurant("Buakra", "Alpasdj St","Borak",
                                   9000999099L, restaurantAccount);
         ArrayList<Item> itemList = new ArrayList<Item>();
-        itemList.add(new Item("Burrito", 9.90, "Buakra"));
+        itemList.add(new Item("Themrmo Oxygen ", 9.90, "Oxygen Plant 1"));
         Menu menuItems = new Menu();
         menuItems.setMenu(itemList);
         restaurantData.setMenu(menuItems);
         system.getRestaurantDirectory().addRestaurant(restaurantData);
         
         return system;
+        
     }
     
 }
