@@ -8,7 +8,7 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 
 import Business.UserAccount.UserAccount;
-import userinterface.PharmaBusiness.PharmaExecutiveWorkAreaJPanel1;
+import userinterface.PharmaBusiness.PharmaExecutiveWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
@@ -19,7 +19,7 @@ public class PharmaEmployeeRole extends Role{
 
   
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-        return new PharmaExecutiveWorkAreaJPanel1(userProcessContainer, account, system);
+        return new PharmaExecutiveWorkAreaJPanel(userProcessContainer, account, system);
     }
     
 }

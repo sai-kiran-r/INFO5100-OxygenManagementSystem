@@ -8,7 +8,7 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 
 import Business.UserAccount.UserAccount;
-import userinterface.DefenseBusiness.DefenseOrgExecutiveWorkAreaJPanel1;
+import userinterface.DefenseBusiness.DefenseOrgExecutiveWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
@@ -19,7 +19,7 @@ public class DefenseOrgEmployeeRole extends Role{
 
   
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-        return new DefenseOrgExecutiveWorkAreaJPanel1(userProcessContainer, account, system);
+        return new DefenseOrgExecutiveWorkAreaJPanel(userProcessContainer, account, system);
     }
     
 }
