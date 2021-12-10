@@ -4,6 +4,9 @@
  */
 package userinterface.DefenseBusiness;
 
+import userinterface.CompanySales.*;
+import userinterface.AviationBusiness.*;
+import userinterface.HospitalArea.*;
 import userinterface.DeliveryManRole.*;
 import Business.EcoSystem;
 import Business.Order.Order;
@@ -79,8 +82,10 @@ public class DefenseOrgExecutiveWorkAreaJPanel extends javax.swing.JPanel {
         refreshJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lbUserName = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(246, 252, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -116,19 +121,23 @@ public class DefenseOrgExecutiveWorkAreaJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        assignJButton.setText("Accept");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 375, 96));
+
+        assignJButton.setText("Accept Request");
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignJButtonActionPerformed(evt);
             }
         });
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 244, -1, -1));
 
-        processJButton.setText("Process");
+        processJButton.setText("Decline Request");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 processJButtonActionPerformed(evt);
             }
         });
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 285, -1, -1));
 
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -136,50 +145,18 @@ public class DefenseOrgExecutiveWorkAreaJPanel extends javax.swing.JPanel {
                 refreshJButtonActionPerformed(evt);
             }
         });
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 70, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Welcome : ");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
 
         lbUserName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbUserName.setText("<value>");
+        add(lbUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 259, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(10, 10, 10)
-                        .addComponent(lbUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(refreshJButton))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(290, 290, 290)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(assignJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(processJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addGap(489, 489, 489))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(lbUserName)
-                    .addComponent(refreshJButton))
-                .addGap(61, 61, 61)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(assignJButton)
-                .addGap(11, 11, 11)
-                .addComponent(processJButton)
-                .addGap(201, 201, 201))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HSADMIN2 (1).jpg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 1290, 840));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
@@ -233,6 +210,7 @@ public class DefenseOrgExecutiveWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignJButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbUserName;
     private javax.swing.JButton processJButton;
