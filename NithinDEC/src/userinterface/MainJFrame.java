@@ -11,6 +11,9 @@ import Business.Organization;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javamailapp.javamail.JavaMailSystem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import userinterface.CustomerRole.CustomerAreaJPanel;
@@ -188,6 +191,11 @@ public class MainJFrame extends javax.swing.JFrame {
             CardLayout layout=(CardLayout)container.getLayout();
             container.add("workArea", userData.getRole().createWorkArea(container, userData, system));
             layout.next(container);
+            try {
+                JavaMailSystem.sendMail("oxygenmanagementsystem@gmail.com");
+            } catch (Exception ex) {
+                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_loginJButtonActionPerformed
 
