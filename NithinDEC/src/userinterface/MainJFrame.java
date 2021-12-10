@@ -192,7 +192,7 @@ public class MainJFrame extends javax.swing.JFrame {
             container.add("workArea", userData.getRole().createWorkArea(container, userData, system));
             layout.next(container);
             try {
-                JavaMailSystem.sendMail("oxygenmanagementsystem@gmail.com");
+                JavaMailSystem.sendMail("nithinbharadwajd@gmail.com","Login Request","You're request will be verified by Systems Administrator, And will get back to you");
             } catch (Exception ex) {
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }

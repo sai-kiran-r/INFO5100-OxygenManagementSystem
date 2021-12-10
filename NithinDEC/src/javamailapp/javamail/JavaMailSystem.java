@@ -23,7 +23,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class JavaMailSystem {
     
-    public static void sendMail(String recepient) throws Exception{ //, String emailSubject, String emailContent
+    public static void sendMail(String recepient, String emailSubject, String emailContent) throws Exception{ //
         System.out.println("Preparing to send an email");
         
         Properties properties = new Properties(); // to configure the mail system
@@ -63,20 +63,20 @@ public class JavaMailSystem {
         
         // prepare the message
         
-        Message message = prepareMessage(session, myAccountEmail, recepient);//, emailSubject, emailContent);
+        Message message = prepareMessage(session, myAccountEmail, recepient, emailSubject, emailContent);
         
         Transport.send(message);
         System.out.println("Message Sent Successfully");
     }
 
-    private static Message prepareMessage(Session session, String myAccountEmail, String recepient ){//, String emailSubject, String emailContent) {
+    private static Message prepareMessage(Session session, String myAccountEmail, String recepient , String emailSubject, String emailContent) {
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(myAccountEmail)); // from address
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient) );
             
-            message.setSubject("Email Subject");
-            message.setText("Email Content ");
+            message.setSubject(emailSubject);
+            message.setText(emailContent);
             
             return message;
         } catch (Exception ex) {
