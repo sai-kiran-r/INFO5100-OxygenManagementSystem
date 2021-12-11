@@ -202,6 +202,9 @@ public class ManagePendingAccountApprovals extends javax.swing.JPanel {
             }
             JOptionPane.showMessageDialog(this, "Added the DeliveryMan successfully");
         }
+        
+        this.system.getPendingAccountCreation().remove(selectedCustomer);
+        this.populateTable();
     }//GEN-LAST:event_btnApproveActionPerformed
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
@@ -221,7 +224,7 @@ public class ManagePendingAccountApprovals extends javax.swing.JPanel {
                 System.err.println("Exception Ocurred : " + ex);
             }
         JOptionPane.showMessageDialog(this, "Rejected the request successfully");
-        
+        this.system.getPendingAccountCreation().remove(selectedCustomer);
         for(PendingAccountApproval ck : this.system.getPendingAccountCreation()){
             System.out.println(ck.getName());
         }
