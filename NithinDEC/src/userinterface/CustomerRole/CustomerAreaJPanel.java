@@ -67,9 +67,10 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
         for(Item item : itemList){
             System.out.println(item);
-            Object[] row = new Object[2];
+            Object[] row = new Object[3];
             row[0] = item;
             row[1] = item.getPrice();
+            row[2] = item.getQuantity();
             model.addRow(row);
         }
     }
@@ -133,13 +134,13 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         });
         add(btnSubmitReview, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, -1, -1));
 
-        refreshTestJButton.setText("Refresh ");
+        refreshTestJButton.setText("Reload Table");
         refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshTestJButtonActionPerformed(evt);
             }
         });
-        add(refreshTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, -1));
+        add(refreshTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, -1, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Welcome ");
@@ -151,21 +152,22 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Oxygen Model", "Price"
+                "Oxygen Model", "Price", "Available Quantity"
             }
         ));
         jScrollPane2.setViewportView(tblMenu);
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 400, 96));
 
-        jLabel1.setText("Select Pack: ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Select Oxygen Plant : ");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
 
         comboRestaurant.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pack 4", "Pack 6", "Item 24", "Item 48" }));
         comboRestaurant.addActionListener(new java.awt.event.ActionListener() {
@@ -173,7 +175,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 comboRestaurantActionPerformed(evt);
             }
         });
-        add(comboRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 100, -1));
+        add(comboRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 160, -1));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("Quantity");
@@ -192,7 +194,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 btnPlaceOrderActionPerformed(evt);
             }
         });
-        add(btnPlaceOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 105, -1));
+        add(btnPlaceOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 105, -1));
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -202,7 +204,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "ItemName", "Price", "---***", "Message", "Receiver", "Status", "Quantity"
+                "Order ID", "ItemName", "Price", "Plant Name", "Message", "Receiver", "Status", "Quantity"
             }
         ) {
             Class[] types = new Class [] {
@@ -268,9 +270,9 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             return;
         }
         
-        int quantity = Integer.parseInt(txtQuantity.getText());
-        String restaurantName = comboRestaurant.getSelectedItem().toString();
-        OxygenPlant restaurant = system.getOxygenPlantDirectory().getOxygenPlant(restaurantName);
+        int quantityToPlaceOrder = Integer.parseInt(txtQuantity.getText());
+        String plantName = comboRestaurant.getSelectedItem().toString();
+        OxygenPlant plant = system.getOxygenPlantDirectory().getOxygenPlant(plantName);
         Customer customer = system.getCustomerDirectory().getCustomer(this.userAccount.getEmployee().getName());
         Item selectedItem = (Item) tblMenu.getValueAt(selectedRow, 0);
         String status = "Order Placed";
@@ -284,15 +286,18 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         }
         
         order.setCustomer(customer);
-        order.setQuantity(quantity);
+        order.setQuantity(quantityToPlaceOrder);
         order.setItem(selectedItem);
-        order.setRestaurant(restaurant);
+        order.setRestaurant(plant);
         order.setOrderStatus(status);
         order.setAssign(false);
         order.setReceiver(this.userAccount);
         
         JOptionPane.showMessageDialog(null,"You have placed an order");
+        system.getOxygenPlantDirectory().getOxygenPlant(plantName).getMenu().updateQunatity(selectedItem, selectedItem.getQuantity() - quantityToPlaceOrder);
         populateRequestTable();
+        populateMenuTable();
+        txtQuantity.setText("");
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
     private void comboRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboRestaurantActionPerformed

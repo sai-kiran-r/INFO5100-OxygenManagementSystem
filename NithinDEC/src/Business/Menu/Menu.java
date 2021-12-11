@@ -32,8 +32,27 @@ public class Menu {
         Item newItem = new Item(itemName, price, res, quantity);
         itemList.add(newItem);
     }
+
+    public Item getItem(String itemName){
+        for(Item i : itemList){
+            if(i.getItemName().equals(itemName)){
+               return i;
+            }
+        }
+        return null;
+    }
+
     
     public void removeItem(Item item) {
         itemList.remove(item);
     }
+    
+    public void updateQunatity(Item item, int quantity){
+        for(Item i : itemList){
+            if(i.getItemName().equals(item.getItemName())){
+                i.setQuantity(quantity);
+            }
+        }
+    }
+    
 }

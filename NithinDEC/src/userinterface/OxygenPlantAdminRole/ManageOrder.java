@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.RestaurantAdminRole;
+package userinterface.OxygenPlantAdminRole;
 
+import Business.Customer.Customer;
 import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
+import Business.Menu.Item;
 import Business.Order.Order;
 import Business.OxygenPlant.OxygenPlant;
 import java.awt.CardLayout;
@@ -316,6 +318,17 @@ public class ManageOrder extends javax.swing.JPanel {
         }
         
         Order order = (Order)tblOrders.getValueAt(selectedRow, 0);
+        int currentQuantity = 0;
+        OxygenPlant plant = system.getOxygenPlantDirectory().getOxygenPlant(order.getRestaurant().getOxygenPlantName());
+        for(Item i : this.system.getOxygenPlantDirectory().getOxygenPlant(plant.getOxygenPlantName()).getMenu().getMenu()){
+            if(i.getItemName().equals(order.getItem().getItemName())){
+                currentQuantity = i.getQuantity();
+                break;
+            }
+        }
+        this.system.getOxygenPlantDirectory().getOxygenPlant(plant.getOxygenPlantName()).getMenu().updateQunatity(order.getItem(), currentQuantity + order.getQuantity());
+    
+        
         if(order.getOrderStatus().equals("Order Placed")) {
             order.setOrderStatus("Order Rejected");
         }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.RestaurantAdminRole;
+package userinterface.OxygenPlantAdminRole;
 
 import Business.EcoSystem;
 import Business.Validation.Validation;
@@ -20,17 +20,17 @@ import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
  *
  * @author Nithin Bharadwaj
  */
-public class ManageRestaurantInfo extends javax.swing.JPanel {
+public class ManageOxygenPlantInfo extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageRestaurantInfo
+     * Creates new form ManageOxygenPlantInfo
      */
     JPanel userProcessContainer;
     EcoSystem system;
     OxygenPlant res;
     Validation validation;
     
-    public ManageRestaurantInfo(JPanel userProcessContainer, EcoSystem system, OxygenPlant res) {
+    public ManageOxygenPlantInfo(JPanel userProcessContainer, EcoSystem system, OxygenPlant res) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
@@ -68,15 +68,15 @@ public class ManageRestaurantInfo extends javax.swing.JPanel {
 
         lbTItle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbTItle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTItle.setText("Update Restaurant Info");
+        lbTItle.setText("Update Oxygen Plant Info");
 
         jLabel2.setText("Address :");
 
-        jLabel3.setText("Restaurant Name :");
+        jLabel3.setText("Oxygen Plant Name :");
 
         jLabel4.setText("Phone Number :");
 
-        jLabel5.setText("Restaurant Manager Name :");
+        jLabel5.setText("Plant Manager Name :");
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +117,7 @@ public class ManageRestaurantInfo extends javax.swing.JPanel {
                             .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtMangerName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnUpdate))))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

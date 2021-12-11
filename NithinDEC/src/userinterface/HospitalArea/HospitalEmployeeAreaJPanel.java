@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author raunak
  */
-public class HospitalOperationsAdminWorkAreaJPanel extends javax.swing.JPanel {
+public class HospitalEmployeeAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private EcoSystem system;
@@ -29,7 +29,7 @@ public class HospitalOperationsAdminWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LabAssistantWorkAreaJPanel
      */
-    public HospitalOperationsAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+    public HospitalEmployeeAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
@@ -41,8 +41,6 @@ public class HospitalOperationsAdminWorkAreaJPanel extends javax.swing.JPanel {
     
     public void populateTable(){
         System.out.println("Inside method to populate orders table");
-        
-        
         
         for(Order o : this.system.getOrderDirectory().getOrderDirectory()){
             System.out.println(this.userAccount.getUsername());
@@ -122,13 +120,13 @@ public class HospitalOperationsAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Oxygen Model", "Price"
+                "Oxygen Model", "Price", "Available Quantity"
             }
         ));
         jScrollPane2.setViewportView(tblMenu);

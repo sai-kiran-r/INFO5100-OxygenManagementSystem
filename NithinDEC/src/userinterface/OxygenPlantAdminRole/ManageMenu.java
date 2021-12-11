@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.RestaurantAdminRole;
+package userinterface.OxygenPlantAdminRole;
 
 import Business.Customer.Customer;
 import Business.EcoSystem;
@@ -63,6 +63,8 @@ public class ManageMenu extends javax.swing.JPanel {
         btnView = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnUpdateMenu = new javax.swing.JButton();
+        txtQuantity = new javax.swing.JTextField();
+        lbQuantity = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(247, 247, 247));
 
@@ -72,13 +74,13 @@ public class ManageMenu extends javax.swing.JPanel {
 
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Item Name", "Price"
+                "Item Name", "Price", "Quantity"
             }
         ));
         jScrollPane1.setViewportView(tblMenu);
@@ -119,6 +121,8 @@ public class ManageMenu extends javax.swing.JPanel {
             }
         });
 
+        lbQuantity.setText("Quantity :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,22 +142,27 @@ public class ManageMenu extends javax.swing.JPanel {
                         .addGap(221, 221, 221)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnUpdateMenu))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(14, 14, 14)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel3)
+                                            .addComponent(lbQuantity))
+                                        .addGap(22, 22, 22)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnUpdateMenu)
+                                            .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap(226, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -173,17 +182,21 @@ public class ManageMenu extends javax.swing.JPanel {
                         .addComponent(btnView)
                         .addGap(12, 12, 12)
                         .addComponent(btnDelete)))
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                    .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbQuantity))
+                .addGap(18, 18, 18)
                 .addComponent(btnUpdateMenu)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -219,9 +232,11 @@ public class ManageMenu extends javax.swing.JPanel {
         // TODO add your handling code here:
         boolean validateItemName = this.validation.validateItemName(txtItemName);
         boolean validateItemPrice = this.validation.validateItemPrice(txtPrice);
-        if(validateItemName && validateItemPrice){
+        boolean validateItemQuantity = this.validation.validateItemPrice(txtQuantity);
+        if(validateItemName && validateItemPrice && validateItemQuantity){
             String itemName = txtItemName.getText();
             double price = Double.parseDouble(txtPrice.getText());
+            int quantityToUpdate = Integer.parseInt(txtQuantity.getText());
             try{
                 int selectedRowIndex = tblMenu.getSelectedRow();
                 if(selectedRowIndex < 0){
@@ -234,6 +249,7 @@ public class ManageMenu extends javax.swing.JPanel {
 
                 this.res.getMenu().getMenu().get(selectedRowIndex).setItemName(itemName);
                 this.res.getMenu().getMenu().get(selectedRowIndex).setPrice(price);
+                this.res.getMenu().getMenu().get(selectedRowIndex).setQuantity(quantityToUpdate);
                 JOptionPane.showMessageDialog(this, "Updated the entry Successfully");
 
                 }catch(Exception e){
@@ -250,7 +266,9 @@ public class ManageMenu extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, errorMessage);
         
         }
-        
+        txtItemName.setText("");
+        txtPrice.setText("");
+        txtQuantity.setText("");
     }//GEN-LAST:event_btnUpdateMenuActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
@@ -266,6 +284,8 @@ public class ManageMenu extends javax.swing.JPanel {
         txtItemName.setText(selectedItem.getItemName());
         txtPrice.setText("");
         txtPrice.setText(String.valueOf(selectedItem.getPrice()));
+        txtQuantity.setText("");
+        txtQuantity.setText(String.valueOf(selectedItem.getQuantity()));
     }//GEN-LAST:event_btnViewActionPerformed
 
 
@@ -279,9 +299,11 @@ public class ManageMenu extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbQuantity;
     private javax.swing.JTable tblMenu;
     private javax.swing.JTextField txtItemName;
     private javax.swing.JTextField txtPrice;
+    private javax.swing.JTextField txtQuantity;
     // End of variables declaration//GEN-END:variables
     
     private void populateMenu(){
@@ -296,9 +318,10 @@ public class ManageMenu extends javax.swing.JPanel {
         }
         
         for(Item item : itemList){
-            Object[] row = new Object[2];
+            Object[] row = new Object[3];
             row[0] = item;
             row[1] = item.getPrice();
+            row[2] = item.getQuantity();
             model.addRow(row);
         }
     }

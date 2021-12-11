@@ -8,7 +8,7 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 
 import Business.UserAccount.UserAccount;
-import userinterface.HospitalArea.HospitalOperationsAdminWorkAreaJPanel;
+import userinterface.HospitalArea.HospitalEmployeeAreaJPanel;
 import javax.swing.JPanel;
 
 /**
@@ -19,7 +19,7 @@ public class HospitalOperationsAdminRole extends Role{
 
   
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-        return new HospitalOperationsAdminWorkAreaJPanel(userProcessContainer, account, system);
+        return new HospitalEmployeeAreaJPanel(userProcessContainer, account, system);
     }
     
 }

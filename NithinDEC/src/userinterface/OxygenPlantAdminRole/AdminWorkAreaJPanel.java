@@ -1,6 +1,6 @@
 
 
-package userinterface.RestaurantAdminRole;
+package userinterface.OxygenPlantAdminRole;
 
 
 import Business.EcoSystem;
@@ -60,13 +60,13 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
 
         userJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_reserve_20px.png"))); // NOI18N
-        userJButton.setText("Manage Restaurant Info");
+        userJButton.setText("Manage Oxygen Plant Info");
         userJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userJButtonActionPerformed(evt);
             }
         });
-        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 180, -1));
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 190, -1));
 
         manageEmployeeJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_menu_20px.png"))); // NOI18N
         manageEmployeeJButton.setText("Manage menu");
@@ -75,7 +75,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 180, -1));
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 190, -1));
 
         manageOrganizationJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_waitress_skin_type_2_20px.png"))); // NOI18N
         manageOrganizationJButton.setText("Manage Orders");
@@ -84,11 +84,11 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 180, -1));
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 190, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        enterpriseLabel.setText("Restaurant :");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 120, 30));
+        enterpriseLabel.setText("Oxygen Plant :");
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 140, 30));
 
         valueLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         valueLabel.setText("<value>");
@@ -100,7 +100,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
         // TODO add your handling code here:
-        ManageRestaurantInfo manageRestObj = new ManageRestaurantInfo(this.userProcessContainer, 
+        ManageOxygenPlantInfo manageRestObj = new ManageOxygenPlantInfo(this.userProcessContainer, 
                                     this.system, this.resto);  
         userProcessContainer.add("ManageMenu", manageRestObj);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
