@@ -42,8 +42,6 @@ public class HospitalEmployeeAreaJPanel extends javax.swing.JPanel {
     public void populateTable(){
         System.out.println("Inside method to populate orders table");
         
-        
-        
         for(Order o : this.system.getOrderDirectory().getOrderDirectory()){
             System.out.println(this.userAccount.getUsername());
             System.out.println(o.getDeliveryMan());
