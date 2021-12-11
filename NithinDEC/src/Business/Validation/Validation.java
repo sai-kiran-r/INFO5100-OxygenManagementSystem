@@ -5,8 +5,10 @@
  */
 package Business.Validation;
 
+import java.awt.Color;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -99,6 +101,32 @@ public class Validation {
             }
         }
         return false;
+    }
+    
+    public boolean validateEmail(JTextField email){
+        String text = email.getText();
+  
+        String pattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$" ;
+     
+        Pattern emailPattern = Pattern.compile(pattern);
+        Matcher matcher = emailPattern.matcher(text);
+        if (text.length() > 0) {
+            if (!matcher.matches()) {
+                email.setBackground(Color.red);
+                JOptionPane.showMessageDialog(email, "Please enter a valid email address. ", "Error in Email", JOptionPane.ERROR_MESSAGE);
+                return false;
+          }
+            else 
+            {
+             email.setBackground(Color.black);
+             return true;  
+            }
+        }
+        else
+        {
+            email.setBackground(Color.black);
+            return true;
+        }
     }
         
 }

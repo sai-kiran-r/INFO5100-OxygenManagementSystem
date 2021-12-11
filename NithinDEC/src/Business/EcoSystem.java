@@ -60,7 +60,8 @@ public class EcoSystem extends Organization{
     private DefenseOrgDirectory defenseDirectory;
     private ScubaOrgDirectory scubaOrgDirectory;
     private WaterTreatmentOrgDirectory waterTreatmentOrgDirectory; 
-
+    private ArrayList<PendingAccountApproval> PendingAccountCreation;
+    
     public EcoSystem(RestaurantDirectory restaurantDirectory, 
                     CustomerDirectory customerDirectory, 
                      DeliveryManDirectory deliveryManDirectory) {
@@ -77,7 +78,8 @@ public class EcoSystem extends Organization{
             SalesDirectory salesDirectory, HospitalDirectory hospitalDirectory,
             PharmaOrgDirectory pharmaDirectory, AviationOrgDirectory aviationDirectory,
             DefenseOrgDirectory defenseDirectory, ScubaOrgDirectory scubaOrgDirectory,
-            WaterTreatmentOrgDirectory waterTreatmentOrgDirectory) {
+            WaterTreatmentOrgDirectory waterTreatmentOrgDirectory,
+            ArrayList<PendingAccountApproval> PendingAccountCreation) {
         System.out.println("Inside public constructuer");
         this.restaurantDirectory = restaurantDirectory;
         this.customerDirectory = customerDirectory;
@@ -91,6 +93,7 @@ public class EcoSystem extends Organization{
         this.defenseDirectory = defenseDirectory;
         this.scubaOrgDirectory = scubaOrgDirectory;
         this.waterTreatmentOrgDirectory = waterTreatmentOrgDirectory;
+        this.PendingAccountCreation = PendingAccountCreation;
     }
     
     public EcoSystem(){
@@ -107,6 +110,8 @@ public class EcoSystem extends Organization{
         this.defenseDirectory = new DefenseOrgDirectory();
         this.scubaOrgDirectory = new ScubaOrgDirectory();
         this.waterTreatmentOrgDirectory = new WaterTreatmentOrgDirectory();
+        this.PendingAccountCreation = new ArrayList<PendingAccountApproval>();
+        
        // networkList=new ArrayList<Network>();
     }
     
@@ -230,6 +235,18 @@ public class EcoSystem extends Organization{
     
     public OrderDirectory getOrderDirectory(){
         return this.orderDirectory;
+    }
+    
+    public ArrayList<PendingAccountApproval> getPendingAccountCreation(){
+        return this.PendingAccountCreation;
+    }
+    
+    public void addPendingAccountApproval(PendingAccountApproval e){
+        this.PendingAccountCreation.add(e);
+    }
+    
+    public void setPendingAccountApproval(ArrayList<PendingAccountApproval> ar){
+        this.PendingAccountCreation = ar;
     }
     
     public int getLastOrderId(){
