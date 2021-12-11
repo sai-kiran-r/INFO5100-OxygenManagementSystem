@@ -7,7 +7,7 @@ package userinterface.SystemAdminWorkArea;
 
 import Business.Customer.Customer;
 import Business.EcoSystem;
-import Business.Restaurant.Restaurant;
+import Business.OxygenPlant.OxygenPlant;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.ArrayList;
@@ -242,22 +242,22 @@ public class ManageRestaurantDetails extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblRestaurants.getModel();
-        Restaurant selectedRestaurant = (Restaurant)model.getValueAt(selectedRowIndex, 0);
+        OxygenPlant selectedRestaurant = (OxygenPlant)model.getValueAt(selectedRowIndex, 0);
 
         String name = txtName.getText();
-        String restaurantName = txtRestaurantName.getText();
+        String plantName = txtRestaurantName.getText();
         String userName = txtUsername.getText();
         long phoneNumber = Long.parseLong(txtPhoneNumber.getText());
         String address = txtAddress.getText();
         
-        ArrayList<Restaurant> restos = system.getRestaurantDirectory().returnAllRestaurants();
-        for(Restaurant r: restos)
+        ArrayList<OxygenPlant> restos = system.getOxygenPlantDirectory().returnAllOxygenPlants();
+        for(OxygenPlant r: restos)
         {
             if(r.getManagerName().equals(selectedRestaurant.getManagerName()))
             {
                r.returnUserAcc().setUsername(userName);
                r.setManagerName(name);
-               r.setRestaurantName(restaurantName);
+               r.setOxygenPlantName(plantName);
                r.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                r.setAddress(txtAddress.getText());
                break;
@@ -287,13 +287,13 @@ public class ManageRestaurantDetails extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblRestaurants.getModel();
-        Restaurant selectedRestaurant = (Restaurant)model.getValueAt(selectedRowIndex, 0);
+        OxygenPlant selectedRestaurant = (OxygenPlant)model.getValueAt(selectedRowIndex, 0);
         txtName.setText("");
         txtName.setText(selectedRestaurant.getManagerName());
         txtUsername.setText("");
         txtUsername.setText(selectedRestaurant.returnUserAcc().getUsername());
         txtRestaurantName.setText("");
-        txtRestaurantName.setText(selectedRestaurant.getRestaurantName());
+        txtRestaurantName.setText(selectedRestaurant.getOxygenPlantName());
         txtAddress.setText("");
         txtAddress.setText(selectedRestaurant.getAddress());
         txtPhoneNumber.setText("");
@@ -308,16 +308,16 @@ public class ManageRestaurantDetails extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblRestaurants.getModel();
-        Restaurant selectedRestaurant = (Restaurant)model.getValueAt(selectedRowIndex, 0);
+        OxygenPlant selectedRestaurant = (OxygenPlant)model.getValueAt(selectedRowIndex, 0);
         // First delete the customer from employee
         this.system.getEmployeeDirectory().deleteEmployee(selectedRestaurant.getManagerName());
         // And thne delete the userAccount
         this.system.getUserAccountDirectory().deleteUserAccount(
-                this.system.getRestaurantDirectory().returnAllRestaurants().
+                this.system.getOxygenPlantDirectory().returnAllOxygenPlants().
                         get(selectedRowIndex).returnUserAcc()
         );
         // finally delete the user from customer directory
-        this.system.getRestaurantDirectory().removeRestaurant(selectedRestaurant);
+        this.system.getOxygenPlantDirectory().removeOxygenPlant(selectedRestaurant);
         
         JOptionPane.showMessageDialog(this, "Deleted the restaurant Successfully");
         for(Customer ck : this.system.getCustomerDirectory().returnCustomerDetails()){
@@ -352,7 +352,7 @@ public class ManageRestaurantDetails extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblRestaurants.getModel();
         model.setRowCount(0);
 
-        for(Restaurant rest : this.system.getRestaurantDirectory().returnAllRestaurants()){
+        for(OxygenPlant rest : this.system.getOxygenPlantDirectory().returnAllOxygenPlants()){
             System.out.println(rest);
             Object[] row = new Object[5];
             row[0] = rest;

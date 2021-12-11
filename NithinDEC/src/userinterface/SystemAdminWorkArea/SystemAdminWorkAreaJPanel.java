@@ -10,7 +10,7 @@ import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
 
 import Business.Organization;
-import Business.Restaurant.Restaurant;
+import Business.OxygenPlant.OxygenPlant;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
@@ -45,11 +45,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         ArrayList<Customer> customerDir= this.ecosystem.getCustomerDirectory().returnCustomerDetails();
         ArrayList<DeliveryMan> deliveryDir = ecosystem.getDeliveryManDirectory().returnDeliveryAgentDetails();
-        ArrayList<Restaurant> restaurantDir = ecosystem.getRestaurantDirectory().returnAllRestaurants();
+        ArrayList<OxygenPlant> restaurantDir = ecosystem.getOxygenPlantDirectory().returnAllOxygenPlants();
 
         Customer customer;
         DeliveryMan deliveryMan;
-        Restaurant restaurant;
+        OxygenPlant restaurant;
 
         DefaultMutableTreeNode customerListNode = new DefaultMutableTreeNode("Customer");
         DefaultMutableTreeNode deliveryManListNode = new DefaultMutableTreeNode("Delivery");
@@ -76,7 +76,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         for(int k=0;k<restaurantDir.size();k++){
         restaurant=restaurantDir.get(k);
-        organizationNode=new DefaultMutableTreeNode(restaurant.getRestaurantName());
+        organizationNode=new DefaultMutableTreeNode(restaurant.getOxygenPlantName());
         restaurantListNode.insert(organizationNode, k);
         }
 

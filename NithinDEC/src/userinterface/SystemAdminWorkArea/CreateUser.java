@@ -7,10 +7,10 @@ package userinterface.SystemAdminWorkArea;
 
 import Business.Customer.Customer;
 import Business.DeliveryMan.DeliveryMan;
-import Business.Restaurant.Restaurant;
+import Business.OxygenPlant.OxygenPlant;
 import Business.EcoSystem;
 import Business.Employee.Employee;
-import Business.Restaurant.Restaurant;
+import Business.OxygenPlant.OxygenPlant;
 import Business.Role.AdminRole;
 import Business.Role.CustomerRole;
 import Business.Role.DeliverManRole;
@@ -261,17 +261,17 @@ public class CreateUser extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this, "Added the DeliveryMan successfully");
                     this.clearText();
                 }
-                else if(role.equals("Restaurant Admin")){
+                else if(role.equals("Oxygen Plant Admin")){
                     boolean restaurantValidation = this.validation.validateName(txtRestaurantName);
                     if(restaurantValidation){
                         usersList.createUserAccount(txtUsername.getText(),
                                 txtPassword.getText(), employee, new AdminRole());
                         UserAccount ua = usersList.getUserAccount(txtUsername.getText());
-                        Restaurant restaurantData = new Restaurant(txtRestaurantName.getText(),
+                        OxygenPlant restaurantData = new OxygenPlant(txtRestaurantName.getText(),
                                 txtAddress.getText(), txtName.getText(),
                                 Long.parseLong(txtPhoneNumber.getText()), ua);
-                        system.getRestaurantDirectory().addRestaurant(restaurantData);
-                        JOptionPane.showMessageDialog(this, "Added the Restaurant and Admin Successfully");
+                        system.getOxygenPlantDirectory().addOxygenPlant(restaurantData);
+                        JOptionPane.showMessageDialog(this, "Added the Business and Admin Successfully");
                         this.clearText();
                     }
                     else{

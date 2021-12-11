@@ -20,8 +20,8 @@ import Business.Role.NGOEmployeeRole;
 import Business.Order.Order;
 import Business.Order.OrderDirectory;
 import Business.PharmaOrg.PharmaOrgDirectory;
-import Business.Restaurant.Restaurant;
-import Business.Restaurant.RestaurantDirectory;
+import Business.OxygenPlant.OxygenPlant;
+import Business.OxygenPlant.OxygenPlantDirectory;
 import Business.Role.AdminRole;
 import Business.Role.CustomerRole;
 import Business.Role.DeliverManRole;
@@ -48,7 +48,7 @@ import java.util.ArrayList;
 public class EcoSystem extends Organization{
     
     private static EcoSystem business;
-    private RestaurantDirectory restaurantDirectory;
+    private OxygenPlantDirectory oxygenPlantDirectory;
     private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;
     private OrderDirectory orderDirectory;
@@ -62,16 +62,16 @@ public class EcoSystem extends Organization{
     private WaterTreatmentOrgDirectory waterTreatmentOrgDirectory; 
     private ArrayList<PendingAccountApproval> PendingAccountCreation;
     
-    public EcoSystem(RestaurantDirectory restaurantDirectory, 
+    public EcoSystem(OxygenPlantDirectory oxygenPlantDirectory, 
                     CustomerDirectory customerDirectory, 
                      DeliveryManDirectory deliveryManDirectory) {
         System.out.println("Inside public constructuer");
-        this.restaurantDirectory = restaurantDirectory;
+        this.oxygenPlantDirectory = oxygenPlantDirectory;
         this.customerDirectory = customerDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
     }
     
-    public EcoSystem(RestaurantDirectory restaurantDirectory, 
+    public EcoSystem(OxygenPlantDirectory oxygenPlantDirectory, 
             CustomerDirectory customerDirectory, 
             DeliveryManDirectory deliveryManDirectory, 
             OrderDirectory orderDirectory, NGODirectory ngoDirectory,
@@ -81,7 +81,7 @@ public class EcoSystem extends Organization{
             WaterTreatmentOrgDirectory waterTreatmentOrgDirectory,
             ArrayList<PendingAccountApproval> PendingAccountCreation) {
         System.out.println("Inside public constructuer");
-        this.restaurantDirectory = restaurantDirectory;
+        this.oxygenPlantDirectory = oxygenPlantDirectory;
         this.customerDirectory = customerDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
         this.orderDirectory = orderDirectory;
@@ -99,7 +99,7 @@ public class EcoSystem extends Organization{
     public EcoSystem(){
         super("Restaurant Delivery");
         this.customerDirectory = new CustomerDirectory();
-        this.restaurantDirectory = new RestaurantDirectory();
+        this.oxygenPlantDirectory = new OxygenPlantDirectory();
         this.deliveryManDirectory = new DeliveryManDirectory();
         this.orderDirectory = new OrderDirectory();
         this.ngoDirectory = new NGODirectory();
@@ -157,12 +157,12 @@ public class EcoSystem extends Organization{
         return deliveryManDirectory;
     }
     
-    public RestaurantDirectory getRestaurantDirectory(){
-        return restaurantDirectory;
+    public OxygenPlantDirectory getOxygenPlantDirectory(){
+        return oxygenPlantDirectory;
     }
     
-    public void setRestaurantDirectory(ArrayList<Restaurant> rsList){
-        restaurantDirectory.setRestaurantDirectory(rsList);
+    public void setRestaurantDirectory(ArrayList<OxygenPlant> rsList){
+        oxygenPlantDirectory.setOxygenPlantDirectory(rsList);
     }
     
     public PharmaOrgDirectory getPharmaDirectory(){

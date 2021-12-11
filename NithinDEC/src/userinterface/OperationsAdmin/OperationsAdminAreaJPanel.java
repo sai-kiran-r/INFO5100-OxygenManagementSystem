@@ -10,7 +10,7 @@ import Business.EcoSystem;
 import Business.Menu.Item;
 import Business.Menu.Menu;
 import Business.Order.Order;
-import Business.Restaurant.Restaurant;
+import Business.OxygenPlant.OxygenPlant;
 
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
@@ -41,10 +41,10 @@ public class OperationsAdminAreaJPanel extends javax.swing.JPanel {
         this.system = system;
         this.userAccount = account;
         valueLabel.setText(account.getUsername());
-        ArrayList<Restaurant> restList = this.system.getRestaurantDirectory().returnAllRestaurants();
+        ArrayList<OxygenPlant> restList = this.system.getOxygenPlantDirectory().returnAllOxygenPlants();
         ArrayList<String> restaurantNames = new ArrayList();
-        for(Restaurant p : restList){
-            restaurantNames.add(p.getRestaurantName());
+        for(OxygenPlant p : restList){
+            restaurantNames.add(p.getOxygenPlantName());
         }
         comboRestaurant.setModel(new DefaultComboBoxModel<String>(restaurantNames.toArray(new String[0])));
         populateMenuTable();
@@ -53,10 +53,10 @@ public class OperationsAdminAreaJPanel extends javax.swing.JPanel {
     
     public void populateMenuTable(){
         String restaurantName = comboRestaurant.getSelectedItem().toString();
-        ArrayList<Restaurant> restList = this.system.getRestaurantDirectory().returnAllRestaurants();
+        ArrayList<OxygenPlant> restList = this.system.getOxygenPlantDirectory().returnAllOxygenPlants();
         ArrayList<Item> itemList = new ArrayList();
-        for(Restaurant p : restList){
-            if(p.getRestaurantName().equals(restaurantName)){
+        for(OxygenPlant p : restList){
+            if(p.getOxygenPlantName().equals(restaurantName)){
                 itemList = p.getMenu().getMenu();
                 break;
             }
@@ -85,7 +85,7 @@ public class OperationsAdminAreaJPanel extends javax.swing.JPanel {
                 row[0] = order;
                 row[1] = order.getItem().getItemName();
                 row[2] = order.getQuantity() * order.getItem().getPrice();
-                row[3] = order.getRestaurant().getRestaurantName();
+                row[3] = order.getRestaurant().getOxygenPlantName();
                 row[4] = order.getMessage();
                 row[5] = order.getCustomer().getName();
                 row[6] = order.getOrderStatus();
@@ -327,7 +327,7 @@ public class OperationsAdminAreaJPanel extends javax.swing.JPanel {
         
         int quantity = Integer.parseInt(txtQuantity.getText());
         String restaurantName = comboRestaurant.getSelectedItem().toString();
-        Restaurant restaurant = system.getRestaurantDirectory().getRestaurant(restaurantName);
+        OxygenPlant restaurant = system.getOxygenPlantDirectory().getOxygenPlant(restaurantName);
         Customer customer = system.getCustomerDirectory().getCustomer(this.userAccount.getEmployee().getName());
         Item selectedItem = (Item) tblMenu.getValueAt(selectedRow, 0);
         String status = "Order Placed";

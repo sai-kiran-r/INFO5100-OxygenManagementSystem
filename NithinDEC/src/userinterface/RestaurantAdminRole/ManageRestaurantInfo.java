@@ -7,7 +7,7 @@ package userinterface.RestaurantAdminRole;
 
 import Business.EcoSystem;
 import Business.Validation.Validation;
-import Business.Restaurant.Restaurant;
+import Business.OxygenPlant.OxygenPlant;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -27,17 +27,17 @@ public class ManageRestaurantInfo extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     EcoSystem system;
-    Restaurant res;
+    OxygenPlant res;
     Validation validation;
     
-    public ManageRestaurantInfo(JPanel userProcessContainer, EcoSystem system, Restaurant res) {
+    public ManageRestaurantInfo(JPanel userProcessContainer, EcoSystem system, OxygenPlant res) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.res = res;
         txtAddress.setText(this.res.getAddress());
         txtMangerName.setText(this.res.getManagerName());
-        txtRestaurantName.setText(this.res.getRestaurantName());
+        txtRestaurantName.setText(this.res.getOxygenPlantName());
         System.out.println(this.res.getPhoneNumber());
         txtPhoneNumber.setText(String.valueOf(this.res.getPhoneNumber()));
         this.validation = new Validation();
@@ -153,7 +153,7 @@ public class ManageRestaurantInfo extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        String restaurantName = this.res.getRestaurantName();
+        String restaurantName = this.res.getOxygenPlantName();
         System.out.println("New Restaurant Name: " + restaurantName);
         this.userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -181,20 +181,20 @@ public class ManageRestaurantInfo extends javax.swing.JPanel {
            
         if(restaurantNameValdidation && addressValidation && phoneValidation
                 && restaurantNameValdidation){
-            for(Restaurant restaurantData : this.system.getRestaurantDirectory().returnAllRestaurants()){
+            for(OxygenPlant restaurantData : this.system.getOxygenPlantDirectory().returnAllOxygenPlants()){
                 counter++;
-                if(restaurantData.getRestaurantName().equals(this.res.getRestaurantName())){
+                if(restaurantData.getOxygenPlantName().equals(this.res.getOxygenPlantName())){
                     break;
                 }
             }
             this.res.setAddress(txtAddress.getText());
             this.res.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
             this.res.setManagerName(txtMangerName.getText());
-            this.res.setRestaurantName(txtRestaurantName.getText());
+            this.res.setOxygenPlantName(txtRestaurantName.getText());
             JOptionPane.showMessageDialog(this, "Updated info Successfully");
-            this.system.getRestaurantDirectory().setRestaurant(counter, this.res);
-            for(Restaurant restaurantData : this.system.getRestaurantDirectory().returnAllRestaurants()){
-                System.out.println("Restaurant Name : " + restaurantData.getRestaurantName());
+            this.system.getOxygenPlantDirectory().setOxygenPlant(counter, this.res);
+            for(OxygenPlant restaurantData : this.system.getOxygenPlantDirectory().returnAllOxygenPlants()){
+                System.out.println("Restaurant Name : " + restaurantData.getOxygenPlantName());
             }
         }
         else{

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Restaurant;
+package Business.OxygenPlant;
 
 import Business.UserAccount.UserAccount;
 import Business.Menu.Menu;
@@ -13,26 +13,26 @@ import java.util.ArrayList;
  *
  * @author Nithin Bharadwaj
  */
-public class Restaurant {
-    private String restaurantName;
+public class OxygenPlant {
+    private String plantName;
     private String address;
     private String managerName;
     private long phoneNumber;
     private Menu itemMenu;
     private UserAccount managerAccount;
     
-    public Restaurant(String restaurantName, String address,
+    public OxygenPlant(String plantName, String address,
                 String managerName, long phoneNumber, UserAccount ua) {
-        this.restaurantName = restaurantName;
+        this.plantName = plantName;
         this.address = address;
         this.managerName = managerName;
         this.phoneNumber = phoneNumber;
         this.managerAccount = ua;
     }
     
-    public Restaurant(String restaurantName, String address,
+    public OxygenPlant(String plantName, String address,
                 String managerName, int phoneNumber) {
-        this.restaurantName = restaurantName;
+        this.plantName = plantName;
         this.address = address;
         this.managerName = managerName;
         this.phoneNumber = phoneNumber;
@@ -46,12 +46,12 @@ public class Restaurant {
         this.itemMenu = newMenu;
     }
     
-    public String getRestaurantName() {
-        return restaurantName;
+    public String getOxygenPlantName() {
+        return plantName;
     }
 
-    public void setRestaurantName(String restaurantName) {
-        this.restaurantName = restaurantName;
+    public void setOxygenPlantName(String plantName) {
+        this.plantName = plantName;
     }
 
     public String getAddress() {
@@ -84,9 +84,8 @@ public class Restaurant {
     
     @Override
     public String toString() {
-        return restaurantName;
+        return plantName;
     }
 
-    
-    
+        
 }
