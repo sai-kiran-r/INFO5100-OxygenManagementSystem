@@ -8,11 +8,11 @@ package userinterface;
 import userinterface.SystemAdminWorkArea.*;
 import Business.Customer.Customer;
 import Business.DeliveryMan.DeliveryMan;
-import Business.Restaurant.Restaurant;
+import Business.OxygenPlant.OxygenPlant;
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.PendingAccountApproval;
-import Business.Restaurant.Restaurant;
+import Business.OxygenPlant.OxygenPlant;
 import Business.Role.AdminRole;
 import Business.Role.CustomerRole;
 import Business.Role.DeliverManRole;
@@ -316,21 +316,21 @@ public class RequestAccountCreation extends javax.swing.JPanel {
 //                    JOptionPane.showMessageDialog(this, "Added the DeliveryMan successfully");
 //                    this.clearText();
 //                }
-//                else if(role.equals("Restaurant Admin")){
+//                else if(role.equals("OxygenPlant Admin")){
 //                    boolean restaurantValidation = this.validation.validateName(txtRestaurantName);
 //                    if(restaurantValidation){
 //                        usersList.createUserAccount(txtUsername.getText(),
 //                                txtPassword.getText(), employee, new AdminRole());
 //                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
-//                        Restaurant restaurantData = new Restaurant(txtRestaurantName.getText(),
+//                        OxygenPlant restaurantData = new OxygenPlant(txtRestaurantName.getText(),
 //                                txtAddress.getText(), txtName.getText(),
 //                                Long.parseLong(txtPhoneNumber.getText()), ua);
 //                        system.getRestaurantDirectory().addRestaurant(restaurantData);
-//                        JOptionPane.showMessageDialog(this, "Added the Restaurant and Admin Successfully");
+//                        JOptionPane.showMessageDialog(this, "Added the OxygenPlant and Admin Successfully");
 //                        this.clearText();
 //                    }
 //                    else{
-//                        JOptionPane.showMessageDialog(this, "Invalid Restaurant Name!!!!");
+//                        JOptionPane.showMessageDialog(this, "Invalid OxygenPlant Name!!!!");
 ////                        this.clearText();
 //                    }
 //                    
@@ -353,7 +353,7 @@ public class RequestAccountCreation extends javax.swing.JPanel {
 
     private void comboRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboRoleActionPerformed
         // TODO add your handling code here:
-//        if(comboRole.getSelectedItem().toString().equals("Restaurant Admin")){
+//        if(comboRole.getSelectedItem().toString().equals("OxygenPlant Admin")){
 //            txtBusinessName.setEditable(true);
 //        }
 //        else{

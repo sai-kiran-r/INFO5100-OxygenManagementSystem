@@ -8,7 +8,7 @@ package userinterface.RestaurantAdminRole;
 import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
 import Business.Order.Order;
-import Business.Restaurant.Restaurant;
+import Business.OxygenPlant.OxygenPlant;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.ArrayList;
@@ -29,9 +29,9 @@ public class ManageOrder extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     EcoSystem system;
-    Restaurant resta;
+    OxygenPlant resta;
     public ManageOrder(JPanel userProcessContainer, EcoSystem system,
-                    Restaurant resta) {
+                    OxygenPlant resta) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
@@ -50,8 +50,8 @@ public class ManageOrder extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblOrders.getModel();
         model.setRowCount(0);
         for(Order o : this.system.getOrderDirectory().getOrderDirectory()){
-            if(o.getRestaurant().getRestaurantName().equals(
-                this.resta.getRestaurantName())){
+            if(o.getRestaurant().getOxygenPlantName().equals(
+                this.resta.getOxygenPlantName())){
                 System.out.println(o);
                 Object[] row = new Object[5];
                 row[0] = o;

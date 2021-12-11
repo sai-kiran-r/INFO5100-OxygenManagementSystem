@@ -8,7 +8,7 @@ package userinterface.RestaurantAdminRole;
 import Business.Customer.Customer;
 import Business.EcoSystem;
 import Business.Menu.Item;
-import Business.Restaurant.Restaurant;
+import Business.OxygenPlant.OxygenPlant;
 import Business.Validation.Validation;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -31,9 +31,9 @@ public class ManageMenu extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     EcoSystem system;
-    Restaurant res;
+    OxygenPlant res;
     Validation validation;
-    public ManageMenu(JPanel userProcessContainer, EcoSystem system, Restaurant res) {
+    public ManageMenu(JPanel userProcessContainer, EcoSystem system, OxygenPlant res) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
@@ -237,7 +237,7 @@ public class ManageMenu extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Updated the entry Successfully");
 
                 }catch(Exception e){
-                    this.res.getMenu().addNewItem(itemName, price, this.res.getRestaurantName());
+                    this.res.getMenu().addNewItem(itemName, price, this.res.getOxygenPlantName(), 100);
                     JOptionPane.showMessageDialog(this, "Added the entry Successfully");
                 }
                 this.populateMenu();

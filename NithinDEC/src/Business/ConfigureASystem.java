@@ -9,7 +9,7 @@ import Business.CustomerSales.SalesEmployee;
 import Business.Hospital.Hospital;
 import Business.Menu.Item;
 import Business.Menu.Menu;
-import Business.Restaurant.Restaurant;
+import Business.OxygenPlant.OxygenPlant;
 import Business.PharmaOrg.PharmaOrgEmployee;
 import Business.PharmaOrg.PharmaOrgAdmin;
 import Business.PharmaOrg.PharmaOrg;
@@ -192,17 +192,17 @@ public class ConfigureASystem {
         deliveryAgent.setStatus("Available");
         system.getDeliveryManDirectory().addDeliveryAgent(deliveryAgent);
         
-        Employee restaurant = system.getEmployeeDirectory().createEmployee("Restaurant");
-        UserAccount restaurantAccount = system.getUserAccountDirectory().createUserAccount("restaurant", "restaurant", restaurant, new AdminRole());
+        Employee oxyplant = system.getEmployeeDirectory().createEmployee("OxyPlant");
+        UserAccount plantAccount = system.getUserAccountDirectory().createUserAccount("oxyplant", "oxyplant", oxyplant, new AdminRole());
         
-        Restaurant restaurantData = new Restaurant("Buakra", "Alpasdj St","Borak",
-                                  9000999099L, restaurantAccount);
+        OxygenPlant plantData = new OxygenPlant("OxyCare Plant", "Alpasdj St","Borak",
+                                  9000999099L, plantAccount);
         ArrayList<Item> itemList = new ArrayList<Item>();
-        itemList.add(new Item("Themrmo Oxygen ", 9.90, "Oxygen Plant 1"));
+        itemList.add(new Item("Themrmo Oxygen ", 9.90, "Oxygen Plant 1", 100));
         Menu menuItems = new Menu();
         menuItems.setMenu(itemList);
-        restaurantData.setMenu(menuItems);
-        system.getRestaurantDirectory().addRestaurant(restaurantData);
+        plantData.setMenu(menuItems);
+        system.getOxygenPlantDirectory().addOxygenPlant(plantData);
         
         return system;
         

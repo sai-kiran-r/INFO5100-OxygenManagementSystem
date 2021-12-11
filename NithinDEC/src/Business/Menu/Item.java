@@ -14,11 +14,22 @@ public class Item {
     private String itemName;
     private double price;
     private String restaurantName;
-    
-    public Item(String itemName, double price, String restaurantName) {
+    private int quantity;
+
+    public Item(String itemName, double price, 
+            String restaurantName, int quantityAvailable) {
         this.itemName = itemName;
         this.price = price;
         this.restaurantName = restaurantName;
+        this.quantity = quantityAvailable;
+    }
+    
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getItemName() {

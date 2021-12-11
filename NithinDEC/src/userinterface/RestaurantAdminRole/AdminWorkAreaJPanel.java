@@ -5,8 +5,8 @@ package userinterface.RestaurantAdminRole;
 
 import Business.EcoSystem;
 import Business.Menu.Menu;
-import Business.Restaurant.Restaurant;
-import Business.Restaurant.RestaurantDirectory;
+import Business.OxygenPlant.OxygenPlant;
+import Business.OxygenPlant.OxygenPlantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -20,8 +20,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     EcoSystem system;
     UserAccount ua;
-    Restaurant resto;
-    RestaurantDirectory restaurantDirectory;
+    OxygenPlant resto;
+    OxygenPlantDirectory restaurantDirectory;
     
     /** Creates new form AdminWorkAreaJPanel */
     public AdminWorkAreaJPanel(JPanel userProcessContainer,
@@ -31,9 +31,9 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.ua = ua;
         this.system = system;
         //valueLabel.setText();
-        restaurantDirectory = system.getRestaurantDirectory();
-        this.resto = restaurantDirectory.getRestaurant(ua);
-        valueLabel.setText(this.resto.getRestaurantName());
+        restaurantDirectory = system.getOxygenPlantDirectory();
+        this.resto = restaurantDirectory.getOxygenPlant(ua);
+        valueLabel.setText(this.resto.getOxygenPlantName());
     }
     
     /** This method is called from within the constructor to

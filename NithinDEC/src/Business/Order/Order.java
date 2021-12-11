@@ -9,7 +9,7 @@ import Business.Customer.Customer;
 import Business.DeliveryMan.DeliveryMan;
 import Business.Menu.Item;
 import Business.Menu.Menu;
-import Business.Restaurant.Restaurant;
+import Business.OxygenPlant.OxygenPlant;
 import Business.WorkQueue.WorkRequest;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -22,7 +22,7 @@ public class Order extends WorkRequest {
     private static AtomicInteger atomicInteger = new AtomicInteger(100002);
     private int orderId;
     private String orderStatus;
-    private Restaurant restaurant;
+    private OxygenPlant restaurant;
     private Customer customer;
     private String deliveryMan;
     private int quantity;
@@ -59,11 +59,11 @@ public class Order extends WorkRequest {
         this.orderStatus = orderStatus;
     }
 
-    public Restaurant getRestaurant() {
+    public OxygenPlant getRestaurant() {
         return restaurant;
     }
 
-    public void setRestaurant(Restaurant restaurant) {
+    public void setRestaurant(OxygenPlant restaurant) {
         this.restaurant = restaurant;
     }
 
