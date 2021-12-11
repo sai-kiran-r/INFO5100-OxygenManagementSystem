@@ -36,4 +36,13 @@ public class Menu {
     public void removeItem(Item item) {
         itemList.remove(item);
     }
+    
+    public void updateQunatity(Item item, int quantity){
+        for(Item i : itemList){
+            if(i.getItemName().equals(item.getItemName())){
+                i.setQuantity(quantity);
+            }
+        }
+    }
+    
 }

@@ -9,7 +9,7 @@ import Business.EcoSystem;
 
 import Business.Organization;
 import Business.UserAccount.UserAccount;
-import userinterface.RestaurantAdminRole.AdminWorkAreaJPanel;
+import userinterface.OxygenPlantAdminRole.AdminWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
