@@ -78,7 +78,7 @@ public class ManageBusinessAssistant extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "UserName", "Password", "Address", "PhoneNumber", "Hospital"
+                "Name", "UserName", "Password", "Address", "PhoneNumber", "Business Name"
             }
         ));
         jScrollPane1.setViewportView(tblCustomerDetails);
@@ -172,7 +172,7 @@ public class ManageBusinessAssistant extends javax.swing.JPanel {
                         .addGap(45, 45, 45)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64)
-                        .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

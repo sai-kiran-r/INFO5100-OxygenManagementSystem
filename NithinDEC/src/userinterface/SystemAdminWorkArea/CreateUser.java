@@ -247,6 +247,7 @@ public class CreateUser extends javax.swing.JPanel {
                         businessAdmin.setAddress(txtAddress.getText());
                         businessAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                         aviationObj.setBusinessAdmin(businessAdmin);
+                        system.getAviationDirectory().addBusiness(aviationObj);
                         JOptionPane.showMessageDialog(this, "Added the Aviation Business & Manager successfully");
                     }
                     else{
@@ -277,6 +278,7 @@ public class CreateUser extends javax.swing.JPanel {
                         businessEmployee.setAddress(txtAddress.getText());
                         businessEmployee.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                         aviationObj.setBusinessEmployee(businessEmployee);
+                        system.getAviationDirectory().addBusiness(aviationObj);
                         JOptionPane.showMessageDialog(this, "Added the Aviation Business & Employee successfully");
                     }
                     else{
@@ -306,6 +308,7 @@ public class CreateUser extends javax.swing.JPanel {
                         businessAdmin.setAddress(txtAddress.getText());
                         businessAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                         defenseObj.setBusinessAdmin(businessAdmin);
+                        system.getDefenseDirectory().addBusiness(defenseObj);
                         JOptionPane.showMessageDialog(this, "Added the Defense Business & Manager successfully");
                     }
                     else{
@@ -335,6 +338,7 @@ public class CreateUser extends javax.swing.JPanel {
                         businessEmployee.setAddress(txtAddress.getText());
                         businessEmployee.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                         defenseObj.setBusinessEmployee(businessEmployee);
+                        system.getDefenseDirectory().addBusiness(defenseObj);
                         JOptionPane.showMessageDialog(this, "Added the Defense Business & Employee successfully");
                     }
                     else{
@@ -364,6 +368,7 @@ public class CreateUser extends javax.swing.JPanel {
                         hospitalEmp.setAddress(txtAddress.getText());
                         hospitalEmp.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                         hospObj.setHospitalEmployee(hospitalEmp);
+                        system.getHospitalDirectory().addHospital(hospObj);
                         JOptionPane.showMessageDialog(this, "Added the Hospital Employee successfully");
                     }
                     else{
@@ -490,6 +495,7 @@ public class CreateUser extends javax.swing.JPanel {
                         businessEmployee.setAddress(txtAddress.getText());
                         businessEmployee.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                         scubaObj.setBusinessEmployee(businessEmployee);
+                        system.getScubaOrgDirectory().addBusiness(scubaObj);
                         JOptionPane.showMessageDialog(this, "Added the Scuba Business & Employee successfully");
                     }
                     else{
@@ -520,6 +526,8 @@ public class CreateUser extends javax.swing.JPanel {
                         businessAdmin.setAddress(txtAddress.getText());
                         businessAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                         scubaObj.setBusinessAdmin(businessAdmin);
+                        system.getScubaOrgDirectory().addBusiness(scubaObj);
+
                         JOptionPane.showMessageDialog(this, "Added the Scuba Business & Manager successfully");
                     }
                     else{
@@ -550,6 +558,8 @@ public class CreateUser extends javax.swing.JPanel {
                         businessAdmin.setAddress(txtAddress.getText());
                         businessAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                         pharmaObj.setBusinessAdmin(businessAdmin);
+                        system.getPharmaDirectory().addBusiness(pharmaObj);
+
                         JOptionPane.showMessageDialog(this, "Added the Pharma Business & Manager successfully");
                     }
                     else{
@@ -580,6 +590,7 @@ public class CreateUser extends javax.swing.JPanel {
                         businessEmpl.setAddress(txtAddress.getText());
                         businessEmpl.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                         pharmaObj.setBusinessEmployee(businessEmpl);
+                        system.getPharmaDirectory().addBusiness(pharmaObj);
                         JOptionPane.showMessageDialog(this, "Added the Scuba Business & Manager successfully");
                     }
                     else{
@@ -609,6 +620,7 @@ public class CreateUser extends javax.swing.JPanel {
                         businessAdmin.setAddress(txtAddress.getText());
                         businessAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                         waterPlantObj.setBusinessAdmin(businessAdmin);
+                        system.getWaterTreatementirectory().addBusiness(waterPlantObj);
                         JOptionPane.showMessageDialog(this, "Added the Water Treatment PLant Business & Manager successfully");
                     }
                     else{
@@ -638,6 +650,7 @@ public class CreateUser extends javax.swing.JPanel {
                         businessEmployee.setAddress(txtAddress.getText());
                         businessEmployee.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                         waterPlantObj.setBusinessEmployee(businessEmployee);
+                        system.getWaterTreatementirectory().addBusiness(waterPlantObj);
                         JOptionPane.showMessageDialog(this, "Added the Water Treatment Employee & Business successfully");
                     }
                     else{
@@ -678,6 +691,7 @@ public class CreateUser extends javax.swing.JPanel {
                         hospitalAdmin.setAddress(txtAddress.getText());
                         hospitalAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                         hospObj.setHospitalAdmin(hospitalAdmin);
+                        system.getHospitalDirectory().addHospital(hospObj);
                         JOptionPane.showMessageDialog(this, "Added the Hospital Admin successfully");
                     }
                     else{
