@@ -83,10 +83,12 @@ public class RequestAccountCreation extends javax.swing.JPanel {
         txtPhoneNumber = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtEmailAddress = new javax.swing.JTextField();
+        imgLabel = new javax.swing.JLabel();
 
         jPasswordField1.setText("jPasswordField1");
 
         setBackground(new java.awt.Color(247, 247, 247));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnGoBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/back.png"))); // NOI18N
         btnGoBack.addActionListener(new java.awt.event.ActionListener() {
@@ -94,20 +96,29 @@ public class RequestAccountCreation extends javax.swing.JPanel {
                 btnGoBackActionPerformed(evt);
             }
         });
+        add(btnGoBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 26, 60, 54));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Request For Account Creation");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 41, 385, 39));
 
         jLabel2.setText("Name :");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 103, -1, -1));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 98, 124, -1));
 
         jLabel3.setText("Username :");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 147, -1, -1));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 142, 124, -1));
 
         jLabel4.setText("Password :");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 191, -1, -1));
 
         jLabel5.setText("Confirm Password :");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 235, -1, -1));
 
         jLabel6.setText("Role :");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 419, -1, -1));
 
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +126,7 @@ public class RequestAccountCreation extends javax.swing.JPanel {
                 btnSubmitActionPerformed(evt);
             }
         });
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 460, 77, -1));
 
         comboRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Customer", "Delivery Man" }));
         comboRole.addActionListener(new java.awt.event.ActionListener() {
@@ -122,96 +134,30 @@ public class RequestAccountCreation extends javax.swing.JPanel {
                 comboRoleActionPerformed(evt);
             }
         });
+        add(comboRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 415, 120, -1));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 186, 124, -1));
+        add(txtPasswordConfirmation, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 230, 124, -1));
 
         jLabel8.setText("Address :");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 279, -1, -1));
 
         jLabel9.setText("Phone Number :");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 323, -1, -1));
+        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 274, 124, -1));
+        add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 318, 124, -1));
 
         jLabel10.setText("Email :");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 376, -1, -1));
 
         txtEmailAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailAddressActionPerformed(evt);
             }
         });
+        add(txtEmailAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 371, 124, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(btnGoBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
-                                .addComponent(txtPasswordConfirmation)
-                                .addComponent(txtUsername)
-                                .addComponent(txtName)
-                                .addComponent(txtAddress)
-                                .addComponent(txtPhoneNumber)
-                                .addComponent(txtEmailAddress, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(comboRole, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(132, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnGoBack, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtPasswordConfirmation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addComponent(btnSubmit)
-                .addContainerGap(56, Short.MAX_VALUE))
-        );
+        imgLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/new customer.gif"))); // NOI18N
+        add(imgLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 10, 860, 600));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoBackActionPerformed
@@ -370,6 +316,7 @@ public class RequestAccountCreation extends javax.swing.JPanel {
     private javax.swing.JButton btnGoBack;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JComboBox comboRole;
+    private javax.swing.JLabel imgLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

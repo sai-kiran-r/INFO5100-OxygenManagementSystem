@@ -190,6 +190,7 @@ public class ConfigureASystem {
         deliveryAgent.setAddress("asdasd aasd nasdnkj");
         deliveryAgent.setPhoneNumber(9321322193L);
         deliveryAgent.setStatus("Available");
+     
         system.getDeliveryManDirectory().addDeliveryAgent(deliveryAgent);
         
         Employee oxyplant = system.getEmployeeDirectory().createEmployee("OxyPlant");
