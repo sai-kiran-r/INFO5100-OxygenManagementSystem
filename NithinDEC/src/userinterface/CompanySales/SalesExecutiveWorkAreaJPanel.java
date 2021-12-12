@@ -62,11 +62,11 @@ public class SalesExecutiveWorkAreaJPanel extends javax.swing.JPanel {
     public void showPieChart(){
         
         //create dataset
-      DefaultPieDataset barDataset = new DefaultPieDataset( );
-      barDataset.setValue( "Pharma" , new Double( 20 ) );  
-      barDataset.setValue( "Defence" , new Double( 20 ) );   
-      barDataset.setValue( "Hospitals" , new Double( 40 ) );    
-      barDataset.setValue( "Scuba" , new Double( 10 ) );  
+//      DefaultPieDataset barDataset = new DefaultPieDataset( );
+//      barDataset.setValue( "Pharma" , new Double( 20 ) );  
+//      barDataset.setValue( "Defence" , new Double( 20 ) );   
+//      barDataset.setValue( "Hospitals" , new Double( 40 ) );    
+//      barDataset.setValue( "Scuba" , new Double( 10 ) );  
       
       //create chart
        JFreeChart piechart = ChartFactory.createPieChart("Oxygen Sales",barDataset, false,true,false);//explain
@@ -161,10 +161,10 @@ public class SalesExecutiveWorkAreaJPanel extends javax.swing.JPanel {
         
         CategoryPlot categoryPlot = chart.getCategoryPlot();
         //categoryPlot.setRangeGridlinePaint(Color.BLUE);
-//        categoryPlot.setBackgroundPaint(Color.WHITE);
-//        BarRenderer renderer = (BarRenderer) categoryPlot.getRenderer();
-//        Color clr3 = new Color(204,0,51);
-//        renderer.setSeriesPaint(0, clr3);
+        categoryPlot.setBackgroundPaint(Color.WHITE);
+        BarRenderer renderer = (BarRenderer) categoryPlot.getRenderer();
+        Color clr3 = new Color(204,0,51);
+        renderer.setSeriesPaint(0, clr3);
         
         ChartPanel barpChartPanel = new ChartPanel(chart);
         panelBarChart.removeAll();
