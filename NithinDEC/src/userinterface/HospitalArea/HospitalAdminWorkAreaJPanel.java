@@ -45,19 +45,22 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(Order o : this.system.getOrderDirectory().getOrderDirectory()){
-            System.out.println(this.userAccount.getUsername());
-            System.out.println(o.getDeliveryMan());
-            if((this.userAccount.getUsername().equals(o.getDeliveryMan()))
-                    && (o.getOrderStatus().equals("Delivery Assigned") ||
-                           o.getOrderStatus().equals("Order Picked up") ||
-                    o.getOrderStatus().equals("Delivered"))){
+//            System.out.println(this.userAccount.getUsername());
+//            System.out.println(o.getDeliveryMan());
+            if((o.getOrderStatus().equals("Waiting On Admin Approval")||
+                    o.getOrderStatus().equals("Order Placed") ||
+                    o.getOrderStatus().equals("Order Picked up") ||
+                    o.getOrderStatus().equals("Delivered"))
+                    && (o.getReceiver().getUsername().equalsIgnoreCase("hospitalemp"))){
                 System.out.println(o);
-                Object[] row = new Object[5];
+                Object[] row = new Object[7];
                 row[0] = o;
-                row[1] = o.getSender().getUsername();
+                row[1] = o.getMessage();
                 row[2] = o.getReceiver().getUsername();
                 row[3] = o.getOrderStatus();
                 row[4] = o.getMessage();
+                row[5] = o.getItem().getItemName();
+                row[6] = o.getQuantity();
                 model.addRow(row);
             }
         }
@@ -79,27 +82,27 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         refreshJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lbUserName = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(246, 252, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "OrderId", "Sender", "Receiver", "Status", "Message"
+                "OrderId", "Message", "Receiver", "Status", "ItemName", "Quantity"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                true, true, true, false, true
+                true, true, true, false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -118,7 +121,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 375, 96));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 630, 96));
 
         assignJButton.setText("Accept Request");
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +129,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 244, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, -1, -1));
 
         processJButton.setText("Decline Request");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +137,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 285, -1, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, -1, -1));
 
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -152,8 +155,8 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         lbUserName.setText("<value>");
         add(lbUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 259, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HSADMIN2 (1).jpg"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 1290, 840));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/hospital_admin.gif"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 790, 560));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
@@ -167,7 +170,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         
         Order order = (Order) workRequestJTable.getValueAt(selectedRow,0);
 //        order.setDeliveryMan(userAccount.getEmployee().getName());
-        order.setOrderStatus("Order Picked up");
+        order.setOrderStatus("Order Placed");
         populateTable();        
     }//GEN-LAST:event_assignJButtonActionPerformed
 
@@ -182,13 +185,13 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         
         
         Order order = (Order) workRequestJTable.getValueAt(selectedRow, 0);
-        if(order.getOrderStatus().equals("Delivered")) {
-            JOptionPane.showMessageDialog(null, "Already Delivered.");
+        if(order.getOrderStatus().equals("Order Placed")) {
+            JOptionPane.showMessageDialog(null, "Already Accepted the Order.");
             return;
         }
-        else if(order.getOrderStatus().equals("Order Picked up")){
-            order.setOrderStatus("Delivered");
-            JOptionPane.showMessageDialog(null, "Delivered Order with id : " + order.getOrderId());
+        else if(order.getOrderStatus().equals("Waiting On Admin Approval")){
+            order.setOrderStatus("Order Rejected");
+            JOptionPane.showMessageDialog(null, "Order Rejected with Order id : " + order.getOrderId());
             populateTable();
         }
         else{
@@ -207,7 +210,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignJButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbUserName;
     private javax.swing.JButton processJButton;

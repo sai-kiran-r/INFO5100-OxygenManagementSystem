@@ -61,6 +61,7 @@ public class EcoSystem extends Organization{
     private ScubaOrgDirectory scubaOrgDirectory;
     private WaterTreatmentOrgDirectory waterTreatmentOrgDirectory; 
     private ArrayList<PendingAccountApproval> PendingAccountCreation;
+    private ArrayList<Order> hospitalPendingOrderApproval;
     
     public EcoSystem(OxygenPlantDirectory oxygenPlantDirectory, 
                     CustomerDirectory customerDirectory, 
@@ -79,7 +80,8 @@ public class EcoSystem extends Organization{
             PharmaOrgDirectory pharmaDirectory, AviationOrgDirectory aviationDirectory,
             DefenseOrgDirectory defenseDirectory, ScubaOrgDirectory scubaOrgDirectory,
             WaterTreatmentOrgDirectory waterTreatmentOrgDirectory,
-            ArrayList<PendingAccountApproval> PendingAccountCreation) {
+            ArrayList<PendingAccountApproval> PendingAccountCreation,
+            ArrayList<Order> hospitalPendingOrderApproval) {
         System.out.println("Inside public constructuer");
         this.oxygenPlantDirectory = oxygenPlantDirectory;
         this.customerDirectory = customerDirectory;
@@ -94,6 +96,7 @@ public class EcoSystem extends Organization{
         this.scubaOrgDirectory = scubaOrgDirectory;
         this.waterTreatmentOrgDirectory = waterTreatmentOrgDirectory;
         this.PendingAccountCreation = PendingAccountCreation;
+        this.hospitalPendingOrderApproval = hospitalPendingOrderApproval;
     }
     
     public EcoSystem(){
@@ -111,7 +114,7 @@ public class EcoSystem extends Organization{
         this.scubaOrgDirectory = new ScubaOrgDirectory();
         this.waterTreatmentOrgDirectory = new WaterTreatmentOrgDirectory();
         this.PendingAccountCreation = new ArrayList<PendingAccountApproval>();
-        
+        this.hospitalPendingOrderApproval = new ArrayList<Order>();
        // networkList=new ArrayList<Network>();
     }
     
@@ -247,6 +250,11 @@ public class EcoSystem extends Organization{
     
     public void setPendingAccountApproval(ArrayList<PendingAccountApproval> ar){
         this.PendingAccountCreation = ar;
+    }
+    
+    
+    public void addOrderHospitalQueue(Order e){
+        this.hospitalPendingOrderApproval.add(e);
     }
     
     public int getLastOrderId(){

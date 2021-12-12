@@ -152,8 +152,8 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         add(lbUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 120, -1));
 
         jLabel2.setBackground(new java.awt.Color(246, 252, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/preview.jpg"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 460, 520));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delivery.gif"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 520));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
