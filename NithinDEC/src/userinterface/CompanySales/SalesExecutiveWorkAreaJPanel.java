@@ -12,10 +12,24 @@ import Business.Order.Order;
 
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.category.LineAndShapeRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.statistics.HistogramDataset;
 
 /**
  *
@@ -39,6 +53,125 @@ public class SalesExecutiveWorkAreaJPanel extends javax.swing.JPanel {
         this.system = system;
         lbUserName.setText(account.getUsername());
         populateTable();
+        showPieChart();
+        showLineChart();
+        showHistogram();
+        showBarChart();
+        
+    }
+    public void showPieChart(){
+        
+        //create dataset
+      DefaultPieDataset barDataset = new DefaultPieDataset( );
+      barDataset.setValue( "Pharma" , new Double( 20 ) );  
+      barDataset.setValue( "Defence" , new Double( 20 ) );   
+      barDataset.setValue( "Hospitals" , new Double( 40 ) );    
+      barDataset.setValue( "Scuba" , new Double( 10 ) );  
+      
+      //create chart
+       JFreeChart piechart = ChartFactory.createPieChart("Oxygen Sales",barDataset, false,true,false);//explain
+      
+        PiePlot piePlot =(PiePlot) piechart.getPlot();
+      
+       //changing pie chart blocks colors
+       piePlot.setSectionPaint("Pharma", new Color(255,255,102));
+        piePlot.setSectionPaint("Defence", new Color(102,255,102));
+        piePlot.setSectionPaint("Hospitals", new Color(255,102,153));
+        piePlot.setSectionPaint("Scuba", new Color(0,204,204));
+      
+       
+        piePlot.setBackgroundPaint(Color.white);
+        
+        //create chartPanel to display chart(graph)
+        ChartPanel pieChartPanel = new ChartPanel(piechart);
+        panelPieChart.removeAll();
+        panelPieChart.add(pieChartPanel, BorderLayout.CENTER);
+        panelPieChart.validate();
+    }
+    
+      public void showLineChart(){
+        //create dataset for the graph
+         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        dataset.setValue(200, "Amount", "january");
+        dataset.setValue(150, "Amount", "february");
+        dataset.setValue(18, "Amount", "march");
+        dataset.setValue(100, "Amount", "april");
+        dataset.setValue(80, "Amount", "may");
+        dataset.setValue(250, "Amount", "june");
+        
+        //create chart
+        JFreeChart linechart = ChartFactory.createLineChart("Purchase Trend","monthly","Number of Orders", 
+                dataset, PlotOrientation.VERTICAL, false,true,false);
+        
+        //create plot object
+         CategoryPlot lineCategoryPlot = linechart.getCategoryPlot();
+       // lineCategoryPlot.setRangeGridlinePaint(Color.BLUE);
+        lineCategoryPlot.setBackgroundPaint(Color.white);
+        
+        //create render object to change the moficy the line properties like color
+        LineAndShapeRenderer lineRenderer = (LineAndShapeRenderer) lineCategoryPlot.getRenderer();
+        Color lineChartColor = new Color(204,0,51);
+        lineRenderer.setSeriesPaint(0, lineChartColor);
+        
+         //create chartPanel to display chart(graph)
+        ChartPanel lineChartPanel = new ChartPanel(linechart);
+        panelLineChart.removeAll();
+        panelLineChart.add(lineChartPanel, BorderLayout.CENTER);
+        panelLineChart.validate();
+      }  
+      
+       public void showHistogram(){
+        
+         double[] values = { 95, 49, 14, 59, 50, 66, 47, 40, 1, 67,
+                            12, 58, 28, 63, 14, 9, 31, 17, 94, 71,
+                            49, 64, 73, 97, 15, 63, 10, 12, 31, 62,
+                            93, 49, 74, 90, 59, 14, 15, 88, 26, 57,
+                            77, 44, 58, 91, 10, 67, 57, 19, 88, 84                                
+                          };
+ 
+ 
+        HistogramDataset dataset = new HistogramDataset();
+        dataset.addSeries("key", values, 20);
+        
+         JFreeChart chart = ChartFactory.createHistogram("Oxygen Cylinder Sales Histogram","Cylinder Packs", "Purchase Frequency", dataset,PlotOrientation.VERTICAL, false,true,false);
+            XYPlot plot= chart.getXYPlot();
+        plot.setBackgroundPaint(Color.WHITE);
+
+        
+        
+        ChartPanel barpChartPanel2 = new ChartPanel(chart);
+        panelHistogramChart.removeAll();
+        panelHistogramChart.add(barpChartPanel2, BorderLayout.CENTER);
+        panelHistogramChart.validate();
+    }
+
+    /*========================================================================================*/
+    
+    public void showBarChart(){
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        dataset.setValue(200, "Amount", "january");
+        dataset.setValue(150, "Amount", "february");
+        dataset.setValue(18, "Amount", "march");
+        dataset.setValue(100, "Amount", "april");
+        dataset.setValue(80, "Amount", "may");
+        dataset.setValue(250, "Amount", "june");
+        
+        JFreeChart chart = ChartFactory.createBarChart("Montlhy Turnover","monthly","Earned In USD(10k)", 
+                dataset, PlotOrientation.VERTICAL, false,true,false);
+        
+        CategoryPlot categoryPlot = chart.getCategoryPlot();
+        //categoryPlot.setRangeGridlinePaint(Color.BLUE);
+        categoryPlot.setBackgroundPaint(Color.WHITE);
+        BarRenderer renderer = (BarRenderer) categoryPlot.getRenderer();
+        Color clr3 = new Color(204,0,51);
+        renderer.setSeriesPaint(0, clr3);
+        
+        ChartPanel barpChartPanel = new ChartPanel(chart);
+        panelBarChart.removeAll();
+        panelBarChart.add(barpChartPanel, BorderLayout.CENTER);
+        panelBarChart.validate();
+        
+        
     }
     
     public void populateTable(){
@@ -76,12 +209,12 @@ public class SalesExecutiveWorkAreaJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         workRequestJTable = new javax.swing.JTable();
-        assignJButton = new javax.swing.JButton();
-        processJButton = new javax.swing.JButton();
-        refreshJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lbUserName = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        panelBarChart = new javax.swing.JPanel();
+        panelPieChart = new javax.swing.JPanel();
+        panelLineChart = new javax.swing.JPanel();
+        panelHistogramChart = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(246, 252, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,31 +253,7 @@ public class SalesExecutiveWorkAreaJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 375, 96));
-
-        assignJButton.setText("Accept Request");
-        assignJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                assignJButtonActionPerformed(evt);
-            }
-        });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 244, -1, -1));
-
-        processJButton.setText("Decline Request");
-        processJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                processJButtonActionPerformed(evt);
-            }
-        });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 285, -1, -1));
-
-        refreshJButton.setText("Refresh");
-        refreshJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshJButtonActionPerformed(evt);
-            }
-        });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 70, -1, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 10, 10));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Welcome : ");
@@ -154,66 +263,27 @@ public class SalesExecutiveWorkAreaJPanel extends javax.swing.JPanel {
         lbUserName.setText("<value>");
         add(lbUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 259, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HSADMIN2 (1).jpg"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 1290, 840));
+        panelBarChart.setLayout(new java.awt.BorderLayout());
+        add(panelBarChart, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 410, 280));
+
+        panelPieChart.setLayout(new java.awt.BorderLayout());
+        add(panelPieChart, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 420, 280));
+
+        panelLineChart.setLayout(new java.awt.BorderLayout());
+        add(panelLineChart, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 420, 280));
+
+        panelHistogramChart.setLayout(new java.awt.BorderLayout());
+        add(panelHistogramChart, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 420, 280));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
-
-        int selectedRow = workRequestJTable.getSelectedRow();
-        
-        if (selectedRow < 0){
-            JOptionPane.showMessageDialog(null,"Please select a row");
-            return;
-        }
-        
-        Order order = (Order) workRequestJTable.getValueAt(selectedRow,0);
-//        order.setDeliveryMan(userAccount.getEmployee().getName());
-        order.setOrderStatus("Order Picked up");
-        populateTable();        
-    }//GEN-LAST:event_assignJButtonActionPerformed
-
-    private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
-        
-        int selectedRow = workRequestJTable.getSelectedRow();
-        
-        if (selectedRow < 0){
-            JOptionPane.showMessageDialog(null,"Please select a row");
-            return;
-        }
-        
-        
-        Order order = (Order) workRequestJTable.getValueAt(selectedRow, 0);
-        if(order.getOrderStatus().equals("Delivered")) {
-            JOptionPane.showMessageDialog(null, "Already Delivered.");
-            return;
-        }
-        else if(order.getOrderStatus().equals("Order Picked up")){
-            order.setOrderStatus("Delivered");
-            JOptionPane.showMessageDialog(null, "Delivered Order with id : " + order.getOrderId());
-            populateTable();
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Please assign the order first");
-        }
-        
-        //orderDirectory.getOrderDirectory().remove(order);
-        
- 
-    }//GEN-LAST:event_processJButtonActionPerformed
-
-    private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
-        populateTable();
-    }//GEN-LAST:event_refreshJButtonActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton assignJButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbUserName;
-    private javax.swing.JButton processJButton;
-    private javax.swing.JButton refreshJButton;
+    private javax.swing.JPanel panelBarChart;
+    private javax.swing.JPanel panelHistogramChart;
+    private javax.swing.JPanel panelLineChart;
+    private javax.swing.JPanel panelPieChart;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
 }
