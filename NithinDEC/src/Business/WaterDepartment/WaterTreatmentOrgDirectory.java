@@ -65,6 +65,15 @@ public class WaterTreatmentOrgDirectory{
         return null;
     }
     
+    public WaterTreatmentOrg getBusiness(String businessName){
+        for(WaterTreatmentOrg r : waterTreatmentDirectory) {
+            if(r.getBusinessName().equals(businessName)) {
+                return r;
+            }
+        }
+        return null;
+    }
+    
     public void addBusiness(WaterTreatmentOrg rs){
         waterTreatmentDirectory.add(rs);
     }

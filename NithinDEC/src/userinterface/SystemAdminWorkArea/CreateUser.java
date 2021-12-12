@@ -5,18 +5,49 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.AviationOrg.AviationOrg;
+import Business.AviationOrg.AviationOrgAdmin;
+import Business.AviationOrg.AviationOrgEmployee;
 import Business.Customer.Customer;
+import Business.CustomerSales.SalesEmployee;
+import Business.CustomerSales.SalesManager;
+import Business.DefenseOrg.DefenseOrg;
+import Business.DefenseOrg.DefenseOrgAdmin;
+import Business.DefenseOrg.DefenseOrgEmployee;
 import Business.DeliveryMan.DeliveryMan;
 import Business.OxygenPlant.OxygenPlant;
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Hospital.Hospital;
 import Business.Hospital.HospitalAdmin;
+import Business.Hospital.HospitalEmployee;
+import Business.NGO.NGOAdmin;
+import Business.NGO.NGOEmployee;
 import Business.OxygenPlant.OxygenPlant;
+import Business.PharmaOrg.PharmaOrg;
+import Business.PharmaOrg.PharmaOrgAdmin;
+import Business.PharmaOrg.PharmaOrgEmployee;
 import Business.Role.AdminRole;
+import Business.Role.AviationOrgEmployeeRole;
+import Business.Role.AviationOrgManagerRole;
 import Business.Role.CustomerRole;
+import Business.Role.DefenseOrgEmployeeRole;
+import Business.Role.DefenseOrgManagerRole;
 import Business.Role.DeliverManRole;
 import Business.Role.HospitalAdminRole;
+import Business.Role.HospitalOperationsAdminRole;
+import Business.Role.NGOAdminRole;
+import Business.Role.PharmaEmployeeRole;
+import Business.Role.PharmaManagerRole;
+import Business.Role.SalesEmployeeRole;
+import Business.Role.SalesManagerRole;
+import Business.Role.ScubaOrgEmployeeRole;
+import Business.Role.ScubaOrgManagerRole;
+import Business.Role.WaterPlantEmployeeRole;
+import Business.Role.WaterPlantManagerRole;
+import Business.ScubaOrg.ScubaOrg;
+import Business.ScubaOrg.ScubaOrgAdmin;
+import Business.ScubaOrg.ScubaOrgEmployee;
 import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
@@ -27,8 +58,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import Business.Validation.Validation;
+import Business.WaterDepartment.WaterTreatmentOrg;
+import Business.WaterDepartment.WaterTreatmentOrgAdmin;
+import Business.WaterDepartment.WaterTreatmentOrgEmployee;
 import java.awt.Dimension;
 import javax.swing.UIManager;
+import userinterface.CompanySales.SalesExecutiveWorkAreaJPanel;
 
 /**
  *
@@ -197,46 +232,424 @@ public class CreateUser extends javax.swing.JPanel {
                     this.clearText();
                 }
                 else if(role.equals("Aviation Manager")){
+                    if(txtBusinessName.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Business name should not be empty");
+                        return;
+                    }
+                    
+                    String businessName = txtBusinessName.getText();
+                    if(system.getAviationDirectory().getBusiness(businessName)==null){
+                        AviationOrg aviationObj = new AviationOrg(businessName, txtAddress.getText());
+                        aviationObj.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new AviationOrgManagerRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        AviationOrgAdmin businessAdmin = new AviationOrgAdmin(ua);
+                        businessAdmin.setAddress(txtAddress.getText());
+                        businessAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        aviationObj.setBusinessAdmin(businessAdmin);
+                        JOptionPane.showMessageDialog(this, "Added the Aviation Business & Manager successfully");
+                    }
+                    else{
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new AviationOrgManagerRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        AviationOrgAdmin businessAdmin = new AviationOrgAdmin(ua);
+                        businessAdmin.setAddress(txtAddress.getText());
+                        businessAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText())); 
+                        system.getAviationDirectory().getBusiness(txtBusinessName.getText()).setBusinessAdmin(businessAdmin);
+                        JOptionPane.showMessageDialog(this, "Added the Aviation Business manager successfully");
+                    }
+                    this.clearText();
                     
                 }
                 else if(role.equals("Aviation Employee")){
+                    if(txtBusinessName.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Business name should not be empty");
+                        return;
+                    }
                     
+                    String businessName = txtBusinessName.getText();
+                    if(system.getAviationDirectory().getBusiness(businessName)==null){
+                        AviationOrg aviationObj = new AviationOrg(businessName, txtAddress.getText());
+                        aviationObj.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new AviationOrgEmployeeRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        AviationOrgEmployee businessEmployee = new AviationOrgEmployee(ua);
+                        businessEmployee.setAddress(txtAddress.getText());
+                        businessEmployee.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        aviationObj.setBusinessEmployee(businessEmployee);
+                        JOptionPane.showMessageDialog(this, "Added the Aviation Business & Employee successfully");
+                    }
+                    else{
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new AviationOrgEmployeeRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        AviationOrgEmployee businessEmployee = new AviationOrgEmployee(ua);
+                        businessEmployee.setAddress(txtAddress.getText());
+                        businessEmployee.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText())); 
+                        system.getAviationDirectory().getBusiness(txtBusinessName.getText()).setBusinessEmployee(businessEmployee);
+                        JOptionPane.showMessageDialog(this, "Added the Aviation Business Employee successfully");
+                    }
+                    this.clearText();
                 }
                 else if(role.equals("Defense Manager")){
+                    if(txtBusinessName.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Business name should not be empty");
+                        return;
+                    }
                     
+                    String businessName = txtBusinessName.getText();
+                    if(system.getDefenseDirectory().getBusiness(businessName)==null){
+                        DefenseOrg defenseObj = new DefenseOrg(businessName, txtAddress.getText());
+                        defenseObj.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new DefenseOrgManagerRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        DefenseOrgAdmin businessAdmin = new DefenseOrgAdmin(ua);
+                        businessAdmin.setAddress(txtAddress.getText());
+                        businessAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        defenseObj.setBusinessAdmin(businessAdmin);
+                        JOptionPane.showMessageDialog(this, "Added the Defense Business & Manager successfully");
+                    }
+                    else{
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new DefenseOrgManagerRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        DefenseOrgAdmin businessAdmin = new DefenseOrgAdmin(ua);
+                        businessAdmin.setAddress(txtAddress.getText());
+                        businessAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText())); 
+                        system.getDefenseDirectory().getBusiness(txtBusinessName.getText()).setBusinessAdmin(businessAdmin);
+                        JOptionPane.showMessageDialog(this, "Added the Defense Manager successfully");
+                    }
+                    this.clearText();
                 }
                 else if(role.equals("Defense Employee")){
+                    if(txtBusinessName.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Business name should not be empty");
+                        return;
+                    }
                     
+                    String businessName = txtBusinessName.getText();
+                    if(system.getDefenseDirectory().getBusiness(businessName)==null){
+                        DefenseOrg defenseObj = new DefenseOrg(businessName, txtAddress.getText());
+                        defenseObj.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new DefenseOrgEmployeeRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        DefenseOrgEmployee businessEmployee = new DefenseOrgEmployee(ua);
+                        businessEmployee.setAddress(txtAddress.getText());
+                        businessEmployee.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        defenseObj.setBusinessEmployee(businessEmployee);
+                        JOptionPane.showMessageDialog(this, "Added the Defense Business & Employee successfully");
+                    }
+                    else{
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new DefenseOrgEmployeeRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        DefenseOrgEmployee businessEmployee = new DefenseOrgEmployee(ua);
+                        businessEmployee.setAddress(txtAddress.getText());
+                        businessEmployee.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText())); 
+                        system.getDefenseDirectory().getBusiness(txtBusinessName.getText()).setBusinessEmployee(businessEmployee);
+                        JOptionPane.showMessageDialog(this, "Added the Defense Employee successfully");
+                    }
+                    this.clearText();
                 }
                 else if(role.equals("Hospital Employee")){
+                    if(txtBusinessName.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Business name should not be empty");
+                        return;
+                    }
                     
+                    String hospitalName = txtBusinessName.getText();
+                    if(system.getHospitalDirectory().getHospital(hospitalName)==null){
+                        Hospital hospObj = new Hospital(hospitalName, txtAddress.getText());
+                        hospObj.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new HospitalOperationsAdminRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        HospitalEmployee hospitalEmp = new HospitalEmployee(ua);
+                        hospitalEmp.setAddress(txtAddress.getText());
+                        hospitalEmp.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        hospObj.setHospitalEmployee(hospitalEmp);
+                        JOptionPane.showMessageDialog(this, "Added the Hospital Employee successfully");
+                    }
+                    else{
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new HospitalOperationsAdminRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        HospitalEmployee hospitalEmp = new HospitalEmployee(ua);
+                        hospitalEmp.setAddress(txtAddress.getText());
+                        hospitalEmp.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText())); 
+                        system.getHospitalDirectory().getHospital(txtBusinessName.getText()).setHospitalEmployee(hospitalEmp);
+                        JOptionPane.showMessageDialog(this, "Added the Hospital Employee successfully");
+                    }
+                    this.clearText();
                 }
                 else if(role.equals("Sales Manager")){
+                    boolean userExists = false;
+                    for(SalesManager se : this.system.getSalesDirectory().returnSalesManagerDetails()){
+                        if(se.getName().equals(txtName.getText())){
+                            JOptionPane.showMessageDialog(this, "Sales Manager Exists with same name");
+                            return;
+                        }
+                    }
+                    if(userExists==false){
+                       usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new SalesManagerRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        SalesManager salesManager = new SalesManager(ua);
+                        salesManager.setAddress(txtAddress.getText());
+                        salesManager.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        this.system.getSalesDirectory().addManager(salesManager);
+                        JOptionPane.showMessageDialog(this, "Added the Hospital Employee successfully"); 
+                    }
                     
                 }
                 else if(role.equals("Sales Executive")){
+                    boolean userExists = false;
+                    for(SalesEmployee se : this.system.getSalesDirectory().returnEmployeeDetails()){
+                        if(se.getName().equals(txtName.getText())){
+                            JOptionPane.showMessageDialog(this, "Sales Executive Exists with same name");
+                            return;
+                        }
+                    }
+                    if(userExists==false){
+                       usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new SalesEmployeeRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        SalesEmployee salesEmployee = new SalesEmployee(ua);
+                        salesEmployee.setAddress(txtAddress.getText());
+                        salesEmployee.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        this.system.getSalesDirectory().addEmployee(salesEmployee);
+                        JOptionPane.showMessageDialog(this, "Added the Sales Executive successfully"); 
+                    }
                     
+                    this.clearText();
                 }
                 else if(role.equals("NGO Administrator")){
+                    if(txtBusinessName.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Business name should not be empty");
+                        return;
+                    }
                     
+                    String businessName = txtBusinessName.getText();
+                    boolean userExists = false;
+                    int adminCounter = 0;
+                    for(NGOAdmin ngoAdmin : system.getNGODirectory().returnAdminDetails()){
+                        if(ngoAdmin.getBusinessName().toString().equals(businessName)){
+                            userExists = true;
+                            usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new NGOAdminRole());
+                            UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                            NGOAdmin ngoAdminObj = new NGOAdmin(ua);
+                            system.getNGODirectory().updateAdminDetails(ngoAdminObj, adminCounter);
+                            break;
+                        }
+                        adminCounter++;
+                    }
+                    
+                    if(userExists == false){
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new NGOAdminRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        NGOAdmin ngoAdminObj = new NGOAdmin(ua);
+                        system.getNGODirectory().addAdmin(ngoAdminObj);
+                    }
+                    this.clearText();
                 }
                 else if(role.equals("NGO Employee")){
+                    if(txtBusinessName.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Business name should not be empty");
+                        return;
+                    }
                     
+                    String businessName = txtBusinessName.getText();
+                    boolean userExists = false;
+                    int empCounter = 0;
+                    for(NGOEmployee ngoEmp : system.getNGODirectory().returnEmployeeDetails()){
+                        if(ngoEmp.getBusinessName().toString().equals(businessName)){
+                            userExists = true;
+                            usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new NGOAdminRole());
+                            UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                            NGOEmployee ngoEmpObj = new NGOEmployee(ua);
+                            system.getNGODirectory().updateEmployeeDetails(ngoEmpObj, empCounter);
+                            break;
+                        }
+                        empCounter++;
+                    }
+                    
+                    if(userExists == false){
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new NGOAdminRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        NGOEmployee ngoEmpObj = new NGOEmployee(ua);
+                        system.getNGODirectory().addEmployee(ngoEmpObj);
+                    }
+                    this.clearText();
                 }
                 else if(role.equals("Scuba Employee")){
+                    if(txtBusinessName.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Business name should not be empty");
+                        return;
+                    }
+                    
+                    String businessName = txtBusinessName.getText();
+                    if(system.getScubaOrgDirectory().getBusiness(businessName)==null){
+                        ScubaOrg scubaObj = new ScubaOrg(businessName, txtAddress.getText());
+                        scubaObj.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new ScubaOrgEmployeeRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        ScubaOrgEmployee businessEmployee = new ScubaOrgEmployee(ua);
+                        businessEmployee.setAddress(txtAddress.getText());
+                        businessEmployee.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        scubaObj.setBusinessEmployee(businessEmployee);
+                        JOptionPane.showMessageDialog(this, "Added the Scuba Business & Employee successfully");
+                    }
+                    else{
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new ScubaOrgEmployeeRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        ScubaOrgEmployee businessEmp = new ScubaOrgEmployee(ua);
+                        businessEmp.setAddress(txtAddress.getText());
+                        businessEmp.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText())); 
+                        system.getScubaOrgDirectory().getBusiness(txtBusinessName.getText()).setBusinessEmployee(businessEmp);
+                        JOptionPane.showMessageDialog(this, "Added the Scuba Business Employee successfully");
+                    }
+                    this.clearText();
                     
                 }
                 else if(role.equals("Scuba Manager")){
+                    if(txtBusinessName.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Business name should not be empty");
+                        return;
+                    }
+                    
+                    String businessName = txtBusinessName.getText();
+                    if(system.getScubaOrgDirectory().getBusiness(businessName)==null){
+                        ScubaOrg scubaObj = new ScubaOrg(businessName, txtAddress.getText());
+                        scubaObj.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new ScubaOrgManagerRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        ScubaOrgAdmin businessAdmin = new ScubaOrgAdmin(ua);
+                        businessAdmin.setAddress(txtAddress.getText());
+                        businessAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        scubaObj.setBusinessAdmin(businessAdmin);
+                        JOptionPane.showMessageDialog(this, "Added the Scuba Business & Manager successfully");
+                    }
+                    else{
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new ScubaOrgManagerRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        ScubaOrgAdmin businessAdmin = new ScubaOrgAdmin(ua);
+                        businessAdmin.setAddress(txtAddress.getText());
+                        businessAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText())); 
+                        system.getScubaOrgDirectory().getBusiness(txtBusinessName.getText()).setBusinessAdmin(businessAdmin);
+                        JOptionPane.showMessageDialog(this, "Added the Scuba Business manager successfully");
+                    }
+                    this.clearText();
                     
                 }
                 else if(role.equals("Pharma Manager")){
+                    if(txtBusinessName.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Business name should not be empty");
+                        return;
+                    }
                     
+                    String businessName = txtBusinessName.getText();
+                    if(system.getPharmaDirectory().getBusiness(businessName)==null){
+                        PharmaOrg pharmaObj = new PharmaOrg(businessName, txtAddress.getText());
+                        pharmaObj.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new PharmaManagerRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        PharmaOrgAdmin businessAdmin = new PharmaOrgAdmin(ua);
+                        businessAdmin.setAddress(txtAddress.getText());
+                        businessAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        pharmaObj.setBusinessAdmin(businessAdmin);
+                        JOptionPane.showMessageDialog(this, "Added the Pharma Business & Manager successfully");
+                    }
+                    else{
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new PharmaManagerRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        PharmaOrgAdmin businessAdmin = new PharmaOrgAdmin(ua);
+                        businessAdmin.setAddress(txtAddress.getText());
+                        businessAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText())); 
+                        system.getPharmaDirectory().getBusiness(txtBusinessName.getText()).setBusinessAdmin(businessAdmin);
+                        JOptionPane.showMessageDialog(this, "Added the Pharma Business manager successfully");
+                    }
+                    this.clearText();
+                    
+                }
+                else if(role.equals("Pharma Employee")){
+                    if(txtBusinessName.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Business name should not be empty");
+                        return;
+                    }
+                    
+                    String businessName = txtBusinessName.getText();
+                    if(system.getPharmaDirectory().getBusiness(businessName)==null){
+                        PharmaOrg pharmaObj = new PharmaOrg(businessName, txtAddress.getText());                        
+                        pharmaObj.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new PharmaEmployeeRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        PharmaOrgEmployee businessEmpl = new PharmaOrgEmployee(ua);
+                        businessEmpl.setAddress(txtAddress.getText());
+                        businessEmpl.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        pharmaObj.setBusinessEmployee(businessEmpl);
+                        JOptionPane.showMessageDialog(this, "Added the Scuba Business & Manager successfully");
+                    }
+                    else{
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new PharmaEmployeeRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        PharmaOrgEmployee businessEmpl = new PharmaOrgEmployee(ua);
+                        businessEmpl.setAddress(txtAddress.getText());
+                        businessEmpl.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText())); 
+                        system.getPharmaDirectory().getBusiness(txtBusinessName.getText()).setBusinessEmployee(businessEmpl);
+                        JOptionPane.showMessageDialog(this, "Added the Scuba Business manager successfully");
+                    }
+                    this.clearText();
                 }
                 else if(role.equals("WaterPlant Admin")){
+                    if(txtBusinessName.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Business name should not be empty");
+                        return;
+                    }
                     
+                    String businessName = txtBusinessName.getText();
+                    if(system.getWaterTreatementirectory().getBusiness(businessName)==null){
+                        WaterTreatmentOrg waterPlantObj = new WaterTreatmentOrg(businessName, txtAddress.getText());
+                        waterPlantObj.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new WaterPlantManagerRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        WaterTreatmentOrgAdmin businessAdmin = new WaterTreatmentOrgAdmin(ua);
+                        businessAdmin.setAddress(txtAddress.getText());
+                        businessAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        waterPlantObj.setBusinessAdmin(businessAdmin);
+                        JOptionPane.showMessageDialog(this, "Added the Water Treatment PLant Business & Manager successfully");
+                    }
+                    else{
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new PharmaManagerRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        WaterTreatmentOrgAdmin businessAdmin = new WaterTreatmentOrgAdmin(ua);
+                        businessAdmin.setAddress(txtAddress.getText());
+                        businessAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText())); 
+                        system.getWaterTreatementirectory().getBusiness(txtBusinessName.getText()).setBusinessAdmin(businessAdmin);
+                        JOptionPane.showMessageDialog(this, "Added the Treatment PLant Business manager successfully");
+                    }
+                    this.clearText();
                 }
                 else if(role.equals("WaterPlant Employee")){
+                    if(txtBusinessName.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Business name should not be empty");
+                        return;
+                    }
                     
+                    String businessName = txtBusinessName.getText();
+                    if(system.getWaterTreatementirectory().getBusiness(businessName)==null){
+                        WaterTreatmentOrg waterPlantObj = new WaterTreatmentOrg(businessName, txtAddress.getText());
+                        waterPlantObj.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new WaterPlantEmployeeRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        WaterTreatmentOrgEmployee businessEmployee = new WaterTreatmentOrgEmployee(ua);
+                        businessEmployee.setAddress(txtAddress.getText());
+                        businessEmployee.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        waterPlantObj.setBusinessEmployee(businessEmployee);
+                        JOptionPane.showMessageDialog(this, "Added the Water Treatment Employee & Business successfully");
+                    }
+                    else{
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new WaterPlantEmployeeRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        WaterTreatmentOrgEmployee businessEmp = new WaterTreatmentOrgEmployee(ua);
+                        businessEmp.setAddress(txtAddress.getText());
+                        businessEmp.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText())); 
+                        system.getWaterTreatementirectory().getBusiness(txtBusinessName.getText()).setBusinessEmployee(businessEmp);
+                        JOptionPane.showMessageDialog(this, "Added the Treatment PLant Business Employee successfully");
+                    }
+                    this.clearText();
                 }
                 else if(role.equals("Delivery Man")){
                     usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new DeliverManRole());
@@ -318,8 +731,9 @@ public class CreateUser extends javax.swing.JPanel {
         // TODO add your handling code here:
         System.out.println("Selected Role : " + comboRole.getSelectedItem().toString());
         if(comboRole.getSelectedItem().toString().equals("Customer")
-                ||
-           comboRole.getSelectedItem().toString().equals("Delivery Man")){
+                || comboRole.getSelectedItem().toString().equals("Delivery Man")
+           || comboRole.getSelectedItem().toString().equals("Sales Executive") ||
+                comboRole.getSelectedItem().toString().equals("Sales Manager")){
             txtBusinessName.setEditable(false);
         }
         else{

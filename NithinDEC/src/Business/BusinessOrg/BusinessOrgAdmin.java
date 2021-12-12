@@ -12,12 +12,12 @@ import Business.UserAccount.UserAccount;
  */
 public class BusinessOrgAdmin {
     
-    private String name;
-    private String userName;
-    private String userPassword;
-    private long phoneNumber;
-    private String address;
-    UserAccount ua;
+    public String name;
+    public String userName;
+    public String userPassword;
+    public long phoneNumber;
+    public String address;
+    public UserAccount ua;
 
     public long getPhoneNumber() {
         return phoneNumber;

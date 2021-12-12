@@ -46,6 +46,14 @@ public class NGODirectory {
         ngoAdmin = cusList;
     }
     
+    public void updateAdminDetails(NGOAdmin ngoAdminObj, int index){
+        ngoAdmin.set(index, ngoAdminObj);
+    }
+    
+    public void updateEmployeeDetails(NGOEmployee ngoEmployeeObj, int index){
+        ngoEmployee.set(index, ngoEmployeeObj);
+    }
+    
     public void addEmployee(NGOEmployee c){
         ngoEmployee.add(c);
     }
