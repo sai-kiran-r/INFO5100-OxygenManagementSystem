@@ -7,6 +7,8 @@ package Business.Order;
 
 import Business.Customer.Customer;
 import Business.DeliveryMan.DeliveryMan;
+import Business.Hospital.HospitalAdmin;
+import Business.Hospital.HospitalEmployee;
 import Business.Menu.Item;
 import Business.Menu.Menu;
 import Business.OxygenPlant.OxygenPlant;
@@ -24,6 +26,8 @@ public class Order extends WorkRequest {
     private String orderStatus;
     private OxygenPlant restaurant;
     private Customer customer;
+    private HospitalAdmin hospitalAdmin;
+    private HospitalEmployee hospitalEmployee;
     private String deliveryMan;
     private int quantity;
     private Item item;
@@ -34,6 +38,23 @@ public class Order extends WorkRequest {
         super();
         this.orderId = atomicInteger.getAndIncrement();
     }
+    
+    public HospitalAdmin getHospitalAdmin() {
+        return hospitalAdmin;
+    }
+
+    public void setHospitalAdmin(HospitalAdmin hospitalAdmin) {
+        this.hospitalAdmin = hospitalAdmin;
+    }
+
+    public HospitalEmployee getHospitalEmployee() {
+        return hospitalEmployee;
+    }
+
+    public void setHospitalEmployee(HospitalEmployee hospitalEmployee) {
+        this.hospitalEmployee = hospitalEmployee;
+    }
+    
     
     public boolean isAssign() {
         return assign;
