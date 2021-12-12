@@ -285,7 +285,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnManageNetworkActionPerformed
 
     private void btnManageOxygenPlantsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageOxygenPlantsActionPerformed
-        ManageRestaurantDetails restaurantDetailsObj = new ManageRestaurantDetails(
+        ManageOxygenPlantDetails restaurantDetailsObj = new ManageOxygenPlantDetails(
                                     userProcessContainer, ecosystem);
         
         userProcessContainer.add("RestaurantDashboard", restaurantDetailsObj);

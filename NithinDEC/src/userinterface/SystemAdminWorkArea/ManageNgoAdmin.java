@@ -9,9 +9,11 @@ import Business.Customer.Customer;
 import Business.EcoSystem;
 import Business.Hospital.Hospital;
 import Business.Hospital.HospitalAdmin;
+import Business.NGO.NGOAdmin;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -81,12 +83,12 @@ public class ManageNgoAdmin extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "UserName", "Password", "Address", "PhoneNumber", "Hospital"
+                "Name", "UserName", "Password", "Address", "PhoneNumber", "Organization Name"
             }
         ));
         jScrollPane1.setViewportView(tblCustomerDetails);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 118, 586, 96));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 118, 640, 96));
 
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
@@ -177,29 +179,30 @@ public class ManageNgoAdmin extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
+        NGOAdmin selectedCustomer = (NGOAdmin)model.getValueAt(selectedRowIndex, 0);
         String name = txtName.getText();
         String userName = txtUsername.getText();
         String password = txtpassword.getText();
 
         
-        ArrayList<Hospital> restos = system.getHospitalDirectory().returnAllHospitals();
-        for(Hospital r: restos)
+        ArrayList<NGOAdmin> restos = system.getNGODirectory().returnAdminDetails();
+        for(NGOAdmin r: restos)
         {
-            if(r.getHospitalAdmin().getName().equals(selectedCustomer.getName()))
+            if(r.getName().equals(selectedCustomer.getName()))
             {
-                r.getHospitalAdmin().setName(name);
-                r.getHospitalAdmin().returnUserAccount().setUsername(userName);
-                r.getHospitalAdmin().returnUserAccount().setPassword(password);
-                r.getHospitalAdmin().setUserName(userName);
-                r.getHospitalAdmin().setUserPassword(password);
+                r.setName(name);
+                r.returnUserAccount().setUsername(userName);
+                r.returnUserAccount().setPassword(password);
+                r.setUserName(userName);
+                r.setUserPassword(password);
                 r.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                 r.setAddress(txtAddress.getText());
                 break;
             }
             
         }
-        this.system.setHospitalDirectory(restos);
+        this.system.setNGODirectory(restos, 
+                this.system.getNGODirectory().returnEmployeeDetails());
         JOptionPane.showMessageDialog(this, "Updated Successfully");
         
         txtName.setText("");txtUsername.setText("");txtpassword.setText("");
@@ -215,7 +218,7 @@ public class ManageNgoAdmin extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
+        NGOAdmin selectedCustomer = (NGOAdmin)model.getValueAt(selectedRowIndex, 0);
         txtName.setText("");
         txtName.setText(selectedCustomer.getName());
         txtUsername.setText("");
@@ -236,24 +239,23 @@ public class ManageNgoAdmin extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
+        NGOAdmin selectedCustomer = (NGOAdmin)model.getValueAt(selectedRowIndex, 0);
         // First delete the customer from employee
         this.system.getEmployeeDirectory().deleteEmployee(selectedCustomer.getName());
         // And thne delete the userAccount
         this.system.getUserAccountDirectory().deleteUserAccount(
-                this.system.getCustomerDirectory().returnCustomerDetails().
+                this.system.getNGODirectory().returnAdminDetails().
                         get(selectedRowIndex).returnUserAccount()
         );
         // finally delete the user from customer directory
-        ArrayList<Hospital> hosList = this.system.getHospitalDirectory().returnAllHospitals();
-        for(Hospital cust : hosList){
-            if(selectedCustomer.getName().equals(cust.getHospitalAdmin().getName())){
-                cust.setHospitalAdmin(null);
-            }
-            
+        Iterator<NGOAdmin> itr = this.system.getNGODirectory().returnAdminDetails().iterator();
+        while (itr.hasNext()) {
+          NGOAdmin selectedAdmin = itr.next();
+          if (selectedAdmin.getName().equals(selectedCustomer.getName())) {
+            itr.remove();
+          }
         }
-        this.system.setHospitalDirectory(hosList);
-        
+       
         this.populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -284,15 +286,15 @@ public class ManageNgoAdmin extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
         model.setRowCount(0);
         try{
-            for(Hospital cust : this.system.getHospitalDirectory().returnAllHospitals()){
-            System.out.println(cust.getHospitalAdmin());
+            for(NGOAdmin cust : this.system.getNGODirectory().returnAdminDetails()){
+
             Object[] row = new Object[6];
-            row[0] = cust.getHospitalAdmin();
-            row[1] = cust.getHospitalAdmin().getUserName();
-            row[2] = cust.getHospitalAdmin().getUserPassword();
-            row[3] = cust.getHospitalAdmin().getAddress();
-            row[4] = cust.getHospitalAdmin().getPhoneNumber();
-            row[5] = cust.getHospitalName();
+            row[0] = cust;
+            row[1] = cust.getUserName();
+            row[2] = cust.getUserPassword();
+            row[3] = cust.getAddress();
+            row[4] = cust.getPhoneNumber();
+            row[5] = cust.getBusinessName();
             model.addRow(row);
             }
         }catch(NullPointerException e){

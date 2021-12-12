@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Nithin Bharadwaj
  */
-public class ManageRestaurantDetails extends javax.swing.JPanel {
+public class ManageOxygenPlantDetails extends javax.swing.JPanel {
 
     /**
      * Creates new form UpdateCustomerDetails
@@ -27,7 +27,7 @@ public class ManageRestaurantDetails extends javax.swing.JPanel {
     JPanel userProcessContainer;
     EcoSystem system;
     
-    public ManageRestaurantDetails(JPanel userProcessContainer, EcoSystem system) {
+    public ManageOxygenPlantDetails(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
         this.system = system;
         this.userProcessContainer = userProcessContainer;

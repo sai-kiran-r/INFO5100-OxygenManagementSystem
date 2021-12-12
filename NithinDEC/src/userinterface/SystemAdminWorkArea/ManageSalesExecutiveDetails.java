@@ -78,13 +78,13 @@ public class ManageSalesExecutiveDetails extends javax.swing.JPanel {
 
         tblCustomerDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Name", "UserName", "Password", "Address", "PhoneNumber", "Hospital"
+                "Name", "UserName", "Password", "Address", "PhoneNumber"
             }
         ));
         jScrollPane1.setViewportView(tblCustomerDetails);

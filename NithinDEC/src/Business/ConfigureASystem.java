@@ -83,11 +83,17 @@ public class ConfigureASystem {
         Employee ngoAdmin = system.getEmployeeDirectory().createEmployee("NGOAdmin");
         UserAccount ngoAccount = system.getUserAccountDirectory().createUserAccount("ngoadmin", "ngoadmin", ngoAdmin, new NGOAdminRole());
         NGOAdmin ngoAd = new NGOAdmin(ngoAccount);
+        ngoAd.setAddress("St Alphansous Street Boston");
+        ngoAd.setPhoneNumber(5678998765L);
+        ngoAd.setBusinessName("Librety Int");
         system.getNGODirectory().addAdmin(ngoAd);
               
         Employee ngoEmployee = system.getEmployeeDirectory().createEmployee("NGOEmployee");
         UserAccount ngoEmpAccount = system.getUserAccountDirectory().createUserAccount("ngoemployee", "ngoemployee", ngoEmployee, new NGOEmployeeRole());
         NGOEmployee ngoEmpAcc = new NGOEmployee(ngoEmpAccount);
+        ngoEmpAcc.setAddress("St BUkara Peters");
+        ngoEmpAcc.setPhoneNumber(5678908765L);
+        ngoEmpAcc.setBusinessName("Librety Int");
         system.getNGODirectory().addEmployee(ngoEmpAcc);
         
         Employee SalesManagerEmployee = system.getEmployeeDirectory().createEmployee("SalesManager");
