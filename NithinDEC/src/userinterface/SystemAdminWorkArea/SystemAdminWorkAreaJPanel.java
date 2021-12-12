@@ -135,6 +135,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblSelectedNode.setText("<View_selected_node>");
         jPanel2.add(lblSelectedNode, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 25, 2, -1));
 
+        btnManageNetwork.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         btnManageNetwork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_customer_20px_2.png"))); // NOI18N
         btnManageNetwork.setText("Manage All Consumers");
         btnManageNetwork.addActionListener(new java.awt.event.ActionListener() {
@@ -142,17 +143,19 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageNetworkActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 260, 40));
+        jPanel2.add(btnManageNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 230, 50));
 
-        btnManageOxygenPlants.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_restaurant_20px.png"))); // NOI18N
+        btnManageOxygenPlants.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
+        btnManageOxygenPlants.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8-Infographic-Scuba Tank.png"))); // NOI18N
         btnManageOxygenPlants.setText("Manage Oxygen Plants");
         btnManageOxygenPlants.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageOxygenPlantsActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageOxygenPlants, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, 190, -1));
+        jPanel2.add(btnManageOxygenPlants, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 200, 50));
 
+        btnManageDeliveryMan.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         btnManageDeliveryMan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Delivery.png"))); // NOI18N
         btnManageDeliveryMan.setText("Manage Deliveryman");
         btnManageDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
@@ -160,8 +163,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageDeliveryManActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, 190, -1));
+        jPanel2.add(btnManageDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 367, 200, 50));
 
+        btnNewUser.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         btnNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_user_20px.png"))); // NOI18N
         btnNewUser.setText("Create New User");
         btnNewUser.addActionListener(new java.awt.event.ActionListener() {
@@ -169,8 +173,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnNewUserActionPerformed(evt);
             }
         });
-        jPanel2.add(btnNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 190, -1));
+        jPanel2.add(btnNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 230, 50));
 
+        btnManageHospitalAdmin.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         btnManageHospitalAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Hospital.png"))); // NOI18N
         btnManageHospitalAdmin.setText("Manage Hospital Admin");
         btnManageHospitalAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -178,8 +183,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageHospitalAdminActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageHospitalAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 230, 210, 31));
+        jPanel2.add(btnManageHospitalAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 210, 40));
 
+        btnManageHospitalEmployee.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         btnManageHospitalEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Hospital2.png"))); // NOI18N
         btnManageHospitalEmployee.setText("Manage Hospital Employee");
         btnManageHospitalEmployee.addActionListener(new java.awt.event.ActionListener() {
@@ -187,8 +193,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageHospitalEmployeeActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageHospitalEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 210, 29));
+        jPanel2.add(btnManageHospitalEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 220, 40));
 
+        btnManageSalesManager.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         btnManageSalesManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ManagerSalesTwo.png"))); // NOI18N
         btnManageSalesManager.setText("Manage Sales Manager");
         btnManageSalesManager.addActionListener(new java.awt.event.ActionListener() {
@@ -196,8 +203,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageSalesManagerActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageSalesManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 230, 200, 31));
+        jPanel2.add(btnManageSalesManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 221, 200, 40));
 
+        btnManageSalesExecutive.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         btnManageSalesExecutive.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ManagerSales.png"))); // NOI18N
         btnManageSalesExecutive.setText("Manage Sales Executive");
         btnManageSalesExecutive.addActionListener(new java.awt.event.ActionListener() {
@@ -205,8 +213,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageSalesExecutiveActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageSalesExecutive, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 270, 200, 31));
+        jPanel2.add(btnManageSalesExecutive, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 270, 200, 40));
 
+        btnManageNGOAdmin.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         btnManageNGOAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/NGOONE.png"))); // NOI18N
         btnManageNGOAdmin.setText("Manage NGO Administrator");
         btnManageNGOAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -214,8 +223,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageNGOAdminActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageNGOAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, -1, 31));
+        jPanel2.add(btnManageNGOAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 221, -1, 40));
 
+        btnManageNGOEmployee.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         btnManageNGOEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/NGOONE.png"))); // NOI18N
         btnManageNGOEmployee.setText("Manage NGO Employee");
         btnManageNGOEmployee.addActionListener(new java.awt.event.ActionListener() {
@@ -223,8 +233,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageNGOEmployeeActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageNGOEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 220, 29));
+        jPanel2.add(btnManageNGOEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 230, -1));
 
+        btnManageBusinessAdmin.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         btnManageBusinessAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/BusinessTwo.png"))); // NOI18N
         btnManageBusinessAdmin.setText("Manage Bussiness Admin");
         btnManageBusinessAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -232,8 +243,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageBusinessAdminActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageBusinessAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 230, 210, 31));
+        jPanel2.add(btnManageBusinessAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 221, 230, 40));
 
+        btnManageBusinessEmployee.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         btnManageBusinessEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/BusinessTwo.png"))); // NOI18N
         btnManageBusinessEmployee.setText("Manage Bussiness Assitant");
         btnManageBusinessEmployee.addActionListener(new java.awt.event.ActionListener() {
@@ -241,8 +253,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageBusinessEmployeeActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageBusinessEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 270, 210, 29));
+        jPanel2.add(btnManageBusinessEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 270, 230, -1));
 
+        btnPendingApproval.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         btnPendingApproval.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_user_20px.png"))); // NOI18N
         btnPendingApproval.setText("Manage Pending Account Approvals");
         btnPendingApproval.addActionListener(new java.awt.event.ActionListener() {
@@ -250,7 +263,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnPendingApprovalActionPerformed(evt);
             }
         });
-        jPanel2.add(btnPendingApproval, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 45, -1, 40));
+        jPanel2.add(btnPendingApproval, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, -1, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/g2i.gif"))); // NOI18N
         jLabel2.setText("company_gif");
