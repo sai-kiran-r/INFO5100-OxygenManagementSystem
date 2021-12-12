@@ -84,11 +84,11 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("User Name");
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password");
 
@@ -153,7 +153,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnSignUp)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1620, Short.MAX_VALUE))
+                .addContainerGap(1616, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);

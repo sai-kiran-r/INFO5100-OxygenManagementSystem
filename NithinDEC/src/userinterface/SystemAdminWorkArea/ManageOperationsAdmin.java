@@ -61,6 +61,7 @@ public class ManageOperationsAdmin extends javax.swing.JPanel {
         lbPassword2 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
         txtPhoneNumber = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(246, 252, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -142,6 +143,7 @@ public class ManageOperationsAdmin extends javax.swing.JPanel {
         add(lbPassword2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 423, -1, -1));
         add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 374, 159, -1));
         add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 418, 159, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 560));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
@@ -253,6 +255,7 @@ public class ManageOperationsAdmin extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnView;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbPassword;
