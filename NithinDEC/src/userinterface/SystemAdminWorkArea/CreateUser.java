@@ -10,6 +10,7 @@ import Business.DeliveryMan.DeliveryMan;
 import Business.OxygenPlant.OxygenPlant;
 import Business.EcoSystem;
 import Business.Employee.Employee;
+import Business.Hospital.Hospital;
 import Business.Hospital.HospitalAdmin;
 import Business.OxygenPlant.OxygenPlant;
 import Business.Role.AdminRole;
@@ -195,6 +196,48 @@ public class CreateUser extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this, "Added the customer successfully");
                     this.clearText();
                 }
+                else if(role.equals("Aviation Manager")){
+                    
+                }
+                else if(role.equals("Aviation Employee")){
+                    
+                }
+                else if(role.equals("Defense Manager")){
+                    
+                }
+                else if(role.equals("Defense Employee")){
+                    
+                }
+                else if(role.equals("Hospital Employee")){
+                    
+                }
+                else if(role.equals("Sales Manager")){
+                    
+                }
+                else if(role.equals("Sales Executive")){
+                    
+                }
+                else if(role.equals("NGO Administrator")){
+                    
+                }
+                else if(role.equals("NGO Employee")){
+                    
+                }
+                else if(role.equals("Scuba Employee")){
+                    
+                }
+                else if(role.equals("Scuba Manager")){
+                    
+                }
+                else if(role.equals("Pharma Manager")){
+                    
+                }
+                else if(role.equals("WaterPlant Admin")){
+                    
+                }
+                else if(role.equals("WaterPlant Employee")){
+                    
+                }
                 else if(role.equals("Delivery Man")){
                     usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new DeliverManRole());
                     UserAccount ua = usersList.getUserAccount(txtUsername.getText());
@@ -207,14 +250,34 @@ public class CreateUser extends javax.swing.JPanel {
                     this.clearText();
                 }
                 else if(role.equals("Hospital Admin")){
-                    usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new HospitalAdminRole());
-                    UserAccount ua = usersList.getUserAccount(txtUsername.getText());
-                    HospitalAdmin hospitalAdmin = new HospitalAdmin(ua);
-                    hospitalAdmin.setAddress(txtAddress.getText());
-                    hospitalAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText())); 
-                    system.getHospitalDirectory().getHospital(txtBusinessName.getText()).setHospitalAdmin(hospitalAdmin);
-                    JOptionPane.showMessageDialog(this, "Added the Hospital Admin successfully");
+                    if(txtBusinessName.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Business name should not be empty");
+                        return;
+                    }
+                    
+                    String hospitalName = txtBusinessName.getText();
+                    if(system.getHospitalDirectory().getHospital(hospitalName)==null){
+                        Hospital hospObj = new Hospital(hospitalName, txtAddress.getText());
+                        hospObj.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new HospitalAdminRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        HospitalAdmin hospitalAdmin = new HospitalAdmin(ua);
+                        hospitalAdmin.setAddress(txtAddress.getText());
+                        hospitalAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                        hospObj.setHospitalAdmin(hospitalAdmin);
+                        JOptionPane.showMessageDialog(this, "Added the Hospital Admin successfully");
+                    }
+                    else{
+                        usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new HospitalAdminRole());
+                        UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                        HospitalAdmin hospitalAdmin = new HospitalAdmin(ua);
+                        hospitalAdmin.setAddress(txtAddress.getText());
+                        hospitalAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText())); 
+                        system.getHospitalDirectory().getHospital(txtBusinessName.getText()).setHospitalAdmin(hospitalAdmin);
+                        JOptionPane.showMessageDialog(this, "Added the Hospital Admin successfully");
+                    }
                     this.clearText();
+                    
                 }
                 else if(role.equals("Oxygen Plant Admin")){
                     boolean restaurantValidation = this.validation.validateName(txtBusinessName);
