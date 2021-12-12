@@ -8,8 +8,9 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 
 import Business.UserAccount.UserAccount;
-import userinterface.DefenseBusiness.DefenseOrgManagerWorkAreaJPanel;
+import userinterface.DefenseBusiness.DefenseOrgEmployeeWorkAreaJPanel;
 import javax.swing.JPanel;
+import userinterface.DefenseBusiness.DefenseOrgManagerWorkAreaJPanel;
 
 /**
  *
