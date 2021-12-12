@@ -2,11 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.ScubaBusiness;
+package userinterface.DefenseBusiness;
 
-import userinterface.PharmaBusiness.*;
-import userinterface.NGO.*;
-import userinterface.DefenseBusiness.*;
 import userinterface.CompanySales.*;
 import userinterface.AviationBusiness.*;
 import userinterface.HospitalArea.*;
@@ -29,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author raunak
  */
-public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
+public class DefenseOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private EcoSystem system;
@@ -39,7 +36,7 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LabAssistantWorkAreaJPanel
      */
-    public ScubaOrgEmployeeWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+    public DefenseOrgEmployeeWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
@@ -58,9 +55,7 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
     
     public void populateTable(){
         System.out.println("Inside method to populate orders table");
-        
-        
-        
+
         for(Order o : this.system.getOrderDirectory().getOrderDirectory()){
             System.out.println(this.userAccount.getUsername());
             System.out.println(o.getDeliveryMan());
@@ -112,14 +107,14 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Welcome ");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 99, 30));
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 27, 99, 30));
 
         valueLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 29, 158, 26));
 
-        jLabel1.setText("Select Pack: ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, 20));
+        jLabel1.setText("Select Oxygen Plant : ");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
         comboRestaurant.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pack 4", "Pack 6", "Item 24", "Item 48" }));
         comboRestaurant.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +122,7 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
                 comboRestaurantActionPerformed(evt);
             }
         });
-        add(comboRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 180, -1));
+        add(comboRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 160, 30));
 
         refreshTestJButton.setText("Refresh ");
         refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +130,7 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
                 refreshTestJButtonActionPerformed(evt);
             }
         });
-        add(refreshTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, -1));
+        add(refreshTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, -1, -1));
 
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -154,14 +149,14 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("Quantity");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
         txtQuantity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtQuantityActionPerformed(evt);
             }
         });
-        add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 129, -1));
+        add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 129, -1));
 
         btnPlaceOrder.setText("Place Request For Admin To Order");
         btnPlaceOrder.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +164,7 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
                 btnPlaceOrderActionPerformed(evt);
             }
         });
-        add(btnPlaceOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 220, -1));
+        add(btnPlaceOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 210, -1));
 
         enterpriseLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel1.setText("View Your Orders Below:- ");
@@ -225,7 +220,6 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
 
     private void comboRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboRestaurantActionPerformed
         // TODO add your handling code here:
-        this.populateMenuTable();
     }//GEN-LAST:event_comboRestaurantActionPerformed
 
     private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
@@ -238,6 +232,7 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         // TODO add your handling code here:
+         // TODO add your handling code here:
         int selectedRow = tblMenu.getSelectedRow();
         if(selectedRow < 0) {
             JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -312,7 +307,7 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel valueLabel;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
-    
+
     public void populateMenuTable(){
         String restaurantName = comboRestaurant.getSelectedItem().toString();
         ArrayList<OxygenPlant> restList = this.system.getOxygenPlantDirectory().returnAllOxygenPlants();
