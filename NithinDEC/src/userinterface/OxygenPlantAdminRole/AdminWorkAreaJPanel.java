@@ -56,8 +56,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("My Work Area -Adminstrative Role");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
+        jLabel1.setText("My Work Area - Adminstrative Role");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
 
         userJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_reserve_20px.png"))); // NOI18N
         userJButton.setText("Manage Oxygen Plant Info");
@@ -66,7 +66,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 userJButtonActionPerformed(evt);
             }
         });
-        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 190, -1));
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 190, -1));
 
         manageEmployeeJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_menu_20px.png"))); // NOI18N
         manageEmployeeJButton.setText("Manage menu");
@@ -75,27 +75,27 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 190, -1));
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 190, -1));
 
-        manageOrganizationJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_waitress_skin_type_2_20px.png"))); // NOI18N
+        manageOrganizationJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ManagerSalesTwo.png"))); // NOI18N
         manageOrganizationJButton.setText("Manage Orders");
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 190, -1));
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 190, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Oxygen Plant :");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 140, 30));
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 140, 30));
 
         valueLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 130, -1));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 130, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/restaurant-new.jpg"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 580, 430));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/oxyimage3.gif"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -110, 1510, 840));
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
