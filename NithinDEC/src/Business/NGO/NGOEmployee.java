@@ -20,7 +20,16 @@ public class NGOEmployee {
     private long phoneNumber;
     private String address;
     UserAccount ua;
+    private String businessName;
 
+    public String getBusinessName() {
+        return businessName;
+    }
+
+    public void setBusinessName(String businessName) {
+        this.businessName = businessName;
+    }
+    
     public long getPhoneNumber() {
         return phoneNumber;
     }

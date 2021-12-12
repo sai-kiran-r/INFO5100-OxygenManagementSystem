@@ -19,7 +19,17 @@ public class NGOAdmin {
     private String userPassword;
     private long phoneNumber;
     private String address;
+    private String businessName;
     UserAccount ua;
+
+
+    public String getBusinessName() {
+        return businessName;
+    }
+
+    public void setBusinessName(String businessName) {
+        this.businessName = businessName;
+    }
 
     public long getPhoneNumber() {
         return phoneNumber;

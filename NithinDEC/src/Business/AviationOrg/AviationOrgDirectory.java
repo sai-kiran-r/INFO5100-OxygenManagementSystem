@@ -63,6 +63,15 @@ public class AviationOrgDirectory{
         return null;
     }
     
+    public AviationOrg getBusiness(String businessName){
+        for(AviationOrg r : aviationDirectory) {
+            if(r.getBusinessName().equals(businessName)) {
+                return r;
+            }
+        }
+        return null;
+    }
+    
     public void addBusiness(AviationOrg rs){
         aviationDirectory.add(rs);
     }

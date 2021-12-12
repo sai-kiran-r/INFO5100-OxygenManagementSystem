@@ -63,6 +63,15 @@ public class DefenseOrgDirectory{
         return null;
     }
     
+    public DefenseOrg getBusiness(String businessName){
+        for(DefenseOrg r : defenseDirectory) {
+            if(r.getBusinessName().equals(businessName)) {
+                return r;
+            }
+        }
+        return null;
+    }
+    
     public void addBusiness(DefenseOrg rs){
         defenseDirectory.add(rs);
     }

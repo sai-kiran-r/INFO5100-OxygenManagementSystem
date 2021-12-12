@@ -63,6 +63,15 @@ public class ScubaOrgDirectory{
         return null;
     }
     
+    public ScubaOrg getBusiness(String businessName){
+        for(ScubaOrg r : scubaDirectory) {
+            if(r.getBusinessName().equals(businessName)) {
+                return r;
+            }
+        }
+        return null;
+    }
+    
     public void addBusiness(ScubaOrg rs){
         scubaDirectory.add(rs);
     }
