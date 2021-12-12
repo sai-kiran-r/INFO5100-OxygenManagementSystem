@@ -109,6 +109,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageBusinessAdmin = new javax.swing.JButton();
         btnManageBusinessEmployee = new javax.swing.JButton();
         btnPendingApproval = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -120,16 +121,19 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 602, Short.MAX_VALUE)
+            .addGap(0, 752, Short.MAX_VALUE)
         );
 
         jSplitPane.setLeftComponent(jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(246, 252, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Selected Node:");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 25, 0, -1));
 
         lblSelectedNode.setText("<View_selected_node>");
+        jPanel2.add(lblSelectedNode, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 25, 2, -1));
 
         btnManageNetwork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_customer_20px_2.png"))); // NOI18N
         btnManageNetwork.setText("Manage All Consumers");
@@ -138,6 +142,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageNetworkActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 230, 40));
 
         btnManageOxygenPlants.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_restaurant_20px.png"))); // NOI18N
         btnManageOxygenPlants.setText("Manage Restaurants");
@@ -146,6 +151,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageOxygenPlantsActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageOxygenPlants, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 155, -1));
 
         btnManageDeliveryMan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Delivery.png"))); // NOI18N
         btnManageDeliveryMan.setText("Manage Deliveryman");
@@ -154,6 +160,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageDeliveryManActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, -1));
 
         btnNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_user_20px.png"))); // NOI18N
         btnNewUser.setText("Create New User");
@@ -162,6 +169,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnNewUserActionPerformed(evt);
             }
         });
+        jPanel2.add(btnNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 150, -1));
 
         btnManageHospitalAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Hospital.png"))); // NOI18N
         btnManageHospitalAdmin.setText("Manage Hospital Admin");
@@ -170,6 +178,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageHospitalAdminActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageHospitalAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 188, 192, 31));
 
         btnManageHospitalEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Hospital2.png"))); // NOI18N
         btnManageHospitalEmployee.setText("Manage Hospital Employee");
@@ -178,6 +187,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageHospitalEmployeeActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageHospitalEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 231, 192, 29));
 
         btnManageSalesManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ManagerSalesTwo.png"))); // NOI18N
         btnManageSalesManager.setText("Manage Sales Manager");
@@ -186,6 +196,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageSalesManagerActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageSalesManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 272, 192, 31));
 
         btnManageSalesExecutive.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ManagerSales.png"))); // NOI18N
         btnManageSalesExecutive.setText("Manage Sales Executive");
@@ -194,6 +205,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageSalesExecutiveActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageSalesExecutive, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 315, 192, 31));
 
         btnManageNGOAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/NGOONE.png"))); // NOI18N
         btnManageNGOAdmin.setText("Manage NGO Administrator");
@@ -202,6 +214,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageNGOAdminActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageNGOAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 358, -1, 31));
 
         btnManageNGOEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/NGOONE.png"))); // NOI18N
         btnManageNGOEmployee.setText("Manage NGO Employee");
@@ -210,6 +223,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageNGOEmployeeActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageNGOEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 401, 192, 29));
 
         btnManageBusinessAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/BusinessTwo.png"))); // NOI18N
         btnManageBusinessAdmin.setText("Manage Bussiness Admin");
@@ -218,6 +232,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageBusinessAdminActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageBusinessAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 442, 192, 31));
 
         btnManageBusinessEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/BusinessTwo.png"))); // NOI18N
         btnManageBusinessEmployee.setText("Manage Bussiness Assitant");
@@ -226,6 +241,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageBusinessEmployeeActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageBusinessEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 491, 192, 29));
 
         btnPendingApproval.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_user_20px.png"))); // NOI18N
         btnPendingApproval.setText("Manage Pending Account Approvals");
@@ -234,84 +250,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnPendingApprovalActionPerformed(evt);
             }
         });
+        jPanel2.add(btnPendingApproval, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 45, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnManageHospitalEmployee, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageNGOAdmin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageNGOEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageSalesExecutive, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageBusinessAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageBusinessEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageSalesManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageHospitalAdmin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111)
-                        .addComponent(lblSelectedNode, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(91, 91, 91)
-                                .addComponent(btnManageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnPendingApproval)
-                                .addGap(12, 12, 12)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(94, 94, 94)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnManageOxygenPlants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnManageDeliveryMan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(btnNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(539, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lblSelectedNode))
-                .addGap(4, 4, 4)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNewUser)
-                    .addComponent(btnPendingApproval))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnManageDeliveryMan, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnManageNetwork))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageOxygenPlants)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageHospitalAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageHospitalEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageSalesManager, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageSalesExecutive, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageNGOAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageNGOEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageBusinessAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnManageBusinessEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(102, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/g2i.gif"))); // NOI18N
+        jLabel2.setText("company_gif");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, 0, 1490, 730));
 
         jSplitPane.setRightComponent(jPanel2);
 
@@ -456,6 +399,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnNewUser;
     private javax.swing.JButton btnPendingApproval;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane;
