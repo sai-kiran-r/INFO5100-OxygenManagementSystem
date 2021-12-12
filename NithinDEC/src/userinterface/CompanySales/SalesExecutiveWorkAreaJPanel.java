@@ -133,9 +133,9 @@ public class SalesExecutiveWorkAreaJPanel extends javax.swing.JPanel {
         HistogramDataset dataset = new HistogramDataset();
         dataset.addSeries("key", values, 20);
         
-//         JFreeChart chart = ChartFactory.createHistogram("Oxygen Cylinder Sales Histogram","Cylinder Packs", "Purchase Frequency", dataset,PlotOrientation.VERTICAL, false,true,false);
-//            XYPlot plot= chart.getXYPlot();
-//        plot.setBackgroundPaint(Color.WHITE);
+         JFreeChart chart = ChartFactory.createHistogram("Oxygen Cylinder Sales Histogram","Cylinder Packs", "Purchase Frequency", dataset,PlotOrientation.VERTICAL, false,true,false);
+            XYPlot plot= chart.getXYPlot();
+        plot.setBackgroundPaint(Color.WHITE);
 
         
         
@@ -161,10 +161,10 @@ public class SalesExecutiveWorkAreaJPanel extends javax.swing.JPanel {
         
         CategoryPlot categoryPlot = chart.getCategoryPlot();
         //categoryPlot.setRangeGridlinePaint(Color.BLUE);
-        categoryPlot.setBackgroundPaint(Color.WHITE);
-        BarRenderer renderer = (BarRenderer) categoryPlot.getRenderer();
-        Color clr3 = new Color(204,0,51);
-        renderer.setSeriesPaint(0, clr3);
+//        categoryPlot.setBackgroundPaint(Color.WHITE);
+//        BarRenderer renderer = (BarRenderer) categoryPlot.getRenderer();
+//        Color clr3 = new Color(204,0,51);
+//        renderer.setSeriesPaint(0, clr3);
         
         ChartPanel barpChartPanel = new ChartPanel(chart);
         panelBarChart.removeAll();
