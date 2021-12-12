@@ -94,7 +94,8 @@ public class ConfigureASystem {
         UserAccount SalesManAccount = system.getUserAccountDirectory().createUserAccount("salesmanager", "salesmanager", SalesManagerEmployee, new SalesManagerRole());
         SalesManager salesManAcc = new SalesManager(SalesManAccount);
         system.getSalesDirectory().addManager(salesManAcc);
-        
+  
+        //Sales Employee
         Employee SalesEmployee = system.getEmployeeDirectory().createEmployee("SalesEmployee");
         UserAccount SalesEmpAccount = system.getUserAccountDirectory().createUserAccount("salesemp", "salesemp", SalesEmployee, new SalesEmployeeRole());
         SalesEmployee salesEmpAcc = new SalesEmployee(SalesEmpAccount);
