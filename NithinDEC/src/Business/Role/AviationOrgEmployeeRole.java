@@ -8,8 +8,9 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 
 import Business.UserAccount.UserAccount;
-import userinterface.AviationBusiness.AviationExecutiveWorkAreaJPanel;
+import userinterface.AviationBusiness.AviationManagerWorkAreaJPanel;
 import javax.swing.JPanel;
+import userinterface.AviationBusiness.AviationEmployeeWorkAreaJPanel;
 
 /**
  *
@@ -19,7 +20,7 @@ public class AviationOrgEmployeeRole extends Role{
 
   
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-        return new AviationExecutiveWorkAreaJPanel(userProcessContainer, account, system);
+        return new AviationEmployeeWorkAreaJPanel(userProcessContainer, account, system);
     }
     
 }

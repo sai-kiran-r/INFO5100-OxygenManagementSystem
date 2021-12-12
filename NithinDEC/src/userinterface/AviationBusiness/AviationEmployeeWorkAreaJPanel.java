@@ -2,14 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.WaterPlantBusiness;
+package userinterface.AviationBusiness;
 
-import userinterface.ScubaBusiness.*;
-import userinterface.PharmaBusiness.*;
-import userinterface.NGO.*;
-import userinterface.DefenseBusiness.*;
-import userinterface.CompanySales.*;
-import userinterface.AviationBusiness.*;
 import userinterface.HospitalArea.*;
 import userinterface.DeliveryManRole.*;
 import Business.EcoSystem;
@@ -30,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author raunak
  */
-public class WaterPlantMangerWorkAreaJPanel extends javax.swing.JPanel {
+public class AviationEmployeeWorkAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private EcoSystem system;
@@ -40,7 +34,7 @@ public class WaterPlantMangerWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LabAssistantWorkAreaJPanel
      */
-    public WaterPlantMangerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+    public AviationEmployeeWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
@@ -120,7 +114,7 @@ public class WaterPlantMangerWorkAreaJPanel extends javax.swing.JPanel {
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 29, 158, 26));
 
         jLabel1.setText("Select Pack: ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         comboRestaurant.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pack 4", "Pack 6", "Item 24", "Item 48" }));
         comboRestaurant.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +122,7 @@ public class WaterPlantMangerWorkAreaJPanel extends javax.swing.JPanel {
                 comboRestaurantActionPerformed(evt);
             }
         });
-        add(comboRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 140, 30));
+        add(comboRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 170, 30));
 
         refreshTestJButton.setText("Refresh ");
         refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +130,7 @@ public class WaterPlantMangerWorkAreaJPanel extends javax.swing.JPanel {
                 refreshTestJButtonActionPerformed(evt);
             }
         });
-        add(refreshTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, -1));
+        add(refreshTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, -1, -1));
 
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -151,7 +145,7 @@ public class WaterPlantMangerWorkAreaJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tblMenu);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 400, 96));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 400, 96));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("Quantity");
@@ -170,7 +164,7 @@ public class WaterPlantMangerWorkAreaJPanel extends javax.swing.JPanel {
                 btnPlaceOrderActionPerformed(evt);
             }
         });
-        add(btnPlaceOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 220, -1));
+        add(btnPlaceOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 210, -1));
 
         enterpriseLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel1.setText("View Your Orders Below:- ");
@@ -237,7 +231,6 @@ public class WaterPlantMangerWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtQuantityActionPerformed
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
-        // TODO add your handling code here:
         // TODO add your handling code here:
         int selectedRow = tblMenu.getSelectedRow();
         if(selectedRow < 0) {
@@ -313,7 +306,8 @@ public class WaterPlantMangerWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel valueLabel;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
-        public void populateMenuTable(){
+    
+    public void populateMenuTable(){
         String restaurantName = comboRestaurant.getSelectedItem().toString();
         ArrayList<OxygenPlant> restList = this.system.getOxygenPlantDirectory().returnAllOxygenPlants();
         ArrayList<Item> itemList = new ArrayList();
@@ -357,6 +351,7 @@ public class WaterPlantMangerWorkAreaJPanel extends javax.swing.JPanel {
             }
         }
     }
+
 
 
 }

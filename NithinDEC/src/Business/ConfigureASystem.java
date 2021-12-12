@@ -86,7 +86,7 @@ public class ConfigureASystem {
         system.getNGODirectory().addAdmin(ngoAd);
               
         Employee ngoEmployee = system.getEmployeeDirectory().createEmployee("NGOEmployee");
-        UserAccount ngoEmpAccount = system.getUserAccountDirectory().createUserAccount("ngoemployee", "ngoemployee", ngoEmployee, new NGOAdminRole());
+        UserAccount ngoEmpAccount = system.getUserAccountDirectory().createUserAccount("ngoemployee", "ngoemployee", ngoEmployee, new NGOEmployeeRole());
         NGOEmployee ngoEmpAcc = new NGOEmployee(ngoEmpAccount);
         system.getNGODirectory().addEmployee(ngoEmpAcc);
         

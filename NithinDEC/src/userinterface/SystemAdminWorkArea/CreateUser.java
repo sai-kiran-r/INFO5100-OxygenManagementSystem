@@ -10,10 +10,12 @@ import Business.DeliveryMan.DeliveryMan;
 import Business.OxygenPlant.OxygenPlant;
 import Business.EcoSystem;
 import Business.Employee.Employee;
+import Business.Hospital.HospitalAdmin;
 import Business.OxygenPlant.OxygenPlant;
 import Business.Role.AdminRole;
 import Business.Role.CustomerRole;
 import Business.Role.DeliverManRole;
+import Business.Role.HospitalAdminRole;
 import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
@@ -67,7 +69,7 @@ public class CreateUser extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtRestaurantName = new javax.swing.JTextField();
+        txtBusinessName = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
         comboRole = new javax.swing.JComboBox();
         txtPassword = new javax.swing.JPasswordField();
@@ -108,14 +110,14 @@ public class CreateUser extends javax.swing.JPanel {
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 191, -1, -1));
 
         jLabel5.setText("Confirm Password :");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 235, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, -1));
 
         jLabel6.setText("Role :");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 366, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, -1, -1));
 
-        jLabel7.setText(" Bussiness Name :");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 412, -1, -1));
-        add(txtRestaurantName, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 407, 182, -1));
+        jLabel7.setText(" Company/Hospital Name :");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, -1, -1));
+        add(txtBusinessName, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 407, 182, -1));
 
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -125,21 +127,21 @@ public class CreateUser extends javax.swing.JPanel {
         });
         add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 451, 77, -1));
 
-        comboRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Consumers", "Operations Admin", "Hospital Admin", "Hospital Operations", "Sales Manager", "Sales Executive", "NGO Administrator", "NGO Admin", "Bussiness Admin", "Bussiness Assistant" }));
+        comboRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Customer", "Aviation Manager", "Aviation Employee", "Defense Manager", "Defense Employee", "Hospital Admin", "Hospital Employee", "Sales Manager", "Sales Executive", "NGO Administrator", "NGO Employee", "Scuba Manager", "Scuba Employee", "Pharma Manager", "Pharma Employee", "WaterPlant Admin", "WaterPlant Employee", "Delivery Man" }));
         comboRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboRoleActionPerformed(evt);
             }
         });
-        add(comboRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 362, -1, -1));
+        add(comboRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 362, 180, -1));
         add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 186, 182, -1));
         add(txtPasswordConfirmation, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 230, 182, -1));
 
         jLabel8.setText("Address :");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 279, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
 
         jLabel9.setText("Phone Number :");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 323, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, -1, -1));
         add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 274, 182, -1));
         add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 318, 182, -1));
 
@@ -204,13 +206,23 @@ public class CreateUser extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this, "Added the DeliveryMan successfully");
                     this.clearText();
                 }
+                else if(role.equals("Hospital Admin")){
+                    usersList.createUserAccount(txtUsername.getText(),txtPassword.getText(), employee, new HospitalAdminRole());
+                    UserAccount ua = usersList.getUserAccount(txtUsername.getText());
+                    HospitalAdmin hospitalAdmin = new HospitalAdmin(ua);
+                    hospitalAdmin.setAddress(txtAddress.getText());
+                    hospitalAdmin.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText())); 
+                    system.getHospitalDirectory().getHospital(txtBusinessName.getText()).setHospitalAdmin(hospitalAdmin);
+                    JOptionPane.showMessageDialog(this, "Added the Hospital Admin successfully");
+                    this.clearText();
+                }
                 else if(role.equals("Oxygen Plant Admin")){
-                    boolean restaurantValidation = this.validation.validateName(txtRestaurantName);
+                    boolean restaurantValidation = this.validation.validateName(txtBusinessName);
                     if(restaurantValidation){
                         usersList.createUserAccount(txtUsername.getText(),
                                 txtPassword.getText(), employee, new AdminRole());
                         UserAccount ua = usersList.getUserAccount(txtUsername.getText());
-                        OxygenPlant restaurantData = new OxygenPlant(txtRestaurantName.getText(),
+                        OxygenPlant restaurantData = new OxygenPlant(txtBusinessName.getText(),
                                 txtAddress.getText(), txtName.getText(),
                                 Long.parseLong(txtPhoneNumber.getText()), ua);
                         system.getOxygenPlantDirectory().addOxygenPlant(restaurantData);
@@ -218,7 +230,7 @@ public class CreateUser extends javax.swing.JPanel {
                         this.clearText();
                     }
                     else{
-                        JOptionPane.showMessageDialog(this, "Invalid Restaurant Name!!!!");
+                        JOptionPane.showMessageDialog(this, "Invalid Plant Name!!!!");
 //                        this.clearText();
                     }
                     
@@ -241,11 +253,14 @@ public class CreateUser extends javax.swing.JPanel {
 
     private void comboRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboRoleActionPerformed
         // TODO add your handling code here:
-        if(comboRole.getSelectedItem().toString().equals("Restaurant Admin")){
-            txtRestaurantName.setEditable(true);
+        System.out.println("Selected Role : " + comboRole.getSelectedItem().toString());
+        if(comboRole.getSelectedItem().toString().equals("Customer")
+                ||
+           comboRole.getSelectedItem().toString().equals("Delivery Man")){
+            txtBusinessName.setEditable(false);
         }
         else{
-            txtRestaurantName.setEditable(false);
+            txtBusinessName.setEditable(true);
         }
     }//GEN-LAST:event_comboRoleActionPerformed
 
@@ -266,17 +281,17 @@ public class CreateUser extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtBusinessName;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JPasswordField txtPasswordConfirmation;
     private javax.swing.JTextField txtPhoneNumber;
-    private javax.swing.JTextField txtRestaurantName;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 
     private void clearText(){
         JTextField[] textFields = {txtName,txtPassword,txtPasswordConfirmation,
-                    txtRestaurantName, txtUsername, txtAddress, txtPhoneNumber};
+                    txtBusinessName, txtUsername, txtAddress, txtPhoneNumber};
         for(JTextField pk : textFields){
             pk.setText("");
         }
