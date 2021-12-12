@@ -80,6 +80,12 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for (Order order : system.getOrderDirectory().getOrderDirectory()){
             //System.out.println("Order" + order.getOrderId());
+            try{
+                order.getCustomer().getName();
+            }catch(NullPointerException e){
+                continue;
+            }
+            
             if(userAccount.getEmployee().getName().equals(order.getCustomer().getName())) {
                 Object[] row = new Object[8];
                 row[0] = order;
@@ -269,8 +275,14 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
+        int quantityToPlaceOrder = 0;
+        try{
+            quantityToPlaceOrder = Integer.parseInt(txtQuantity.getText());
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(txtComment, "Please enter valid quantity");
+        }
         
-        int quantityToPlaceOrder = Integer.parseInt(txtQuantity.getText());
+        
         String plantName = comboRestaurant.getSelectedItem().toString();
         OxygenPlant plant = system.getOxygenPlantDirectory().getOxygenPlant(plantName);
         Customer customer = system.getCustomerDirectory().getCustomer(this.userAccount.getEmployee().getName());
@@ -279,7 +291,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         
         int lastOrderId = system.getLastOrderId();
         Order order = system.getOrderDirectory().newOrder();
-        System.out.println("New Order-id that can be taken : " + lastOrderId+1);
+        System.out.println("New Order-id that can be taken : " + lastOrderId++);
         System.out.println("order id generated : " + order.getOrderId());
         if(lastOrderId+1 > order.getOrderId()){
             order.setOrderId(lastOrderId++);
