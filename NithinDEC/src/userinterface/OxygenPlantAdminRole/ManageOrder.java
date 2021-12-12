@@ -259,7 +259,7 @@ public class ManageOrder extends javax.swing.JPanel {
         }
         
         else {
-            JOptionPane.showMessageDialog(null, "Order is already accepted or Completed");
+            JOptionPane.showMessageDialog(null, "Order is not in Order Placed Status");
             return;
         }
         

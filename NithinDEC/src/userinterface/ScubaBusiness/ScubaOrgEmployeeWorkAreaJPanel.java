@@ -12,11 +12,15 @@ import userinterface.AviationBusiness.*;
 import userinterface.HospitalArea.*;
 import userinterface.DeliveryManRole.*;
 import Business.EcoSystem;
+import Business.Menu.Item;
 import Business.Order.Order;
+import Business.OxygenPlant.OxygenPlant;
 
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -41,8 +45,15 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.system = system;
-        
-        populateTable();
+        valueLabel.setText(this.userAccount.getUsername());
+        ArrayList<OxygenPlant> restList = this.system.getOxygenPlantDirectory().returnAllOxygenPlants();
+        ArrayList<String> restaurantNames = new ArrayList();
+        for(OxygenPlant p : restList){
+            restaurantNames.add(p.getOxygenPlantName());
+        }
+        comboRestaurant.setModel(new DefaultComboBoxModel<String>(restaurantNames.toArray(new String[0])));
+        populateMenuTable();
+        populateRequestTable();
     }
     
     public void populateTable(){
@@ -101,14 +112,14 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Welcome ");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 27, 99, 30));
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 99, 30));
 
         valueLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 29, 158, 26));
 
         jLabel1.setText("Select Pack: ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, 20));
 
         comboRestaurant.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pack 4", "Pack 6", "Item 24", "Item 48" }));
         comboRestaurant.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +127,7 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
                 comboRestaurantActionPerformed(evt);
             }
         });
-        add(comboRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 100, -1));
+        add(comboRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 180, -1));
 
         refreshTestJButton.setText("Refresh ");
         refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -128,18 +139,18 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
 
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Oxygen Model", "Price"
+                "Oxygen Model", "Price", "Available Quantity"
             }
         ));
         jScrollPane2.setViewportView(tblMenu);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 400, 96));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 400, 96));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("Quantity");
@@ -152,13 +163,13 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
         });
         add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 129, -1));
 
-        btnPlaceOrder.setText("Place Order");
+        btnPlaceOrder.setText("Place Request For Admin To Order");
         btnPlaceOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPlaceOrderActionPerformed(evt);
             }
         });
-        add(btnPlaceOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 105, -1));
+        add(btnPlaceOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 220, -1));
 
         enterpriseLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel1.setText("View Your Orders Below:- ");
@@ -214,6 +225,7 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
 
     private void comboRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboRestaurantActionPerformed
         // TODO add your handling code here:
+        this.populateMenuTable();
     }//GEN-LAST:event_comboRestaurantActionPerformed
 
     private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
@@ -226,10 +238,59 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         // TODO add your handling code here:
+        int selectedRow = tblMenu.getSelectedRow();
+        if(selectedRow < 0) {
+            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        int quantityToPlaceOrder = Integer.parseInt(txtQuantity.getText());
+        String plantName = comboRestaurant.getSelectedItem().toString();
+        OxygenPlant plant = system.getOxygenPlantDirectory().getOxygenPlant(plantName);
+//        Customer customer = system.getHospitalDirectory().getHospital()(this.userAccount.getEmployee().getName());
+        System.out.println(this.userAccount.getEmployee().getName());
+//        System.out.println("Customer is : " + customer.getName());
+        Item selectedItem = (Item) tblMenu.getValueAt(selectedRow, 0);
+        String status = "Waiting On Admin Approval";
+        
+        int lastOrderId = system.getLastOrderId();
+        Order order = system.getOrderDirectory().newOrder();
+        System.out.println("New Order-id that can be taken : " + lastOrderId++);
+        System.out.println("order id generated : " + order.getOrderId());
+        if(lastOrderId+1 >= order.getOrderId()){
+            order.setOrderId(lastOrderId++);
+        }
+        
+//        order.setCustomer(customer);
+        order.setQuantity(quantityToPlaceOrder);
+        order.setItem(selectedItem);
+        order.setRestaurant(plant);
+        order.setOrderStatus(status);
+        order.setAssign(false);
+        order.setReceiver(this.userAccount);
+        
+        JOptionPane.showMessageDialog(null,"You have placed an order");
+        system.getOxygenPlantDirectory().getOxygenPlant(plantName).getMenu().updateQunatity(selectedItem, selectedItem.getQuantity() - quantityToPlaceOrder);
+        populateRequestTable();
+        populateMenuTable();
+        txtQuantity.setText("");
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
     private void btnSubmitReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitReviewActionPerformed
-
+        if(txtComment.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,"Field cannot be empty");
+            return;
+        }
+        
+        int selectedRow = workRequestJTable.getSelectedRow();
+        if(selectedRow < 0) {
+            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        Order order = (Order)workRequestJTable.getValueAt(selectedRow, 0);
+        order.setMessage(txtComment.getText());
+        populateRequestTable();
     }//GEN-LAST:event_btnSubmitReviewActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -251,4 +312,51 @@ public class ScubaOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel valueLabel;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
+    
+    public void populateMenuTable(){
+        String restaurantName = comboRestaurant.getSelectedItem().toString();
+        ArrayList<OxygenPlant> restList = this.system.getOxygenPlantDirectory().returnAllOxygenPlants();
+        ArrayList<Item> itemList = new ArrayList();
+        for(OxygenPlant p : restList){
+            if(p.getOxygenPlantName().equals(restaurantName)){
+                itemList = p.getMenu().getMenu();
+                break;
+            }
+        }
+        
+        System.out.println("Inside method to populate Menu table");
+        DefaultTableModel model = (DefaultTableModel) tblMenu.getModel();
+        model.setRowCount(0);
+
+        for(Item item : itemList){
+            System.out.println(item);
+            Object[] row = new Object[3];
+            row[0] = item;
+            row[1] = item.getPrice();
+            row[2] = item.getQuantity();
+            model.addRow(row);
+        }
+    }
+    
+    public void populateRequestTable(){
+        DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
+        model.setRowCount(0);
+        for (Order order : system.getOrderDirectory().getOrderDirectory()){
+            System.out.println("Order : " + order.getOrderId());
+            if(this.userAccount.getUsername().equals(order.getReceiver().getUsername())) {
+                Object[] row = new Object[8];
+                row[0] = order;
+                row[1] = order.getItem().getItemName();
+                row[2] = order.getQuantity() * order.getItem().getPrice();
+                row[3] = order.getRestaurant().getOxygenPlantName();
+                row[4] = order.getMessage();
+                row[5] = order.getReceiver().getUsername();
+                row[6] = order.getOrderStatus();
+                row[7] = order.getQuantity();
+                model.addRow(row);
+            }
+        }
+    }
+
+
 }
