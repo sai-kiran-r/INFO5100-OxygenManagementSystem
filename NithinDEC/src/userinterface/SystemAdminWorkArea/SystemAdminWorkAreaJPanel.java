@@ -142,7 +142,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageNetworkActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 230, 40));
+        jPanel2.add(btnManageNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 250, 40));
 
         btnManageOxygenPlants.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_restaurant_20px.png"))); // NOI18N
         btnManageOxygenPlants.setText("Manage Restaurants");
@@ -151,7 +151,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageOxygenPlantsActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageOxygenPlants, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 155, -1));
+        jPanel2.add(btnManageOxygenPlants, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 170, -1));
 
         btnManageDeliveryMan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Delivery.png"))); // NOI18N
         btnManageDeliveryMan.setText("Manage Deliveryman");
@@ -169,7 +169,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnNewUserActionPerformed(evt);
             }
         });
-        jPanel2.add(btnNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 150, -1));
+        jPanel2.add(btnNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 160, -1));
 
         btnManageHospitalAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Hospital.png"))); // NOI18N
         btnManageHospitalAdmin.setText("Manage Hospital Admin");
@@ -178,7 +178,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageHospitalAdminActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageHospitalAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 188, 192, 31));
+        jPanel2.add(btnManageHospitalAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 210, 31));
 
         btnManageHospitalEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Hospital2.png"))); // NOI18N
         btnManageHospitalEmployee.setText("Manage Hospital Employee");
@@ -187,7 +187,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageHospitalEmployeeActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageHospitalEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 231, 192, 29));
+        jPanel2.add(btnManageHospitalEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 220, 29));
 
         btnManageSalesManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ManagerSalesTwo.png"))); // NOI18N
         btnManageSalesManager.setText("Manage Sales Manager");
@@ -196,7 +196,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageSalesManagerActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageSalesManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 272, 192, 31));
+        jPanel2.add(btnManageSalesManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 200, 31));
 
         btnManageSalesExecutive.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ManagerSales.png"))); // NOI18N
         btnManageSalesExecutive.setText("Manage Sales Executive");
@@ -205,7 +205,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageSalesExecutiveActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageSalesExecutive, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 315, 192, 31));
+        jPanel2.add(btnManageSalesExecutive, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 200, 31));
 
         btnManageNGOAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/NGOONE.png"))); // NOI18N
         btnManageNGOAdmin.setText("Manage NGO Administrator");
@@ -214,7 +214,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageNGOAdminActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageNGOAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 358, -1, 31));
+        jPanel2.add(btnManageNGOAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, 220, 31));
 
         btnManageNGOEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/NGOONE.png"))); // NOI18N
         btnManageNGOEmployee.setText("Manage NGO Employee");
@@ -223,7 +223,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageNGOEmployeeActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageNGOEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 401, 192, 29));
+        jPanel2.add(btnManageNGOEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 240, 220, 29));
 
         btnManageBusinessAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/BusinessTwo.png"))); // NOI18N
         btnManageBusinessAdmin.setText("Manage Bussiness Admin");
@@ -232,7 +232,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageBusinessAdminActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageBusinessAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 442, 192, 31));
+        jPanel2.add(btnManageBusinessAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 210, 31));
 
         btnManageBusinessEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/BusinessTwo.png"))); // NOI18N
         btnManageBusinessEmployee.setText("Manage Bussiness Assitant");
@@ -241,7 +241,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageBusinessEmployeeActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageBusinessEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 491, 192, 29));
+        jPanel2.add(btnManageBusinessEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, 210, 29));
 
         btnPendingApproval.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8_user_20px.png"))); // NOI18N
         btnPendingApproval.setText("Manage Pending Account Approvals");

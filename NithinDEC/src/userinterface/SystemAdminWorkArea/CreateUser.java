@@ -10,10 +10,12 @@ import Business.DeliveryMan.DeliveryMan;
 import Business.OxygenPlant.OxygenPlant;
 import Business.EcoSystem;
 import Business.Employee.Employee;
+import Business.Hospital.HospitalAdmin;
 import Business.OxygenPlant.OxygenPlant;
 import Business.Role.AdminRole;
 import Business.Role.CustomerRole;
 import Business.Role.DeliverManRole;
+import Business.Role.HospitalAdminRole;
 import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
@@ -115,6 +117,12 @@ public class CreateUser extends javax.swing.JPanel {
 
         jLabel7.setText(" Bussiness Name :");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 412, -1, -1));
+
+        txtRestaurantName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRestaurantNameActionPerformed(evt);
+            }
+        });
         add(txtRestaurantName, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 407, 182, -1));
 
         btnSubmit.setText("Submit");
@@ -248,6 +256,10 @@ public class CreateUser extends javax.swing.JPanel {
             txtRestaurantName.setEditable(false);
         }
     }//GEN-LAST:event_comboRoleActionPerformed
+
+    private void txtRestaurantNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRestaurantNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRestaurantNameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
