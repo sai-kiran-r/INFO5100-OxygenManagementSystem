@@ -93,12 +93,16 @@ public class ConfigureASystem {
         Employee SalesManagerEmployee = system.getEmployeeDirectory().createEmployee("SalesManager");
         UserAccount SalesManAccount = system.getUserAccountDirectory().createUserAccount("salesmanager", "salesmanager", SalesManagerEmployee, new SalesManagerRole());
         SalesManager salesManAcc = new SalesManager(SalesManAccount);
+        salesManAcc.setPhoneNumber(6176176178L);
+        salesManAcc.setAddress("St Asndkjsan asdasd");
         system.getSalesDirectory().addManager(salesManAcc);
   
         //Sales Employee
         Employee SalesEmployee = system.getEmployeeDirectory().createEmployee("SalesEmployee");
         UserAccount SalesEmpAccount = system.getUserAccountDirectory().createUserAccount("salesemp", "salesemp", SalesEmployee, new SalesEmployeeRole());
         SalesEmployee salesEmpAcc = new SalesEmployee(SalesEmpAccount);
+        salesEmpAcc.setPhoneNumber(6176176179L);
+        salesEmpAcc.setAddress("St Asndkjsan asdasd 123");
         system.getSalesDirectory().addEmployee(salesEmpAcc);
         
         // Hospital System
