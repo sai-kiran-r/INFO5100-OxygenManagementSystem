@@ -8,8 +8,9 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 
 import Business.UserAccount.UserAccount;
-import userinterface.WaterPlantBusiness.WaterPlantEmployeeWorkAreaJPanel;
+import userinterface.WaterPlantBusiness.WaterPlantManagerWorkAreaJPanel;
 import javax.swing.JPanel;
+import userinterface.WaterPlantBusiness.WaterPlantEmployeeWorkAreaJPanel;
 
 /**
  *
