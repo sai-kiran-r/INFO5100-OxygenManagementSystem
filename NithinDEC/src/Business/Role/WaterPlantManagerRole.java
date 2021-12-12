@@ -8,8 +8,9 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 
 import Business.UserAccount.UserAccount;
-import userinterface.WaterPlantBusiness.WaterPlantMangerWorkAreaJPanel;
+import userinterface.WaterPlantBusiness.WaterPlantEmployeeWorkAreaJPanel;
 import javax.swing.JPanel;
+import userinterface.WaterPlantBusiness.WaterPlantManagerWorkAreaJPanel;
 
 /**
  *
@@ -19,7 +20,7 @@ public class WaterPlantManagerRole extends Role{
 
   
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-        return new WaterPlantMangerWorkAreaJPanel(userProcessContainer, account, system);
+        return new WaterPlantManagerWorkAreaJPanel(userProcessContainer, account, system);
     }
     
 }
