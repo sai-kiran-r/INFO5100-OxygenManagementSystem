@@ -151,7 +151,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageOxygenPlantsActionPerformed(evt);
             }
         });
-        jPanel2.add(btnManageOxygenPlants, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 190, -1));
+        jPanel2.add(btnManageOxygenPlants, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, 190, -1));
 
         btnManageDeliveryMan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Delivery.png"))); // NOI18N
         btnManageDeliveryMan.setText("Manage Deliveryman");
