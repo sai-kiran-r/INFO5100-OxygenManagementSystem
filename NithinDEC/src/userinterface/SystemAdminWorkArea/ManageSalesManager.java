@@ -6,12 +6,14 @@
 package userinterface.SystemAdminWorkArea;
 
 import Business.Customer.Customer;
+import Business.CustomerSales.SalesManager;
 import Business.EcoSystem;
 import Business.Hospital.Hospital;
 import Business.Hospital.HospitalAdmin;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -75,13 +77,13 @@ public class ManageSalesManager extends javax.swing.JPanel {
 
         tblCustomerDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Name", "UserName", "Password", "Address", "PhoneNumber", "Hospital"
+                "Name", "UserName", "Password", "Address", "PhoneNumber"
             }
         ));
         jScrollPane1.setViewportView(tblCustomerDetails);
@@ -176,29 +178,30 @@ public class ManageSalesManager extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
+        SalesManager selectedCustomer = (SalesManager)model.getValueAt(selectedRowIndex, 0);
         String name = txtName.getText();
         String userName = txtUsername.getText();
         String password = txtpassword.getText();
 
         
-        ArrayList<Hospital> restos = system.getHospitalDirectory().returnAllHospitals();
-        for(Hospital r: restos)
+        ArrayList<SalesManager> restos = system.getSalesDirectory().returnSalesManagerDetails();
+        for(SalesManager r: restos)
         {
-            if(r.getHospitalAdmin().getName().equals(selectedCustomer.getName()))
+            if(r.getName().equals(selectedCustomer.getName()))
             {
-                r.getHospitalAdmin().setName(name);
-                r.getHospitalAdmin().returnUserAccount().setUsername(userName);
-                r.getHospitalAdmin().returnUserAccount().setPassword(password);
-                r.getHospitalAdmin().setUserName(userName);
-                r.getHospitalAdmin().setUserPassword(password);
+                r.setName(name);
+                r.returnUserAccount().setUsername(userName);
+                r.returnUserAccount().setPassword(password);
+                r.setUserName(userName);
+                r.setUserPassword(password);
                 r.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                 r.setAddress(txtAddress.getText());
                 break;
             }
             
         }
-        this.system.setHospitalDirectory(restos);
+        this.system.setSalesDirectory(restos,
+                    system.getSalesDirectory().returnEmployeeDetails());
         JOptionPane.showMessageDialog(this, "Updated Successfully");
         
         txtName.setText("");txtUsername.setText("");txtpassword.setText("");
@@ -214,17 +217,17 @@ public class ManageSalesManager extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
+        SalesManager selectedManager = (SalesManager)model.getValueAt(selectedRowIndex, 0);
         txtName.setText("");
-        txtName.setText(selectedCustomer.getName());
+        txtName.setText(selectedManager.getName());
         txtUsername.setText("");
-        txtUsername.setText(selectedCustomer.getUserName());
+        txtUsername.setText(selectedManager.getUserName());
         txtpassword.setText("");
-        txtpassword.setText(selectedCustomer.getUserPassword());
+        txtpassword.setText(selectedManager.getUserPassword());
         txtAddress.setText("");
-        txtAddress.setText(selectedCustomer.getAddress());
+        txtAddress.setText(selectedManager.getAddress());
         txtPhoneNumber.setText("");
-        txtPhoneNumber.setText(String.valueOf(selectedCustomer.getPhoneNumber()));
+        txtPhoneNumber.setText(String.valueOf(selectedManager.getPhoneNumber()));
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -235,23 +238,24 @@ public class ManageSalesManager extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
+        SalesManager selectedCustomer = (SalesManager)model.getValueAt(selectedRowIndex, 0);
         // First delete the customer from employee
         this.system.getEmployeeDirectory().deleteEmployee(selectedCustomer.getName());
         // And thne delete the userAccount
         this.system.getUserAccountDirectory().deleteUserAccount(
-                this.system.getCustomerDirectory().returnCustomerDetails().
+                this.system.getSalesDirectory().returnSalesManagerDetails().
                         get(selectedRowIndex).returnUserAccount()
         );
         // finally delete the user from customer directory
-        ArrayList<Hospital> hosList = this.system.getHospitalDirectory().returnAllHospitals();
-        for(Hospital cust : hosList){
-            if(selectedCustomer.getName().equals(cust.getHospitalAdmin().getName())){
-                cust.setHospitalAdmin(null);
-            }
-            
+        Iterator<SalesManager> itr = this.system.getSalesDirectory().returnSalesManagerDetails().iterator();
+        while (itr.hasNext()) {
+          SalesManager selectedManager = itr.next();
+          if (selectedManager.getName().equals(selectedCustomer.getName())) {
+            itr.remove();
+          }
         }
-        this.system.setHospitalDirectory(hosList);
+       
+//        this.system.setSalesDirectory(hosList);
         
         this.populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -279,19 +283,17 @@ public class ManageSalesManager extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateTable(){
-        System.out.println("Inside method to populate Customer table");
+        System.out.println("Inside method to populate Sales Manager table");
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
         model.setRowCount(0);
         try{
-            for(Hospital cust : this.system.getHospitalDirectory().returnAllHospitals()){
-            System.out.println(cust.getHospitalAdmin());
-            Object[] row = new Object[6];
-            row[0] = cust.getHospitalAdmin();
-            row[1] = cust.getHospitalAdmin().getUserName();
-            row[2] = cust.getHospitalAdmin().getUserPassword();
-            row[3] = cust.getHospitalAdmin().getAddress();
-            row[4] = cust.getHospitalAdmin().getPhoneNumber();
-            row[5] = cust.getHospitalName();
+            for(SalesManager cust : this.system.getSalesDirectory().returnSalesManagerDetails()){
+            Object[] row = new Object[5];
+            row[0] = cust;
+            row[1] = cust.getUserName();
+            row[2] = cust.getUserPassword();
+            row[3] = cust.getAddress();
+            row[4] = cust.getPhoneNumber();
             model.addRow(row);
             }
         }catch(NullPointerException e){

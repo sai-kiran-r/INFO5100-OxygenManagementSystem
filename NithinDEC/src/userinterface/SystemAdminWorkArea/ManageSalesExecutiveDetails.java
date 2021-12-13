@@ -6,12 +6,15 @@
 package userinterface.SystemAdminWorkArea;
 
 import Business.Customer.Customer;
+import Business.CustomerSales.SalesEmployee;
+import Business.CustomerSales.SalesManager;
 import Business.EcoSystem;
 import Business.Hospital.Hospital;
 import Business.Hospital.HospitalEmployee;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -75,13 +78,13 @@ public class ManageSalesExecutiveDetails extends javax.swing.JPanel {
 
         tblCustomerDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Name", "UserName", "Password", "Address", "PhoneNumber", "Hospital"
+                "Name", "UserName", "Password", "Address", "PhoneNumber"
             }
         ));
         jScrollPane1.setViewportView(tblCustomerDetails);
@@ -176,29 +179,30 @@ public class ManageSalesExecutiveDetails extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalEmployee selectedCustomer = (HospitalEmployee)model.getValueAt(selectedRowIndex, 0);
+        SalesEmployee selectedCustomer = (SalesEmployee)model.getValueAt(selectedRowIndex, 0);
         String name = txtName.getText();
         String userName = txtUsername.getText();
         String password = txtpassword.getText();
 
         
-        ArrayList<Hospital> restos = system.getHospitalDirectory().returnAllHospitals();
-        for(Hospital r: restos)
+        ArrayList<SalesEmployee> restos = system.getSalesDirectory().returnEmployeeDetails();
+        for(SalesEmployee r: restos)
         {
-            if(r.getHospitalEmployee().getName().equals(selectedCustomer.getName()))
+            if(r.getName().equals(selectedCustomer.getName()))
             {
-                r.getHospitalEmployee().setName(name);
-                r.getHospitalEmployee().returnUserAccount().setUsername(userName);
-                r.getHospitalEmployee().returnUserAccount().setPassword(password);
-                r.getHospitalEmployee().setUserName(userName);
-                r.getHospitalEmployee().setUserPassword(password);
+                r.setName(name);
+                r.returnUserAccount().setUsername(userName);
+                r.returnUserAccount().setPassword(password);
+                r.setUserName(userName);
+                r.setUserPassword(password);
                 r.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
                 r.setAddress(txtAddress.getText());
                 break;
             }
             
         }
-        this.system.setHospitalDirectory(restos);
+        this.system.setSalesDirectory(this.system.getSalesDirectory().returnSalesManagerDetails()
+                ,restos);
         JOptionPane.showMessageDialog(this, "Updated Successfully");
         
         txtName.setText("");txtUsername.setText("");txtpassword.setText("");
@@ -214,7 +218,7 @@ public class ManageSalesExecutiveDetails extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalEmployee selectedCustomer = (HospitalEmployee)model.getValueAt(selectedRowIndex, 0);
+        SalesEmployee selectedCustomer = (SalesEmployee)model.getValueAt(selectedRowIndex, 0);
         txtName.setText("");
         txtName.setText(selectedCustomer.getName());
         txtUsername.setText("");
@@ -235,25 +239,23 @@ public class ManageSalesExecutiveDetails extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalEmployee selectedCustomer = (HospitalEmployee)model.getValueAt(selectedRowIndex, 0);
+        SalesEmployee selectedCustomer = (SalesEmployee)model.getValueAt(selectedRowIndex, 0);
         // First delete the customer from employee
         this.system.getEmployeeDirectory().deleteEmployee(selectedCustomer.getName());
         // And thne delete the userAccount
         this.system.getUserAccountDirectory().deleteUserAccount(
-                this.system.getCustomerDirectory().returnCustomerDetails().
+                this.system.getSalesDirectory().returnEmployeeDetails().
                         get(selectedRowIndex).returnUserAccount()
         );
         // finally delete the user from customer directory
-        ArrayList<Hospital> hosList = this.system.getHospitalDirectory().returnAllHospitals();
-        for(Hospital cust : hosList){
-            if(selectedCustomer.getName().equals(cust.getHospitalEmployee().getName())){
-                cust.setHospitalEmployee(null);
-            }
-            
+        Iterator<SalesEmployee> itr = this.system.getSalesDirectory().returnEmployeeDetails().iterator();
+        while (itr.hasNext()) {
+          SalesEmployee selectedEmployee = itr.next();
+          if (selectedEmployee.getName().equals(selectedCustomer.getName())) {
+            itr.remove();
+          }
         }
-        this.system.setHospitalDirectory(hosList);
-        
-        JOptionPane.showMessageDialog(this, "Deleted the entry Successfully");
+       
         this.populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -280,20 +282,21 @@ public class ManageSalesExecutiveDetails extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateTable(){
-        System.out.println("Inside method to populate Customer table");
+        System.out.println("Inside method to populate Sales Executive table");
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
         model.setRowCount(0);
-
-        for(Hospital cust : this.system.getHospitalDirectory().returnAllHospitals()){
-            System.out.println(cust.getHospitalEmployee());
-            Object[] row = new Object[6];
-            row[0] = cust.getHospitalEmployee();
-            row[1] = cust.getHospitalEmployee().getUserName();
-            row[2] = cust.getHospitalEmployee().getUserPassword();
-            row[3] = cust.getHospitalEmployee().getAddress();
-            row[4] = cust.getHospitalEmployee().getPhoneNumber();
-            row[5] = cust.getHospitalName();
+        try{
+            for(SalesEmployee cust : this.system.getSalesDirectory().returnEmployeeDetails()){
+            Object[] row = new Object[5];
+            row[0] = cust;
+            row[1] = cust.getUserName();
+            row[2] = cust.getUserPassword();
+            row[3] = cust.getAddress();
+            row[4] = cust.getPhoneNumber();
             model.addRow(row);
+            }
+        }catch(NullPointerException e){
+            System.out.println("Null pointer exception occured as there is no hospital Admin data");
         }
     }
 

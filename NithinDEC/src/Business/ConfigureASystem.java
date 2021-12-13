@@ -83,22 +83,32 @@ public class ConfigureASystem {
         Employee ngoAdmin = system.getEmployeeDirectory().createEmployee("NGOAdmin");
         UserAccount ngoAccount = system.getUserAccountDirectory().createUserAccount("ngoadmin", "ngoadmin", ngoAdmin, new NGOAdminRole());
         NGOAdmin ngoAd = new NGOAdmin(ngoAccount);
+        ngoAd.setAddress("St Alphansous Street Boston");
+        ngoAd.setPhoneNumber(5678998765L);
+        ngoAd.setBusinessName("Librety Int");
         system.getNGODirectory().addAdmin(ngoAd);
               
         Employee ngoEmployee = system.getEmployeeDirectory().createEmployee("NGOEmployee");
         UserAccount ngoEmpAccount = system.getUserAccountDirectory().createUserAccount("ngoemployee", "ngoemployee", ngoEmployee, new NGOEmployeeRole());
         NGOEmployee ngoEmpAcc = new NGOEmployee(ngoEmpAccount);
+        ngoEmpAcc.setAddress("St BUkara Peters");
+        ngoEmpAcc.setPhoneNumber(5678908765L);
+        ngoEmpAcc.setBusinessName("Librety Int");
         system.getNGODirectory().addEmployee(ngoEmpAcc);
         
         Employee SalesManagerEmployee = system.getEmployeeDirectory().createEmployee("SalesManager");
         UserAccount SalesManAccount = system.getUserAccountDirectory().createUserAccount("salesmanager", "salesmanager", SalesManagerEmployee, new SalesManagerRole());
         SalesManager salesManAcc = new SalesManager(SalesManAccount);
+        salesManAcc.setPhoneNumber(6176176178L);
+        salesManAcc.setAddress("St Asndkjsan asdasd");
         system.getSalesDirectory().addManager(salesManAcc);
   
         //Sales Employee
         Employee SalesEmployee = system.getEmployeeDirectory().createEmployee("SalesEmployee");
         UserAccount SalesEmpAccount = system.getUserAccountDirectory().createUserAccount("salesemp", "salesemp", SalesEmployee, new SalesEmployeeRole());
         SalesEmployee salesEmpAcc = new SalesEmployee(SalesEmpAccount);
+        salesEmpAcc.setPhoneNumber(6176176179L);
+        salesEmpAcc.setAddress("St Asndkjsan asdasd 123");
         system.getSalesDirectory().addEmployee(salesEmpAcc);
         
         // Hospital System

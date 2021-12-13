@@ -75,7 +75,7 @@
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="btnBack" min="-2" pref="58" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                      <Component id="lbTitle" min="-2" pref="420" max="-2" attributes="0"/>
+                      <Component id="lbTitle" min="-2" pref="451" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="126" max="32767" attributes="0"/>
@@ -153,7 +153,7 @@
                 <Column editable="true" title="Password" type="java.lang.Object"/>
                 <Column editable="true" title="Address" type="java.lang.Object"/>
                 <Column editable="true" title="PhoneNumber" type="java.lang.Object"/>
-                <Column editable="true" title="Hospital" type="java.lang.Object"/>
+                <Column editable="true" title="Business Name" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
