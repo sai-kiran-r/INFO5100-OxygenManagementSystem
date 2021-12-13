@@ -138,11 +138,11 @@ public class SalesExecutiveWorkAreaJPanel extends javax.swing.JPanel {
         plot.setBackgroundPaint(Color.WHITE);
 
         
-//        
-//        ChartPanel barpChartPanel2 = new ChartPanel(chart);
-//        panelHistogramChart.removeAll();
-//        panelHistogramChart.add(barpChartPanel2, BorderLayout.CENTER);
-//        panelHistogramChart.validate();
+        
+        ChartPanel barpChartPanel2 = new ChartPanel(chart);
+        panelHistogramChart.removeAll();
+        panelHistogramChart.add(barpChartPanel2, BorderLayout.CENTER);
+        panelHistogramChart.validate();
     }
 
     /*========================================================================================*/
@@ -166,10 +166,10 @@ public class SalesExecutiveWorkAreaJPanel extends javax.swing.JPanel {
         Color clr3 = new Color(204,0,51);
         renderer.setSeriesPaint(0, clr3);
         
-        ChartPanel barpChartPanel = new ChartPanel(chart);
-        panelBarChart.removeAll();
-        panelBarChart.add(barpChartPanel, BorderLayout.CENTER);
-        panelBarChart.validate();
+//        ChartPanel barpChartPanel = new ChartPanel(chart);
+//        panelBarChart.removeAll();
+//        panelBarChart.add(barpChartPanel, BorderLayout.CENTER);
+//        panelBarChart.validate();
         
         
     }
