@@ -134,7 +134,7 @@ public class NGOAdminWorkAreaJPanel extends javax.swing.JPanel {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 240, -1, -1));
 
         processJButton.setText("Decline Request");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -142,7 +142,7 @@ public class NGOAdminWorkAreaJPanel extends javax.swing.JPanel {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, -1, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 280, -1, -1));
 
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +150,7 @@ public class NGOAdminWorkAreaJPanel extends javax.swing.JPanel {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 70, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Welcome : ");
@@ -160,8 +160,8 @@ public class NGOAdminWorkAreaJPanel extends javax.swing.JPanel {
         lbUserName.setText("<value>");
         add(lbUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 259, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HSADMIN2 (1).jpg"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 1290, 840));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/oxyimage3.gif"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 600));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed

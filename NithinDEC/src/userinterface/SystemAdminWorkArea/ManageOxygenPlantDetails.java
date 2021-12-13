@@ -156,9 +156,9 @@ public class ManageOxygenPlantDetails extends javax.swing.JPanel {
         });
         add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 472, 159, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/oxinhsmall.gif"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/giffing.gif"))); // NOI18N
         jLabel1.setText("jLabel1");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 510, 520));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 480, 460));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed

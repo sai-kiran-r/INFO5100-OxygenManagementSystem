@@ -158,8 +158,8 @@ public class DefenseOrgManagerWorkAreaJPanel extends javax.swing.JPanel {
         lbUserName.setText("<value>");
         add(lbUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 259, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HSADMIN2 (1).jpg"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 1290, 840));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/oxyimage3.gif"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 600));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed

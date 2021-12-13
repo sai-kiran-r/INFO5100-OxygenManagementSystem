@@ -85,6 +85,7 @@ public class WaterPlantManagerWorkAreaJPanel extends javax.swing.JPanel {
         workRequestJTable = new javax.swing.JTable();
         assignJButton1 = new javax.swing.JButton();
         processJButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -141,7 +142,7 @@ public class WaterPlantManagerWorkAreaJPanel extends javax.swing.JPanel {
                 assignJButton1ActionPerformed(evt);
             }
         });
-        add(assignJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, -1, -1));
+        add(assignJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 230, -1, -1));
 
         processJButton1.setText("Decline Request");
         processJButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -149,7 +150,10 @@ public class WaterPlantManagerWorkAreaJPanel extends javax.swing.JPanel {
                 processJButton1ActionPerformed(evt);
             }
         });
-        add(processJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 260, -1, -1));
+        add(processJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/oxyimage3.gif"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1490, 600));
     }// </editor-fold>//GEN-END:initComponents
 
     private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
@@ -200,6 +204,7 @@ public class WaterPlantManagerWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignJButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbUserName;
     private javax.swing.JButton processJButton1;

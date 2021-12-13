@@ -100,7 +100,7 @@ public class DefenseOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtComment = new javax.swing.JTextField();
         btnSubmitReview = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(246, 252, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -212,10 +212,9 @@ public class DefenseOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
         });
         add(btnSubmitReview, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, -1, -1));
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HSLarge.jpg"))); // NOI18N
-        jLabel4.setOpaque(true);
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, -1, 1340, 780));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/customers.gif"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 770));
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboRestaurantActionPerformed
@@ -297,7 +296,7 @@ public class DefenseOrgEmployeeWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton refreshTestJButton;
