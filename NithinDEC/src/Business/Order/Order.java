@@ -33,6 +33,16 @@ public class Order extends WorkRequest {
     private Item item;
     private String result;
     private boolean assign;
+    private String businessName;
+
+    public String getBusinessName() {
+        return businessName;
+    }
+
+    public void setBusinessName(String businessName) {
+        this.businessName = businessName;
+    }
+    
 
     public Order(){
         super();

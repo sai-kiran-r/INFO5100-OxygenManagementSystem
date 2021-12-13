@@ -6,6 +6,7 @@ package userinterface.HospitalArea;
 
 import userinterface.DeliveryManRole.*;
 import Business.EcoSystem;
+import Business.Hospital.Hospital;
 import Business.Order.Order;
 
 import Business.UserAccount.UserAccount;
@@ -44,27 +45,36 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
         model.setRowCount(0);
         
-        for(Order o : this.system.getOrderDirectory().getOrderDirectory()){
-//            System.out.println(this.userAccount.getUsername());
-//            System.out.println(o.getDeliveryMan());
+        String businessName = "";
+        for(Hospital ho : system.getHospitalDirectory().returnAllHospitals()){
+            if(this.userAccount.getUsername().equals(ho.getHospitalAdmin().getUserName())){
+                businessName = ho.getHospitalName();
+                break;
+            }
+        }
+        
+        System.out.println("This Admin Business Name : " + businessName);
+        for(Order o : this.system.getOrderDirectory().getOrderDirectory()){   
+            System.out.println("Order ka Business Name : " + o.getBusinessName());
             if((o.getOrderStatus().equals("Waiting On Admin Approval")||
                     o.getOrderStatus().equals("Order Placed") ||
                     o.getOrderStatus().equals("Order Picked up") ||
                     o.getOrderStatus().equals("Delivered"))
-                    && (o.getReceiver().getUsername().equalsIgnoreCase("hospitalemp"))){
-                System.out.println(o);
-                Object[] row = new Object[7];
-                row[0] = o;
-                row[1] = o.getMessage();
-                row[2] = o.getReceiver().getUsername();
-                row[3] = o.getOrderStatus();
-                row[4] = o.getMessage();
-                row[5] = o.getItem().getItemName();
-                row[6] = o.getQuantity();
-                model.addRow(row);
+                    && (o.getBusinessName().equalsIgnoreCase(businessName))){
+                    System.out.println(o);
+                    Object[] row = new Object[7];
+                    row[0] = o;
+                    row[1] = o.getMessage();
+                    row[2] = o.getReceiver().getUsername();
+                    row[3] = o.getOrderStatus();
+                    row[4] = o.getMessage();
+                    row[5] = o.getItem().getItemName();
+                    row[6] = o.getQuantity();
+                    model.addRow(row);
+                }
             }
         }
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
