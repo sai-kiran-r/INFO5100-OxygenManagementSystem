@@ -149,8 +149,8 @@ public class ManageSalesExecutiveDetails extends javax.swing.JPanel {
         add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 374, 159, -1));
         add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 418, 159, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/managerimage2.gif"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 740, 540));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/managersales.gif"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 340, 310));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
