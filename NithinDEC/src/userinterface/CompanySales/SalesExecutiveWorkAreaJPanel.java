@@ -166,10 +166,10 @@ public class SalesExecutiveWorkAreaJPanel extends javax.swing.JPanel {
         Color clr3 = new Color(204,0,51);
         renderer.setSeriesPaint(0, clr3);
         
-//        ChartPanel barpChartPanel = new ChartPanel(chart);
-//        panelBarChart.removeAll();
-//        panelBarChart.add(barpChartPanel, BorderLayout.CENTER);
-//        panelBarChart.validate();
+        ChartPanel barpChartPanel = new ChartPanel(chart);
+        panelBarChart.removeAll();
+        panelBarChart.add(barpChartPanel, BorderLayout.CENTER);
+        panelBarChart.validate();
         
         
     }
