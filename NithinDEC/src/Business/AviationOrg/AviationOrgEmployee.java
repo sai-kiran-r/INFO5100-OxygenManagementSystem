@@ -15,6 +15,7 @@ import Business.UserAccount.UserAccount;
 public class AviationOrgEmployee extends BusinessOrgEmployee{
    
     public AviationOrgEmployee(UserAccount ua) {
+        // Getting the data from parent
         super(ua);
     }
     

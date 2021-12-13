@@ -215,7 +215,8 @@ public class ConfigureASystem {
         menuItems.setMenu(itemList);
         plantData.setMenu(menuItems);
         system.getOxygenPlantDirectory().addOxygenPlant(plantData);
-        
+        //system.getNGODirectory().addEmployee(ngoEmpAcc);
+       
         return system;
         
     }
