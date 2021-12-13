@@ -21,26 +21,26 @@ public class AviationOrgDirectory{
         aviationDirectory = pharmaList;
     }
 
-    public ArrayList<AviationOrg> returnAllPharmaBusinesss() {
+    public ArrayList<AviationOrg> returnAllAviationBusinesss() {
         return aviationDirectory;
     }
 
-    public void setPharmaBusinessDirectory(ArrayList<AviationOrg> aviationDirectory) {
+    public void setAviationBusinessDirectory(ArrayList<AviationOrg> aviationDirectory) {
         this.aviationDirectory = aviationDirectory;
     }
     
-    public AviationOrg newPharmaBusiness(String name, String address, int phoneNumber) {
+    public AviationOrg newAviationBusiness(String name, String address, int phoneNumber) {
         AviationOrg aviation = new AviationOrg(name, address, phoneNumber);
         aviationDirectory.add(aviation);
         System.out.println(aviationDirectory.size() + "New Res");
         return aviation;
     }
     
-    public void removePharmaBusiness(AviationOrg pharma){
+    public void removeAviationBusiness(AviationOrg pharma){
         aviationDirectory.remove(pharma);
     }
     
-    public AviationOrg getPharmaBusiness(String name) {
+    public AviationOrg getAviationBusiness(String name) {
         for(AviationOrg r : aviationDirectory) {
             if(r.getBusinessName().equals(name)) {
                 return r;

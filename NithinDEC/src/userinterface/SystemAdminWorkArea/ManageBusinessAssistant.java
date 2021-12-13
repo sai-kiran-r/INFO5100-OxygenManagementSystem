@@ -5,10 +5,25 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.AviationOrg.AviationOrg;
+import Business.AviationOrg.AviationOrgAdmin;
+import Business.AviationOrg.AviationOrgEmployee;
 import Business.Customer.Customer;
+import Business.DefenseOrg.DefenseOrg;
+import Business.DefenseOrg.DefenseOrgAdmin;
+import Business.DefenseOrg.DefenseOrgEmployee;
 import Business.EcoSystem;
 import Business.Hospital.Hospital;
 import Business.Hospital.HospitalAdmin;
+import Business.PharmaOrg.PharmaOrg;
+import Business.PharmaOrg.PharmaOrgAdmin;
+import Business.PharmaOrg.PharmaOrgEmployee;
+import Business.ScubaOrg.ScubaOrg;
+import Business.ScubaOrg.ScubaOrgAdmin;
+import Business.ScubaOrg.ScubaOrgEmployee;
+import Business.WaterDepartment.WaterTreatmentOrg;
+import Business.WaterDepartment.WaterTreatmentOrgAdmin;
+import Business.WaterDepartment.WaterTreatmentOrgEmployee;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.ArrayList;
@@ -32,7 +47,7 @@ public class ManageBusinessAssistant extends javax.swing.JPanel {
         initComponents();
         this.system = system;
         this.userProcessContainer = userProcessContainer;
-        this.populateTable();
+//        this.populateTable();
 //        txtName.setEditable(false);
 //        txtUsername.setEditable(false);
     }
@@ -63,6 +78,8 @@ public class ManageBusinessAssistant extends javax.swing.JPanel {
         lbPassword2 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
         txtPhoneNumber = new javax.swing.JTextField();
+        comboRole = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(246, 252, 255));
 
@@ -127,6 +144,16 @@ public class ManageBusinessAssistant extends javax.swing.JPanel {
 
         lbPassword2.setText("Phone Number :");
 
+        comboRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pharma Employee", "Defense Employee", "Aviation Employee", "Scuba Employee", "WaterPlant Employee" }));
+        comboRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboRoleActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setText("Role :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -171,8 +198,15 @@ public class ManageBusinessAssistant extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)
-                        .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(144, 144, 144)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(comboRole, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -180,9 +214,14 @@ public class ManageBusinessAssistant extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbTitle)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbTitle)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnView)
@@ -239,85 +278,358 @@ public class ManageBusinessAssistant extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
-        String name = txtName.getText();
-        String userName = txtUsername.getText();
-        String password = txtpassword.getText();
-
-        
-        ArrayList<Hospital> restos = system.getHospitalDirectory().returnAllHospitals();
-        for(Hospital r: restos)
-        {
-            if(r.getHospitalAdmin().getName().equals(selectedCustomer.getName()))
-            {
-                r.getHospitalAdmin().setName(name);
-                r.getHospitalAdmin().returnUserAccount().setUsername(userName);
-                r.getHospitalAdmin().returnUserAccount().setPassword(password);
-                r.getHospitalAdmin().setUserName(userName);
-                r.getHospitalAdmin().setUserPassword(password);
-                r.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
-                r.setAddress(txtAddress.getText());
-                break;
-            }
+        String roleSelected = comboRole.getSelectedItem().toString();
+        if(roleSelected == "Pharma Employee"){
+            PharmaOrgEmployee selectedCustomer = (PharmaOrgEmployee)model.getValueAt(selectedRowIndex, 0);
+            String name = txtName.getText();
+            String userName = txtUsername.getText();
+            String password = txtpassword.getText();
             
+            ArrayList<PharmaOrg> restos = this.system.getPharmaDirectory().returnAllPharmaBusinesss();
+            for(PharmaOrg r: restos)
+            {
+                if(r.getBusinessEmployee().getName().equals(selectedCustomer.getName()))
+                {
+                    r.getBusinessEmployee().setName(name);
+                    r.getBusinessEmployee().returnUserAccount().setUsername(userName);
+                    r.getBusinessEmployee().returnUserAccount().setPassword(password);
+                    r.getBusinessEmployee().setUserName(userName);
+                    r.getBusinessEmployee().setUserPassword(password);
+                    r.getBusinessEmployee().setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                    r.getBusinessEmployee().setAddress(txtAddress.getText());
+                    break;
+                }
+
+            }
+            this.system.setPharmaOrgDirectory(restos);
+            JOptionPane.showMessageDialog(this, "Updated Successfully");
+
+            txtName.setText("");txtUsername.setText("");txtpassword.setText("");
+            txtAddress.setText("");txtPhoneNumber.setText("");
+            populateTable("Pharma Employee");
         }
-        this.system.setHospitalDirectory(restos);
-        JOptionPane.showMessageDialog(this, "Updated Successfully");
-        
-        txtName.setText("");txtUsername.setText("");txtpassword.setText("");
-        txtAddress.setText("");txtPhoneNumber.setText("");
-        populateTable();
+        else if(roleSelected == "Defense Employee"){
+            DefenseOrgEmployee selectedCustomer = (DefenseOrgEmployee)model.getValueAt(selectedRowIndex, 0);
+            String name = txtName.getText();
+            String userName = txtUsername.getText();
+            String password = txtpassword.getText();
+            
+            ArrayList<DefenseOrg> restos = this.system.getDefenseDirectory().returnAllDefenseBusinesses();
+            for(DefenseOrg r: restos)
+            {
+                if(r.getBusinessEmployee().getName().equals(selectedCustomer.getName()))
+                {
+                    r.getBusinessEmployee().setName(name);
+                    r.getBusinessEmployee().returnUserAccount().setUsername(userName);
+                    r.getBusinessEmployee().returnUserAccount().setPassword(password);
+                    r.getBusinessEmployee().setUserName(userName);
+                    r.getBusinessEmployee().setUserPassword(password);
+                    r.getBusinessEmployee().setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                    r.getBusinessEmployee().setAddress(txtAddress.getText());
+                    break;
+                }
+
+            }
+            this.system.setDefenseOrgDirectory(restos);
+            JOptionPane.showMessageDialog(this, "Updated Successfully");
+            txtName.setText("");txtUsername.setText("");txtpassword.setText("");
+            txtAddress.setText("");txtPhoneNumber.setText("");
+            populateTable("Defense Employee");
+        }
+        else if(roleSelected == "Aviation Employee"){
+            AviationOrgEmployee selectedCustomer = (AviationOrgEmployee)model.getValueAt(selectedRowIndex, 0);
+            String name = txtName.getText();
+            String userName = txtUsername.getText();
+            String password = txtpassword.getText();
+            
+            ArrayList<AviationOrg> restos = this.system.getAviationDirectory().returnAllAviationBusinesss();
+            for(AviationOrg r: restos)
+            {
+                if(r.getBusinessEmployee().getName().equals(selectedCustomer.getName()))
+                {
+                    r.getBusinessEmployee().setName(name);
+                    r.getBusinessEmployee().returnUserAccount().setUsername(userName);
+                    r.getBusinessEmployee().returnUserAccount().setPassword(password);
+                    r.getBusinessEmployee().setUserName(userName);
+                    r.getBusinessEmployee().setUserPassword(password);
+                    r.getBusinessEmployee().setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                    r.getBusinessEmployee().setAddress(txtAddress.getText());
+                    break;
+                }
+
+            }
+            this.system.setAviationOrgDirectory(restos);
+            JOptionPane.showMessageDialog(this, "Updated Successfully");
+            txtName.setText("");txtUsername.setText("");txtpassword.setText("");
+            txtAddress.setText("");txtPhoneNumber.setText("");
+            populateTable("Aviation Employee");        
+        }
+        else if(roleSelected == "Scuba Employee"){
+            ScubaOrgEmployee selectedCustomer = (ScubaOrgEmployee)model.getValueAt(selectedRowIndex, 0);
+            String name = txtName.getText();
+            String userName = txtUsername.getText();
+            String password = txtpassword.getText();
+            
+            ArrayList<ScubaOrg> restos = this.system.getScubaOrgDirectory().returnAllScubaBusinesses();
+            for(ScubaOrg r: restos)
+            {
+                if(r.getBusinessEmployee().getName().equals(selectedCustomer.getName()))
+                {
+                    r.getBusinessEmployee().setName(name);
+                    r.getBusinessEmployee().returnUserAccount().setUsername(userName);
+                    r.getBusinessEmployee().returnUserAccount().setPassword(password);
+                    r.getBusinessEmployee().setUserName(userName);
+                    r.getBusinessEmployee().setUserPassword(password);
+                    r.getBusinessEmployee().setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                    r.getBusinessEmployee().setAddress(txtAddress.getText());
+                    break;
+                }
+
+            }
+            this.system.setScubaOrgDirectory(restos);
+            JOptionPane.showMessageDialog(this, "Updated Successfully");
+            txtName.setText("");txtUsername.setText("");txtpassword.setText("");
+            txtAddress.setText("");txtPhoneNumber.setText("");
+            populateTable("Scuba Employee");
+        }
+        else if(roleSelected == "WaterPlant Employee"){
+            WaterTreatmentOrgAdmin selectedCustomer = (WaterTreatmentOrgAdmin)model.getValueAt(selectedRowIndex, 0);
+            String name = txtName.getText();
+            String userName = txtUsername.getText();
+            String password = txtpassword.getText();
+            
+            ArrayList<WaterTreatmentOrg> restos = this.system.getWaterTreatementirectory().returnAllWaterTreatmentBusinesses();
+            for(WaterTreatmentOrg r: restos)
+            {
+                if(r.getBusinessEmployee().getName().equals(selectedCustomer.getName()))
+                {
+                    r.getBusinessEmployee().setName(name);
+                    r.getBusinessEmployee().returnUserAccount().setUsername(userName);
+                    r.getBusinessEmployee().returnUserAccount().setPassword(password);
+                    r.getBusinessEmployee().setUserName(userName);
+                    r.getBusinessEmployee().setUserPassword(password);
+                    r.getBusinessEmployee().setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+                    r.getBusinessEmployee().setAddress(txtAddress.getText());
+                    break;
+                }
+
+            }
+            this.system.setWaterTreatementOrgDirectory(restos);
+            JOptionPane.showMessageDialog(this, "Updated Successfully");
+            txtName.setText("");txtUsername.setText("");txtpassword.setText("");
+            txtAddress.setText("");txtPhoneNumber.setText("");
+            populateTable("WaterPlant Employee");
+        }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
+        String roleSelected = comboRole.getSelectedItem().toString();
         int selectedRowIndex = tblCustomerDetails.getSelectedRow();
         if(selectedRowIndex < 0){
             JOptionPane.showMessageDialog(this, "Please select a row to View");
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
-        txtName.setText("");
-        txtName.setText(selectedCustomer.getName());
-        txtUsername.setText("");
-        txtUsername.setText(selectedCustomer.getUserName());
-        txtpassword.setText("");
-        txtpassword.setText(selectedCustomer.getUserPassword());
-        txtAddress.setText("");
-        txtAddress.setText(selectedCustomer.getAddress());
-        txtPhoneNumber.setText("");
-        txtPhoneNumber.setText(String.valueOf(selectedCustomer.getPhoneNumber()));
+        if(roleSelected == "Pharma Employee"){
+            PharmaOrgEmployee selectedCustomer = (PharmaOrgEmployee)model.getValueAt(selectedRowIndex, 0);
+            txtName.setText("");
+            txtName.setText(selectedCustomer.getName());
+            txtUsername.setText("");
+            txtUsername.setText(selectedCustomer.getUserName());
+            txtpassword.setText("");
+            txtpassword.setText(selectedCustomer.getUserPassword());
+            txtAddress.setText("");
+            txtAddress.setText(selectedCustomer.getAddress());
+            txtPhoneNumber.setText("");
+            txtPhoneNumber.setText(String.valueOf(selectedCustomer.getPhoneNumber()));
+        }
+        else if(roleSelected == "Defense Employee"){
+            DefenseOrgEmployee selectedCustomer = (DefenseOrgEmployee)model.getValueAt(selectedRowIndex, 0);
+            txtName.setText("");
+            txtName.setText(selectedCustomer.getName());
+            txtUsername.setText("");
+            txtUsername.setText(selectedCustomer.getUserName());
+            txtpassword.setText("");
+            txtpassword.setText(selectedCustomer.getUserPassword());
+            txtAddress.setText("");
+            txtAddress.setText(selectedCustomer.getAddress());
+            txtPhoneNumber.setText("");
+            txtPhoneNumber.setText(String.valueOf(selectedCustomer.getPhoneNumber()));
+        }
+        else if(roleSelected == "Aviation Employee"){
+            AviationOrgEmployee selectedCustomer = (AviationOrgEmployee)model.getValueAt(selectedRowIndex, 0);
+            txtName.setText("");
+            txtName.setText(selectedCustomer.getName());
+            txtUsername.setText("");
+            txtUsername.setText(selectedCustomer.getUserName());
+            txtpassword.setText("");
+            txtpassword.setText(selectedCustomer.getUserPassword());
+            txtAddress.setText("");
+            txtAddress.setText(selectedCustomer.getAddress());
+            txtPhoneNumber.setText("");
+            txtPhoneNumber.setText(String.valueOf(selectedCustomer.getPhoneNumber()));
+        }
+        else if(roleSelected == "Scuba Employee"){
+            ScubaOrgEmployee selectedCustomer = (ScubaOrgEmployee)model.getValueAt(selectedRowIndex, 0);
+            txtName.setText("");
+            txtName.setText(selectedCustomer.getName());
+            txtUsername.setText("");
+            txtUsername.setText(selectedCustomer.getUserName());
+            txtpassword.setText("");
+            txtpassword.setText(selectedCustomer.getUserPassword());
+            txtAddress.setText("");
+            txtAddress.setText(selectedCustomer.getAddress());
+            txtPhoneNumber.setText("");
+            txtPhoneNumber.setText(String.valueOf(selectedCustomer.getPhoneNumber()));
+        }
+        else{
+            WaterTreatmentOrgEmployee selectedCustomer = (WaterTreatmentOrgEmployee)model.getValueAt(selectedRowIndex, 0);
+            txtName.setText("");
+            txtName.setText(selectedCustomer.getName());
+            txtUsername.setText("");
+            txtUsername.setText(selectedCustomer.getUserName());
+            txtpassword.setText("");
+            txtpassword.setText(selectedCustomer.getUserPassword());
+            txtAddress.setText("");
+            txtAddress.setText(selectedCustomer.getAddress());
+            txtPhoneNumber.setText("");
+            txtPhoneNumber.setText(String.valueOf(selectedCustomer.getPhoneNumber()));
+        }
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = tblCustomerDetails.getSelectedRow();
+        String roleSelected = comboRole.getSelectedItem().toString();
+
         if(selectedRowIndex < 0){
             JOptionPane.showMessageDialog(this, "Please select a row to delete");
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
-        HospitalAdmin selectedCustomer = (HospitalAdmin)model.getValueAt(selectedRowIndex, 0);
-        // First delete the customer from employee
-        this.system.getEmployeeDirectory().deleteEmployee(selectedCustomer.getName());
-        // And thne delete the userAccount
-        this.system.getUserAccountDirectory().deleteUserAccount(
-                this.system.getCustomerDirectory().returnCustomerDetails().
-                        get(selectedRowIndex).returnUserAccount()
-        );
-        // finally delete the user from customer directory
-        ArrayList<Hospital> hosList = this.system.getHospitalDirectory().returnAllHospitals();
-        for(Hospital cust : hosList){
-            if(selectedCustomer.getName().equals(cust.getHospitalAdmin().getName())){
-                cust.setHospitalAdmin(null);
+        if(roleSelected == "Pharma Employee"){
+            PharmaOrgEmployee selectedCustomer = (PharmaOrgEmployee)model.getValueAt(selectedRowIndex, 0);
+            // First delete the customer from employee
+            this.system.getEmployeeDirectory().deleteEmployee(selectedCustomer.getName());
+            // And thne delete the userAccount
+            this.system.getUserAccountDirectory().deleteUserAccount(
+                this.system.getPharmaDirectory().returnAllPharmaBusinesss().
+                        get(selectedRowIndex).getBusinessEmployee().returnUserAccount()
+            );
+            // finally delete the user from customer directory
+            ArrayList<PharmaOrg> pharmaList = system.getPharmaDirectory().returnAllPharmaBusinesss();
+
+            for(PharmaOrg pO : pharmaList){
+                if(pO.getBusinessEmployee().getName().equals(selectedCustomer.getName())){
+                    pO.setBusinessEmployee(null);break;
+                }
             }
-            
+            this.system.setPharmaOrgDirectory(pharmaList);
+            this.populateTable("Pharma Employee");
         }
-        this.system.setHospitalDirectory(hosList);
+        else if(roleSelected == "Defense Employee"){
+            DefenseOrgEmployee selectedCustomer = (DefenseOrgEmployee)model.getValueAt(selectedRowIndex, 0);
+            // First delete the customer from employee
+            this.system.getEmployeeDirectory().deleteEmployee(selectedCustomer.getName());
+            // And thne delete the userAccount
+            this.system.getUserAccountDirectory().deleteUserAccount(
+                this.system.getDefenseDirectory().returnAllDefenseBusinesses().
+                        get(selectedRowIndex).getBusinessEmployee().returnUserAccount()
+            );
+            // finally delete the user from customer directory
+            ArrayList<DefenseOrg> defenseList = system.getDefenseDirectory().returnAllDefenseBusinesses();
+
+            for(DefenseOrg pO : defenseList){
+                if(pO.getBusinessEmployee().getName().equals(selectedCustomer.getName())){
+                    pO.setBusinessEmployee(null);break;
+                }
+            }
+            this.system.setDefenseOrgDirectory(defenseList);
+            this.populateTable("Defense Employee");
+        }
+        else if(roleSelected == "Aviation Employee"){
+            AviationOrgEmployee selectedCustomer = (AviationOrgEmployee)model.getValueAt(selectedRowIndex, 0);
+            // First delete the customer from employee
+            this.system.getEmployeeDirectory().deleteEmployee(selectedCustomer.getName());
+            // And thne delete the userAccount
+            this.system.getUserAccountDirectory().deleteUserAccount(
+                this.system.getAviationDirectory().returnAllAviationBusinesss().
+                        get(selectedRowIndex).getBusinessEmployee().returnUserAccount()
+            );
+            // finally delete the user from customer directory
+            ArrayList<AviationOrg> aviationList = system.getAviationDirectory().returnAllAviationBusinesss();
+
+            for(AviationOrg pO : aviationList){
+                if(pO.getBusinessEmployee().getName().equals(selectedCustomer.getName())){
+                    pO.setBusinessEmployee(null);break;
+                }
+            }
+            this.system.setAviationOrgDirectory(aviationList);
+            this.populateTable("Aviation Employee");
         
-        this.populateTable();
+        }else if(roleSelected == "Scuba Employee"){
+            ScubaOrgEmployee selectedCustomer = (ScubaOrgEmployee)model.getValueAt(selectedRowIndex, 0);
+            // First delete the customer from employee
+            this.system.getEmployeeDirectory().deleteEmployee(selectedCustomer.getName());
+            // And thne delete the userAccount
+            this.system.getUserAccountDirectory().deleteUserAccount(
+                this.system.getScubaOrgDirectory().returnAllScubaBusinesses().
+                        get(selectedRowIndex).getBusinessEmployee().returnUserAccount()
+            );
+            // finally delete the user from customer directory
+            ArrayList<ScubaOrg> scubaList = system.getScubaOrgDirectory().returnAllScubaBusinesses();
+
+            for(ScubaOrg pO : scubaList){
+                if(pO.getBusinessEmployee().getName().equals(selectedCustomer.getName())){
+                    pO.setBusinessEmployee(null);break;
+                }
+            }
+            this.system.setScubaOrgDirectory(scubaList);      
+            this.populateTable("Scuba Employee");
+        
+        }else if(roleSelected == "WaterPlant Employee"){
+            WaterTreatmentOrgEmployee selectedCustomer = (WaterTreatmentOrgEmployee)model.getValueAt(selectedRowIndex, 0);
+            // First delete the customer from employee
+            this.system.getEmployeeDirectory().deleteEmployee(selectedCustomer.getName());
+            // And thne delete the userAccount
+            this.system.getUserAccountDirectory().deleteUserAccount(
+                this.system.getWaterTreatementirectory().returnAllWaterTreatmentBusinesses().
+                        get(selectedRowIndex).getBusinessEmployee().returnUserAccount()
+            );
+            // finally delete the user from customer directory
+            ArrayList<WaterTreatmentOrg> scubaList = system.getWaterTreatementirectory().returnAllWaterTreatmentBusinesses();
+
+            for(WaterTreatmentOrg pO : scubaList){
+                if(pO.getBusinessEmployee().getName().equals(selectedCustomer.getName())){
+                    pO.setBusinessEmployee(null);break;
+                }
+            }
+            this.system.setWaterTreatementOrgDirectory(scubaList);
+            this.populateTable("WaterPlant Employee");
+        }
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void comboRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboRoleActionPerformed
+        // TODO add your handling code here:
+        System.out.println("Selected Role : " + comboRole.getSelectedItem().toString());
+        if(comboRole.getSelectedItem().toString().equals("Pharma Employee")){
+            populateTable("Pharma Employee");
+        }
+        else if(comboRole.getSelectedItem().toString().equals("Defense Employee")){
+            populateTable("Defense Employee");
+        }
+        else if(comboRole.getSelectedItem().toString().equals("Aviation Employee")){
+            populateTable("Aviation Employee");
+        }
+        else if(comboRole.getSelectedItem().toString().equals("Scuba Employee")){
+            populateTable("Scuba Employee");
+        }
+        else if(comboRole.getSelectedItem().toString().equals("WaterPlant Employee")){
+            populateTable("WaterPlant Employee");
+        }
+    }//GEN-LAST:event_comboRoleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -325,6 +637,8 @@ public class ManageBusinessAssistant extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnView;
+    private javax.swing.JComboBox comboRole;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbPassword;
@@ -340,25 +654,78 @@ public class ManageBusinessAssistant extends javax.swing.JPanel {
     private javax.swing.JPasswordField txtpassword;
     // End of variables declaration//GEN-END:variables
 
-    private void populateTable(){
+private void populateTable(String roleName){
         System.out.println("Inside method to populate Customer table");
         DefaultTableModel model = (DefaultTableModel) tblCustomerDetails.getModel();
         model.setRowCount(0);
         try{
-            for(Hospital cust : this.system.getHospitalDirectory().returnAllHospitals()){
-            System.out.println(cust.getHospitalAdmin());
-            Object[] row = new Object[6];
-            row[0] = cust.getHospitalAdmin();
-            row[1] = cust.getHospitalAdmin().getUserName();
-            row[2] = cust.getHospitalAdmin().getUserPassword();
-            row[3] = cust.getHospitalAdmin().getAddress();
-            row[4] = cust.getHospitalAdmin().getPhoneNumber();
-            row[5] = cust.getHospitalName();
-            model.addRow(row);
+            if(roleName == "Pharma Employee"){
+                for(PharmaOrg cust : this.system.getPharmaDirectory().returnAllPharmaBusinesss()){
+                    System.out.println("Inside Pharma Employee Poplate Table : " + cust.getBusinessEmployee());
+                    Object[] row = new Object[6];
+                    row[0] = cust.getBusinessEmployee();
+                    row[1] = cust.getBusinessEmployee().getUserName();
+                    row[2] = cust.getBusinessEmployee().getUserPassword();
+                    row[3] = cust.getBusinessEmployee().getAddress();
+                    row[4] = cust.getBusinessEmployee().getPhoneNumber();
+                    row[5] = cust.getBusinessName();
+                    model.addRow(row);
+                    }
+            }
+            else if(roleName == "Defense Employee"){
+                for(DefenseOrg cust : this.system.getDefenseDirectory().returnAllDefenseBusinesses()){
+//                    System.out.println(cust.getHospitalAdmin());
+                    Object[] row = new Object[6];
+                    row[0] = cust.getBusinessEmployee();
+                    row[1] = cust.getBusinessEmployee().getUserName();
+                    row[2] = cust.getBusinessEmployee().getUserPassword();
+                    row[3] = cust.getBusinessEmployee().getAddress();
+                    row[4] = cust.getBusinessEmployee().getPhoneNumber();
+                    row[5] = cust.getBusinessName();
+                    model.addRow(row);
+                    }
+            }
+            else if(roleName == "Aviation Employee"){
+                for(AviationOrg cust : this.system.getAviationDirectory().returnAllAviationBusinesss()){
+//                    System.out.println(cust.getHospitalAdmin());
+                    Object[] row = new Object[6];
+                    row[0] = cust.getBusinessEmployee();
+                    row[1] = cust.getBusinessEmployee().getUserName();
+                    row[2] = cust.getBusinessEmployee().getUserPassword();
+                    row[3] = cust.getBusinessEmployee().getAddress();
+                    row[4] = cust.getBusinessEmployee().getPhoneNumber();
+                    row[5] = cust.getBusinessName();
+                    model.addRow(row);
+                    }
+            }
+            else if(roleName == "Scuba Employee"){
+                for(ScubaOrg cust : this.system.getScubaOrgDirectory().returnAllScubaBusinesses()){
+//                    System.out.println(cust.getHospitalAdmin());
+                    Object[] row = new Object[6];
+                    row[0] = cust.getBusinessEmployee();
+                    row[1] = cust.getBusinessEmployee().getUserName();
+                    row[2] = cust.getBusinessEmployee().getUserPassword();
+                    row[3] = cust.getBusinessEmployee().getAddress();
+                    row[4] = cust.getBusinessEmployee().getPhoneNumber();
+                    row[5] = cust.getBusinessName();
+                    model.addRow(row);
+                    }
+            }
+            else if(roleName == "WaterPlant Employee"){
+                for(WaterTreatmentOrg cust : this.system.getWaterTreatementirectory().returnAllWaterTreatmentBusinesses()){
+//                    System.out.println(cust.getHospitalAdmin());
+                    Object[] row = new Object[6];
+                    row[0] = cust.getBusinessEmployee();
+                    row[1] = cust.getBusinessEmployee().getUserName();
+                    row[2] = cust.getBusinessEmployee().getUserPassword();
+                    row[3] = cust.getBusinessEmployee().getAddress();
+                    row[4] = cust.getBusinessEmployee().getPhoneNumber();
+                    row[5] = cust.getBusinessName();
+                    model.addRow(row);
+                    }
             }
         }catch(NullPointerException e){
             System.out.println("Null pointer exception occured as there is no hospital Admin data");
         }
     }
-
 }
