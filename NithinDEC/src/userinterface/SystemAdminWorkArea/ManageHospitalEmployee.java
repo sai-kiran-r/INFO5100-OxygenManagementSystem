@@ -348,7 +348,8 @@ public class ManageHospitalEmployee extends javax.swing.JPanel {
         model.setRowCount(0);
 
         for(Hospital cust : this.system.getHospitalDirectory().returnAllHospitals()){
-            System.out.println(cust.getHospitalEmployee());
+            try{
+                System.out.println(cust.getHospitalEmployee());
             Object[] row = new Object[6];
             row[0] = cust.getHospitalEmployee();
             row[1] = cust.getHospitalEmployee().getUserName();
@@ -357,6 +358,8 @@ public class ManageHospitalEmployee extends javax.swing.JPanel {
             row[4] = cust.getHospitalEmployee().getPhoneNumber();
             row[5] = cust.getHospitalName();
             model.addRow(row);
+            }catch(NullPointerException e){continue;}
+            
         }
     }
 
