@@ -62,11 +62,11 @@ public class SalesExecutiveWorkAreaJPanel extends javax.swing.JPanel {
     public void showPieChart(){
         
         //create dataset
-//      DefaultPieDataset barDataset = new DefaultPieDataset( );
-//      barDataset.setValue( "Pharma" , new Double( 20 ) );  
-//      barDataset.setValue( "Defence" , new Double( 20 ) );   
-//      barDataset.setValue( "Hospitals" , new Double( 40 ) );    
-//      barDataset.setValue( "Scuba" , new Double( 10 ) );  
+      DefaultPieDataset barDataset = new DefaultPieDataset( );
+      barDataset.setValue( "Pharma" , new Double( 20 ) );  
+      barDataset.setValue( "Defence" , new Double( 20 ) );   
+      barDataset.setValue( "Hospitals" , new Double( 40 ) );    
+      barDataset.setValue( "Scuba" , new Double( 10 ) );  
       
       //create chart
        JFreeChart piechart = ChartFactory.createPieChart("Oxygen Sales",barDataset, false,true,false);//explain
@@ -138,11 +138,11 @@ public class SalesExecutiveWorkAreaJPanel extends javax.swing.JPanel {
         plot.setBackgroundPaint(Color.WHITE);
 
         
-        
-        ChartPanel barpChartPanel2 = new ChartPanel(chart);
-        panelHistogramChart.removeAll();
-        panelHistogramChart.add(barpChartPanel2, BorderLayout.CENTER);
-        panelHistogramChart.validate();
+//        
+//        ChartPanel barpChartPanel2 = new ChartPanel(chart);
+//        panelHistogramChart.removeAll();
+//        panelHistogramChart.add(barpChartPanel2, BorderLayout.CENTER);
+//        panelHistogramChart.validate();
     }
 
     /*========================================================================================*/
