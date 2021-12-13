@@ -13,11 +13,13 @@ import userinterface.AviationBusiness.*;
 import userinterface.HospitalArea.*;
 import userinterface.DeliveryManRole.*;
 import Business.EcoSystem;
+import Business.Hospital.Hospital;
 import Business.Menu.Item;
 import Business.Order.Order;
 import Business.OxygenPlant.OxygenPlant;
 
 import Business.UserAccount.UserAccount;
+import Business.WaterDepartment.WaterTreatmentOrg;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -262,6 +264,14 @@ public class WaterPlantEmployeeWorkAreaJPanel extends javax.swing.JPanel {
             order.setOrderId(lastOrderId++);
         }
         
+        String businessName = "";
+        for(WaterTreatmentOrg ho : system.getWaterTreatementirectory().returnAllWaterTreatmentBusinesses()){
+            if(this.userAccount.getUsername().equals(ho.getBusinessEmployee().getUserName())){
+                businessName = ho.getBusinessName();
+                break;
+            }
+        }
+        
 //        order.setCustomer(customer);
         order.setQuantity(quantityToPlaceOrder);
         order.setItem(selectedItem);
@@ -269,6 +279,8 @@ public class WaterPlantEmployeeWorkAreaJPanel extends javax.swing.JPanel {
         order.setOrderStatus(status);
         order.setAssign(false);
         order.setReceiver(this.userAccount);
+        order.setBusinessName(businessName);
+
         
         JOptionPane.showMessageDialog(null,"You have placed an order");
         system.getOxygenPlantDirectory().getOxygenPlant(plantName).getMenu().updateQunatity(selectedItem, selectedItem.getQuantity() - quantityToPlaceOrder);

@@ -13,8 +13,10 @@ import userinterface.HospitalArea.*;
 import userinterface.DeliveryManRole.*;
 import Business.EcoSystem;
 import Business.Order.Order;
+import Business.ScubaOrg.ScubaOrg;
 
 import Business.UserAccount.UserAccount;
+import Business.WaterDepartment.WaterTreatmentOrg;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -50,6 +52,14 @@ public class ScubaOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
         model.setRowCount(0);
         
+        String businessName = "";
+        for(ScubaOrg ho : system.getScubaOrgDirectory().returnAllScubaBusinesses()){
+            if(this.userAccount.getUsername().equals(ho.getBusinessAdmin().getUserName())){
+                businessName = ho.getBusinessName();
+                break;
+            }
+        }
+        
         for(Order o : this.system.getOrderDirectory().getOrderDirectory()){
 //            System.out.println(this.userAccount.getUsername());
 //            System.out.println(o.getDeliveryMan());
@@ -57,7 +67,7 @@ public class ScubaOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
                     o.getOrderStatus().equals("Order Placed") ||
                     o.getOrderStatus().equals("Order Picked up") ||
                     o.getOrderStatus().equals("Delivered"))
-                    && (o.getReceiver().getUsername().equalsIgnoreCase("scubaemp"))){
+                    && (o.getBusinessName().equalsIgnoreCase(businessName))){
                 System.out.println(o);
                 Object[] row = new Object[7];
                 row[0] = o;

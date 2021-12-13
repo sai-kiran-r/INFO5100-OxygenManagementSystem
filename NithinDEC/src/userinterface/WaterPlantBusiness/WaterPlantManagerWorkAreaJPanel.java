@@ -9,9 +9,11 @@ import userinterface.PharmaBusiness.*;
 import userinterface.NGO.*;
 import userinterface.DeliveryManRole.*;
 import Business.EcoSystem;
+import Business.Hospital.Hospital;
 import Business.Order.Order;
 
 import Business.UserAccount.UserAccount;
+import Business.WaterDepartment.WaterTreatmentOrg;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -47,6 +49,14 @@ public class WaterPlantManagerWorkAreaJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
         model.setRowCount(0);
         
+        String businessName = "";
+        for(WaterTreatmentOrg ho : system.getWaterTreatementirectory().returnAllWaterTreatmentBusinesses()){
+            if(this.userAccount.getUsername().equals(ho.getBusinessAdmin().getUserName())){
+                businessName = ho.getBusinessName();
+                break;
+            }
+        }
+        
         for(Order o : this.system.getOrderDirectory().getOrderDirectory()){
             System.out.println("Receiver : " + o.getReceiver().getUsername());
 //            System.out.println(o.getDeliveryMan());
@@ -54,7 +64,7 @@ public class WaterPlantManagerWorkAreaJPanel extends javax.swing.JPanel {
                     o.getOrderStatus().equals("Order Placed") ||
                     o.getOrderStatus().equals("Order Picked up") ||
                     o.getOrderStatus().equals("Delivered"))
-                    && (o.getReceiver().getUsername().equalsIgnoreCase("treatmentplantemp"))){
+                    && (o.getBusinessName().equalsIgnoreCase(businessName))){
                 System.out.println(o);
                 Object[] row = new Object[7];
                 row[0] = o;
