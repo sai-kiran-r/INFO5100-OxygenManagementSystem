@@ -7,6 +7,7 @@ package userinterface.HospitalArea;
 import Business.Customer.Customer;
 import userinterface.DeliveryManRole.*;
 import Business.EcoSystem;
+import Business.Hospital.Hospital;
 import Business.Hospital.HospitalEmployee;
 import Business.Menu.Item;
 import Business.Order.Order;
@@ -252,7 +253,13 @@ public class HospitalEmployeeAreaJPanel extends javax.swing.JPanel {
         if(lastOrderId+1 >= order.getOrderId()){
             order.setOrderId(lastOrderId++);
         }
-        
+        String businessName = "";
+        for(Hospital ho : system.getHospitalDirectory().returnAllHospitals()){
+            if(this.userAccount.getUsername().equals(ho.getHospitalEmployee().getUserName())){
+                businessName = ho.getHospitalName();
+                break;
+            }
+        }
 //        order.setCustomer(customer);
         order.setQuantity(quantityToPlaceOrder);
         order.setItem(selectedItem);
@@ -260,6 +267,7 @@ public class HospitalEmployeeAreaJPanel extends javax.swing.JPanel {
         order.setOrderStatus(status);
         order.setAssign(false);
         order.setReceiver(this.userAccount);
+        order.setBusinessName(businessName);
         
         JOptionPane.showMessageDialog(null,"You have placed an order");
         system.getOxygenPlantDirectory().getOxygenPlant(plantName).getMenu().updateQunatity(selectedItem, selectedItem.getQuantity() - quantityToPlaceOrder);

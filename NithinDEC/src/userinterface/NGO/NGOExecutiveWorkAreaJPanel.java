@@ -10,7 +10,9 @@ import userinterface.AviationBusiness.*;
 import userinterface.HospitalArea.*;
 import userinterface.DeliveryManRole.*;
 import Business.EcoSystem;
+import Business.Hospital.Hospital;
 import Business.Menu.Item;
+import Business.NGO.NGOEmployee;
 import Business.Order.Order;
 import Business.OxygenPlant.OxygenPlant;
 
@@ -257,7 +259,13 @@ public class NGOExecutiveWorkAreaJPanel extends javax.swing.JPanel {
         if(lastOrderId+1 >= order.getOrderId()){
             order.setOrderId(lastOrderId++);
         }
-        
+        String businessName = "";
+        for(NGOEmployee ho : system.getNGODirectory().returnEmployeeDetails()){
+            if(this.userAccount.getUsername().equals(ho.getUserName())){
+                businessName = ho.getBusinessName();
+                break;
+            }
+        }
 //        order.setCustomer(customer);
         order.setQuantity(quantityToPlaceOrder);
         order.setItem(selectedItem);
@@ -265,6 +273,7 @@ public class NGOExecutiveWorkAreaJPanel extends javax.swing.JPanel {
         order.setOrderStatus(status);
         order.setAssign(false);
         order.setReceiver(this.userAccount);
+        order.setBusinessName(businessName);
         
         JOptionPane.showMessageDialog(null,"You have placed an order");
         system.getOxygenPlantDirectory().getOxygenPlant(plantName).getMenu().updateQunatity(selectedItem, selectedItem.getQuantity() - quantityToPlaceOrder);
