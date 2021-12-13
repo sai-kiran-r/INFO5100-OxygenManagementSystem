@@ -130,7 +130,7 @@ public class AviationManagerWorkAreaJPanel extends javax.swing.JPanel {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, -1, -1));
 
         processJButton.setText("Decline Request");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -156,7 +156,7 @@ public class AviationManagerWorkAreaJPanel extends javax.swing.JPanel {
         lbUserName.setText("<value>");
         add(lbUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 259, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HSADMIN2 (1).jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/flight3.gif"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 1290, 840));
     }// </editor-fold>//GEN-END:initComponents
 
