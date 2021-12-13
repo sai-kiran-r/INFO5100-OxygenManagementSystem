@@ -62,11 +62,11 @@ public class SalesExecutiveWorkAreaJPanel extends javax.swing.JPanel {
     public void showPieChart(){
         
         //create dataset
-      DefaultPieDataset barDataset = new DefaultPieDataset( );
-      barDataset.setValue( "Pharma" , new Double( 20 ) );  
-      barDataset.setValue( "Defence" , new Double( 20 ) );   
-      barDataset.setValue( "Hospitals" , new Double( 40 ) );    
-      barDataset.setValue( "Scuba" , new Double( 10 ) );  
+//      DefaultPieDataset barDataset = new DefaultPieDataset( );
+//      barDataset.setValue( "Pharma" , new Double( 20 ) );  
+//      barDataset.setValue( "Defence" , new Double( 20 ) );   
+//      barDataset.setValue( "Hospitals" , new Double( 40 ) );    
+//      barDataset.setValue( "Scuba" , new Double( 10 ) );  
       
       //create chart
        JFreeChart piechart = ChartFactory.createPieChart("Oxygen Sales",barDataset, false,true,false);//explain
@@ -92,12 +92,12 @@ public class SalesExecutiveWorkAreaJPanel extends javax.swing.JPanel {
       public void showLineChart(){
         //create dataset for the graph
          DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-//        dataset.setValue(200, "Amount", "january");
-//        dataset.setValue(150, "Amount", "february");
-//        dataset.setValue(18, "Amount", "march");
-//        dataset.setValue(100, "Amount", "april");
-//        dataset.setValue(80, "Amount", "may");
-//        dataset.setValue(250, "Amount", "june");
+        dataset.setValue(200, "Amount", "january");
+        dataset.setValue(150, "Amount", "february");
+        dataset.setValue(18, "Amount", "march");
+        dataset.setValue(100, "Amount", "april");
+        dataset.setValue(80, "Amount", "may");
+        dataset.setValue(250, "Amount", "june");
         
         //create chart
         JFreeChart linechart = ChartFactory.createLineChart("Purchase Trend","monthly","Number of Orders", 
